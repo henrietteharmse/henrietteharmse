@@ -1,0 +1,27 @@
+
+	ObjectProperty: sponsor
+		Domain: Project
+		Range: Manager
+		
+	ObjectProperty: team
+		Domain: Project
+		Range:   Employee
+		
+	DataProperty: name
+		Domain: Project   
+		Range: xsd:string
+		
+	Class: Employee
+
+	Class: Manager
+
+	Class: Project
+		SubClassOf: 
+			team min 3 owl:Thing,
+			team max 10 owl:Thing,
+			sponsor exactly 1 owl:Thing,
+			name exactly 1 xsd:string
+		
+		
+	Class: owl:Thing
+

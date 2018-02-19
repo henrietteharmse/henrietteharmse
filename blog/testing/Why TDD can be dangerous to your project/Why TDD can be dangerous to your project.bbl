@@ -1,0 +1,22 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{Beck2003}
+Kent Beck, \emph{{Test-Driven Development by Example}}, {The Addison-Wesley
+  Signature Series}, Addison-Wesley, 2003.
+
+\bibitem{Beust2008}
+C{\'e}dric Beust and Hani Suleiman, \emph{{Next Generation Java Testing :
+  TestNG and Advanced Concepts}}, Addison-Wesley, Upper Saddle River, NJ, 2008.
+
+\bibitem{Meyer2014a}
+Bertrand Meyer, \emph{{Agile!: The Good, the Hype and the Ugly}}, Springer,
+  2014.
+
+\end{thebibliography}

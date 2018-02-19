@@ -1,0 +1,6 @@
+ DataProperty: name
+    
+ Class: Person
+    SubClassOf: 
+        name some xsd:string
+   

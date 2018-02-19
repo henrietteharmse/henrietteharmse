@@ -1,0 +1,3 @@
+1. jackson-module-scala_2.11-2.5.0.jar of dump build path is cross-compiled with an incompatible version of Scala (2.11.0). In case this report is mistaken, this check can be disabled in the compiler preference page. 
+
+2. The version of scala library found in the build path of dump (2.11.4) is prior to the one provided by scala IDE (2.12.3). Setting a Scala Installation Choice to match.

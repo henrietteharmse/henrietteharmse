@@ -1,0 +1,108 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{}
+\author{}
+\date{}
+
+\pdfinfo{%
+  /Title    (Why TDD can be Dangerous to your Project)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  Some developers who are passionate about testing are sometimes also fanatical advocates of Test Driven Development (TDD), to the point that they believe TDD is \textbf{the only correct way} to test applications. Strict adherence to TDD requires a test to be created first before any code has been written. As such proponents of TDD tend to see TDD as a design mechanism rather than as a test mechanism. Irrespective of whether TDD is used as a design and/or test mechanism, it has a number of pitfalls.
+  
+  In this post I will:
+  \begin{enumerate}
+   \item give a brief overview of the TDD cycle,
+   \item explain why TDD as software design mechanism is inadequate,
+   \item explain why TDD as software test mechanism is inadequate,
+   \item explain the conditions under which TDD can be applied successfully to projects.
+  \end{enumerate}
+
+  
+  \section{TDD}
+  In TDD the steps to add new code are as follows~\cite{Beck2003}:
+  \begin{enumerate}
+   \item Add a (failing) test that serves as a specification for the new functionality to be added.
+   \item Run all the tests and confirm that the newly added test fails.
+   \item Implement/correct the new functionality.
+   \item Run all tests to confirm that they all succeed.
+   \item Refactor the code to remove any duplication.
+  \end{enumerate}
+  
+  The aim of TDD is to provide a simple way to grow the design of complex software one decision at a time. 
+
+  
+  \section{TDD as a Design Mechanism}
+  From a design perspective TDD emphasizes m\textbf{i}rco level design rather than m\textbf{a}cro level design~\cite{Beust2008}. The weaknesses of this approach are:
+  \begin{itemize}
+   \item TDD forces a developer to necessarily focus on a single interface. This often neglects the interaction between interfaces and leads to poor abstraction. Bertrand Meyer gives a balanced review of the challenges regarding TDD and Agile in this regard~\cite{Meyer2014a}.
+   \item Quality attributes (like performance, scalability, integrability, security, etc.) are easily overlooked with TDD. In the context of Agile, where an upfront architecture effort is typically frowned upon, TDD is particularly dangerous due to poor consideration of quality attributes.
+  \end{itemize}
+
+  
+  \section{TDD as a Testing Mechanism}
+  From a testing perspective TDD has the following drawbacks:
+  \begin{itemize}
+   \item Interfaces/classes may be polluted in order to make them testable. A typical example is that a private method is made public in order to test it. This obfuscates the intended use of the class which will cause developers to more easily digress from the intended use of the class.
+   In the long term this creates an unmaintainable system.
+   \item Often when TDD is used on projects, unit testing is used to exclusion, with limited or no regard for the broad spectrum of testing, which should at least include integration testing and systems testing.
+   \item TDD has no appreciation for the prioritization of the testing effort: Equal amounts of effort are expended to test all code irrespective of the associated risk profile. Typically TDD expects all further development to be blocked until all tests pass. This ignores the reality that some functionality has greater business value than others.
+  \end{itemize}
+
+  
+  \section{Guidelines for using TDD Effectively on Projects}
+  TDD can be used with no side effect if the following process is adhered to:
+  \begin{enumerate}
+  \item The architecture has to be complete which should include details as to how testability of the system at all levels (unit-, integration- and systems testing) will be achieved.
+  \item The risk profile of the sub system (module/use case) has been established, which informs the testing effort that must be expended on the sub system.
+  \item The design for the sub system (module/use case) should be complete in adherence to the architecture and risk profile. Since testability is considered as part of the architecture, and the design is informed by the architecture, the design should be by definition testable.
+  \item Only at this point is the developer now free to follow a TDD approach in implementing the code.
+  \end{enumerate}
+  
+  \section{Conclusion}
+  The very positive thing that TDD emphasizes is the need for testing. However, to naively embrace TDD, is to do it at the peril of your project.
+
+
+
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

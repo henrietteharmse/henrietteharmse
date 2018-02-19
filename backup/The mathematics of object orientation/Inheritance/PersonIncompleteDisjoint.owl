@@ -1,0 +1,61 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595>
+
+
+Datatype: xsd:integer
+
+    
+Datatype: xsd:string
+
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#age>
+
+    SubPropertyOf: 
+        owl:topDataProperty
+    
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#name>
+
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#surname>
+
+    SubPropertyOf: 
+        owl:topDataProperty
+    
+    
+DataProperty: owl:topDataProperty
+
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Client>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Person>
+    
+    DisjointWith: 
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Employee>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Employee>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Person>
+    
+    DisjointWith: 
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Client>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#Person>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#age> some xsd:integer,
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#name> some xsd:string,
+        <http://www.semanticweb.org/henriette/ontologies/2017/8/untitled-ontology-595#surname> some xsd:string
+    
+    

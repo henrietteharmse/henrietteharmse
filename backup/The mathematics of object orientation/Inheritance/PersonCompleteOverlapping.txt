@@ -1,0 +1,16 @@
+   
+Class: Client
+    SubClassOf: Person
+    
+Class: Employee
+    SubClassOf: Person
+    
+Class: Person
+    SubClassOf: 
+        Client or Employee,
+        age some xsd:integer,
+        name some xsd:string,
+        surname some xsd:string
+    
+    
+    

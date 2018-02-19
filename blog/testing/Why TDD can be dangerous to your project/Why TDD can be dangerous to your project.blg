@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Why TDD can be dangerous to your project.aux
+The style file: amsplain.bst
+Database file #1: ../../../../BibliographicDetails_v.0.1.bib
+You've used 3 entries,
+            2213 wiz_defined-function locations,
+            518 strings with 4355 characters,
+and the built_in function-call counts, 708 in all, are:
+= -- 50
+> -- 27
+< -- 0
++ -- 11
+- -- 8
+* -- 41
+:= -- 125
+add.period$ -- 3
+call.type$ -- 3
+change.case$ -- 13
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 36
+empty$ -- 73
+format.name$ -- 8
+if$ -- 145
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 9
+newline$ -- 19
+num.names$ -- 6
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 15
+swap$ -- 3
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 0
+while$ -- 6
+width$ -- 4
+write$ -- 35

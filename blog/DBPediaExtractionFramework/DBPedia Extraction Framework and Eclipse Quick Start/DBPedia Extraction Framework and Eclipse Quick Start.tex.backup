@@ -1,0 +1,65 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{}
+\author{}
+\date{}
+
+\pdfinfo{%
+  /Title    (DBPedia Extraction Framework and Eclipse Quick Start)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords (Semantic Web, DBPedia Extraction Framework, Eclipse, Scala, Maven)
+}
+
+\begin{document}
+  \maketitle
+
+  I recently try to compile the \href{https://github.com/dbpedia/extraction-framework/}{DBPedia Extraction Framework}
+
+  \begin{enumerate}
+   \item Ensure you have the JDK 1.8.x installed.
+   \item Ensure you have the Scala IDE installed.
+   \item \texttt{mvn eclipse:eclipse}
+   \item \texttt{mvn package}
+   \item Import existing Maven project into Scala IDE.
+   \item Doing \texttt{mvn clean install} from the IDE now worked.
+  \end{enumerate}
+  
+
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

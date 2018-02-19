@@ -1,0 +1,65 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{}
+\author{}
+\date{}
+
+\pdfinfo{%
+  /Title    (Associations between Classes)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (OWL Representation of UML Classes)
+  /Keywords (OWL, UML classes, object orientation, associations)
+}
+
+\begin{document}
+  \maketitle
+  
+  This far we have only considered UML classes where the attributes are primitive types rather than classes. Here we will consider UML classes that have classes as attributes. Assume we want to model projects. Assume a project must have one name, one sponsor that must be a manager and it must have a team of between 3 and 10 employees. In UML this can be stated using attributes (see Fig.1(a)) or associations (see Fig. 1(b)). For interest sake Wazlawick~\cite{Wazlawick2014} suggests using attribute notation for data types and associations for classes. His motivation is that associations makes dependencies between classes more apparent. I usually follow this guideline myself.
+  
+  
+  The OWL representation for these 2 class diagrams is given in Fig.~2. The first thing to notice is that we use \texttt{ObjectProperty} instead of \texttt{DataProperty} to represent the \texttt{sponsor} attribute/association. Similar for the \texttt{team} attribute/association. Our property definitions also now have \texttt{Domain} and \texttt{Range} restrictions. When we say that Susan is the sponsor for ABC, we can infer that Susan is a manager and ABC is project. This information can be captured through \texttt{Domain} and \texttt{Range} restrictions. For the purpose of finding modeling errors in it is preferable to add \texttt{Domain} and \texttt{Range} restrictions.
+  
+  
+  To limit the number of employees on a team to between 3 and 10 employees we use the property cardinality restrictions \texttt{team min 3 owl:Thing} and \texttt{team max 10 owl:Thing}. It may seem strange that we use \texttt{team max 10 owl:Thing} rather than \texttt{team max 10 Employee}. Surely we want to restrict team members to employees? Well true, but that is achieved through our range restriction on the \texttt{team} object property. Here we restricting our team to 10 whatever classes and the range restriction will infer that the team 	must be of type \texttt{Employee}. 
+  
+  
+  
+ 
+  
+
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

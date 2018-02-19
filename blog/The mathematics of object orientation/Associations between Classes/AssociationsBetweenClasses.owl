@@ -1,0 +1,59 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/anyware/>
+
+
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://www.semanticweb.org/anyware/sponsor>
+
+    Domain: 
+        <http://www.semanticweb.org/anyware/Project>
+    
+    Range: 
+        <http://www.semanticweb.org/anyware/Manager>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/anyware/team>
+
+    Domain: 
+        <http://www.semanticweb.org/anyware/Project>
+    
+    Range: 
+        <http://www.semanticweb.org/anyware/Employee>
+    
+    
+DataProperty: <http://www.semanticweb.org/anyware/name>
+
+    Domain: 
+        <http://www.semanticweb.org/anyware/Project>
+    
+    Range: 
+        xsd:string
+    
+    
+Class: <http://www.semanticweb.org/anyware/Employee>
+
+    
+Class: <http://www.semanticweb.org/anyware/Manager>
+
+    
+Class: <http://www.semanticweb.org/anyware/Project>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/anyware/team> min 1 owl:Thing,
+        <http://www.semanticweb.org/anyware/sponsor> exactly 1 owl:Thing,
+        <http://www.semanticweb.org/anyware/team> max 10 owl:Thing,
+        <http://www.semanticweb.org/anyware/name> exactly 1 xsd:string
+    
+    
+Class: owl:Thing
+
+    
