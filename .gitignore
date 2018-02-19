@@ -23,3 +23,11 @@ hs_err_pid*
 
 # Protege temp files
 catalog-*.xml
+
+# Latex temp files
+*.aux
+*.blg
+*.dvi
+*.out
+*.gz
+*.backup
