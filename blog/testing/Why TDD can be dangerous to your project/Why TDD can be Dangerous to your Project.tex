@@ -1,4 +1,4 @@
-\documentclass{amsart}
+\documentclass[11pt,final,onecolumn]{amsart}
 %\documentclass[a4paper,10pt]{scrartcl}
 
 \usepackage[utf8x]{inputenc}
@@ -18,6 +18,8 @@
 \usepackage{algorithm}
 \usepackage{hyperref}
 \usepackage{MnSymbol}
+\usepackage{fancyhdr}
+
 
 \setlist[enumerate]{label*=\arabic*.}
 \newtheorem{theorem}{Theorem}[section]
@@ -29,9 +31,9 @@
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 
-\title{}
-\author{}
-\date{}
+\title{Why TDD can be Dangerous to your Project}
+\author{Henriette Harmse}
+\date{20180219}
  
  \pdfinfo{%
   /Title    (Why TDD can be Dangerous to your Project)
@@ -44,6 +46,7 @@
 
 \begin{document}
   \maketitle
+
   
   Some developers who are passionate about testing are sometimes also fanatical advocates of Test Driven Development (TDD), to the point that they believe TDD is the only correct way to test applications. Strict adherence to TDD requires a test to be created first before any code has been written. As such proponents of TDD tend to see TDD as a design mechanism rather than as a test mechanism. Irrespective of whether TDD is used as a design and/or test mechanism, it has a number of pitfalls.
 
