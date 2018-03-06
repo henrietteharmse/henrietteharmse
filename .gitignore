@@ -2,6 +2,7 @@
 *.class
 
 # Log file
+/log
 *.log
 
 # BlueJ files
@@ -31,3 +32,13 @@ catalog-*.xml
 *.out
 *.gz
 *.backup
+
+# other
+/.recommenders/
+/.settings/
+/.metadata/
+.project
+.classpath
+
+# explicit files to exclude
+Ideas.txt
