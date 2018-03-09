@@ -1,0 +1,42 @@
+
+	ObjectProperty: hasOrder
+		Domain: 
+			Orderline
+		Range: 
+			Order
+		
+	Class: Order
+		
+	Class: Orderline
+		SubClassOf: 
+			hasOrder exactly 1 owl:Thing
+
+	Class: owl:Thing
+
+
+		
+	Individual: orderline123
+		Types: 
+			Orderline,
+			hasOrder max 0 owl:Thing
+
+
+
+	Individual: order1
+		Types: 
+			Order
+		
+	Individual: order2
+		Types: 
+			Order    
+		
+	Individual: orderline123
+		Types: 
+			Orderline	   
+		Facts:  
+		 hasOrder  order1,
+		 hasOrder  order2
+    
+    
+ 
+        

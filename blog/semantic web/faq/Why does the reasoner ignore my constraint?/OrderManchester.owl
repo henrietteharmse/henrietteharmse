@@ -1,0 +1,60 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744>
+
+
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#hasOrder>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Orderline>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Order>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Order>
+
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Orderline>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#hasOrder> exactly 1 owl:Thing
+    
+    
+Class: owl:Thing
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order1>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Order>
+    
+    DifferentFrom: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order2>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order2>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Order>
+    
+    DifferentFrom: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order1>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#orderline123>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#Orderline>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#hasOrder>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order1>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#hasOrder>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-744#order2>
+    
+    
