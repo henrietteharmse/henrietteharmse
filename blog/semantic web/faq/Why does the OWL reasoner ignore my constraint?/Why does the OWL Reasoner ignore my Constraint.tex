@@ -29,12 +29,12 @@
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 
-\title{Why does the Reasoner ignore my Constraint?}
+\title{Why does the OWL Reasoner ignore my Constraint?}
 \author{Henriette Harmse}
 \date{\today}
 
 \pdfinfo{%
-  /Title    (Why does the Reasoner ignore my Constraint?)
+  /Title    (Why does the OWL Reasoner ignore my Constraint?)
   /Author   (Henriette Harmse)
   /Creator  ()
   /Producer ()
@@ -46,10 +46,10 @@
   \maketitle
   
   
-  A most frustrating problem often encountered by people, with experience in relational databases when they are introduced to ontologies, is that ontology reasoners seem to ignore constraints. In this post I give examples of this problem, explain why they happen and I provide ways to deal with each example. 
+  A most frustrating problem often encountered by people, with experience in relational databases when they are introduced to OWL ontologies, is that OWL ontology reasoners seem to ignore constraints. In this post I give examples of this problem, explain why they happen and I provide ways to deal with each example. 
   
   \section{An Example}
-  A typical example encountered in relational databases is that of modeling orders with orderlines, which can be modeled via \texttt{Orders} and \texttt{Orderlines} tables where the \texttt{Orderlines} table has a foreign key constraint to the \texttt{Orders} table. A related ontology is given in Figure~\ref{f_Order}. It creates as expected \texttt{Order} and \texttt{Orderline} classes with a \texttt{hasOrder} object property. That individuals of \texttt{Orderline} are necessarily associated with \textbf{one} order is enforced by \texttt{Orderline} being a subclass of \texttt{hasOrder exactly 1 owl:Thing}. 
+  A typical example encountered in relational databases is that of modeling orders with orderlines, which can be modeled via \texttt{Orders} and \texttt{Orderlines} tables where the \texttt{Orderlines} table has a foreign key constraint to the \texttt{Orders} table. A related OWL ontology is given in Figure~\ref{f_Order}. It creates as expected \texttt{Order} and \texttt{Orderline} classes with a \texttt{hasOrder} object property. That individuals of \texttt{Orderline} are necessarily associated with \textbf{one} order is enforced by \texttt{Orderline} being a subclass of \texttt{hasOrder exactly 1 owl:Thing}. 
   
     \begin{figure}
       %trim option's parameter order: left bottom right top
@@ -83,8 +83,11 @@
       \caption{\texttt{orderline123} associated with two individuals of type \texttt{Order}}\label{f_HasTwoOrders}
     \end{figure}
     
+  \section{Constraint Checking versus Deriving Inferences}
+  The source of the problems described here is due to the difference between the purposes of a relational database and an OWL reasoner. The main purpose of a relational database is to enable view and edit access of the data in such a way that the integrity of the data is maintained. A relational database will ensure that the data adheres to the constraints of its schema, but it cannot make any claims beyond what is stated by the data it contains. The main purpose of an OWL reasoner is to derive inferences from statements and facts. As an example, from the statement \texttt{Class: Dog SubclassOf: Animal} and the fact \texttt{Individual: pluto Type: Dog} it can be derived that \texttt{pluto} is an \texttt{Animal}, even though  the ontology nowhere states explicitly that \texttt{pluto} is an \texttt{Animal}.
+    
   \section{Conclusion}
-  In this post I explained problems newcomers (particularly with relational database experience) to ontologies may experience and how to deal with them.
+  Many newcomers to OWL ontologies get tripped up by the difference in purpose of relational databases and OWL ontologies. In this post I explained some of the challenges that stem from this difference in purpose and how to deal with them. 
   
   
   \bibliographystyle{amsplain}

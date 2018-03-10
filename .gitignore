@@ -39,6 +39,7 @@ catalog-*.xml
 /.metadata/
 .project
 .classpath
+.fuse*
 
 # explicit files to exclude
 Ideas.txt
