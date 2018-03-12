@@ -1,0 +1,235 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Using Jena and SHACL to validate RDF Data}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Using Jena and SHACL to validate RDF Data)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  RDF enables users to capture data in a way that is intuitive to them. This means that data is often captured without conforming to any schema. It is often useful to know that an RDF dataset conforms to some (potential partial) schema. This is where SHACL (\textbf{SHA}pe \textbf{C}onstraint \textbf{L}anguage), a W3C standard, comes into play. It is a language for describing and validating RDF graphs~\cite{SHACL-2017}. In this post I will give a brief overview of how to use SHACL to validate RDF data using the Jena implementation of SHACL.
+  
+  \section{A SHACL Example}
+  We will use an example from the SHACL specification. Assume we have the a file \texttt{person.ttl} that contains the following data:
+  
+  \begin{small}
+  \begin{Verbatim}
+@prefix ex: <http://example.com/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alice
+	a ex:Person ;
+	ex:ssn "987-65-432A" .
+  
+ex:Bob
+	a ex:Person ;
+	ex:ssn "123-45-6789" ;
+	ex:ssn "124-35-6789" .
+  
+ex:Calvin
+	a ex:Person ;
+	ex:birthDate "1971-07-07"^^xsd:date ;
+	ex:worksFor ex:UntypedCompany .     
+  \end{Verbatim}
+  \end{small}
+  
+\vspace{5mm}
+
+  To validate this data we create a shape definition in \texttt{personShape.ttl} containing:
+  \begin{small}
+  \begin{Verbatim}  
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:PersonShape
+	a sh:NodeShape ;
+	sh:targetClass ex:Person ;    # Applies to all persons
+	sh:property [                 # _:b1
+		sh:path ex:ssn ;           # constrains the values of ex:ssn
+		sh:maxCount 1 ;
+		sh:datatype xsd:string ;
+		sh:pattern "^\\d{3}-\\d{2}-\\d{4}$" ;
+	] ;
+	sh:property [                 # _:b2
+		sh:path ex:worksFor ;
+		sh:class ex:Company ;
+		sh:nodeKind sh:IRI ;
+	] ;
+	sh:closed true ;
+	sh:ignoredProperties ( rdf:type ) . 
+  \end{Verbatim}
+  \end{small}
+  
+%   \vspace{5mm}  
+  
+  \section{A Code Example using Jena}
+  To validate our RDF data using our SHACL shape we will use the Jena implementation of SHACL. Start by adding the SHACL dependency to your Maven \texttt{pom.xml}. Note that you do not need to add Jena as well as the SHACL pom already includes Jena.
+  
+  \begin{small}
+  \begin{Verbatim} 
+<dependency>
+  <groupId>org.topbraid</groupId>
+  <artifactId>shacl</artifactId>
+  <version>1.0.1</version>
+</dependency>
+  \end{Verbatim}
+  \end{small}  
+  
+  In the code we will assume the \texttt{person.ttl} and \texttt{personShape.ttl} files are in \\\texttt{\$Project/src/main/resources/}. The code for doing the validation is the following then:
+  \begin{small}
+  \begin{Verbatim}   
+package org.shacl.tutorial;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+import org.topbraid.shacl.validation.ValidationUtil;
+import org.topbraid.shacl.vocabulary.SH;
+import org.topbraid.spin.util.JenaUtil;
+
+public class ShaclValidation {
+  private static Logger logger = LoggerFactory.getLogger(ShaclValidation.class);
+  // Why This Failure marker
+  private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
+	
+  public static void main(String[] args) {
+    try {		
+      Path path = Paths.get(".").toAbsolutePath().normalize();
+      String data = "file:" + path.toFile().getAbsolutePath() + 
+	  "/src/main/resources/person.ttl";
+      String shape = "file:" + path.toFile().getAbsolutePath() + 
+          "/src/main/resources/personShape.ttl";
+			
+      Model dataModel = JenaUtil.createDefaultModel();
+      dataModel.read(data);
+      Model shapeModel = JenaUtil.createDefaultModel();
+      shapeModel.read(shape);
+      
+      Resource reportResource = 
+          ValidationUtil.validateModel(dataModel, shapeModel, true);
+      boolean conforms  = reportResource.getProperty(SH.conforms).getBoolean();
+      logger.trace("Conforms = " + conforms);
+			
+      if (!conforms) {
+        String report = path.toFile().getAbsolutePath() + 
+            "/src/main/resources/report.ttl";
+        File reportFile = new File(report);
+        reportFile.createNewFile();     
+        OutputStream reportOutputStream = new FileOutputStream(reportFile);
+      
+        RDFDataMgr.write(reportOutputStream, reportResource.getModel(), 
+	    RDFFormat.TURTLE);
+      }	
+    } catch (Throwable t) {
+      logger.error(WTF_MARKER, t.getMessage(), t);
+    }		
+  }
+}
+  \end{Verbatim}
+  \end{small}
+  
+  \section{Running the Code}
+  Running the code will cause a \texttt{report.ttl} file to be written out to \\\texttt{\$Project/src/main/resources/}. We can determine that our data does not conform by checking the \texttt{sh:conforms} property. We have 4 violations of our \texttt{ex:PersonShape}:
+  \begin{enumerate}
+   \item For \texttt{ex:Alice} the \texttt{ex:ssn} property does not conform to the pattern defined in the shape. 
+   \item \texttt{ex:Bob} has 2 \texttt{ex:ssn} properties.
+   \item \texttt{ex:Calvin} works for a company that is not of type \texttt{ex:Company}.
+   \item \texttt{ex:Calvin} has a property \texttt{ex:birthDate} that is not allowed by \texttt{ex:PersonShape} since it is close by \texttt{sh:closed true}.
+  \end{enumerate}
+
+  A corrected version of our person data may look as follows:
+  \begin{small}
+  \begin{Verbatim} 
+@prefix ex: <http://example.com/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alice
+	a ex:Person ;
+	ex:ssn "987-65-4321" .
+  
+ex:Bob
+	a ex:Person ;
+	ex:ssn "124-35-6789" .
+
+ex:ACECompany a ex:Company .
+
+ex:Calvin
+	a ex:Person ;
+	ex:worksFor ex:ACECompany .    
+  \end{Verbatim}
+  \end{small}
+
+  \section{Conclusion}
+  In this post I gave a brief overview of how SHACL can be used to validate RDF data using the SHACL implementation of Jena. This code example is available at 
+  \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/jena/source/shacl}{shacl tutorial}.
+  
+  
+  
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{./BibliographicDetails_v.0.1}
+ 
+\end{document}

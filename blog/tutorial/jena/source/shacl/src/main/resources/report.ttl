@@ -1,0 +1,76 @@
+@prefix ex:    <http://example.com/ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+[ a       <http://www.w3.org/ns/shacl#ValidationReport> ;
+  <http://www.w3.org/ns/shacl#conforms>
+          false ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    ex:Bob ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "More than 1 values" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    ex:ssn ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#MaxCountConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    _:b0
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    ex:Alice ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Value does not match pattern \"^\\d{3}-\\d{2}-\\d{4}$\"" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    ex:ssn ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#PatternConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#value>
+                    "987-65-432A"
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    ex:Calvin ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Value does not have class ex:Company" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    ex:worksFor ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#ClassConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    []  ;
+            <http://www.w3.org/ns/shacl#value>
+                    ex:UntypedCompany
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    ex:Calvin ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Predicate ex:birthDate is not allowed (closed shape)" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    ex:birthDate ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#ClosedConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    ex:PersonShape ;
+            <http://www.w3.org/ns/shacl#value>
+                    "1971-07-07"^^xsd:date
+          ]
+] .

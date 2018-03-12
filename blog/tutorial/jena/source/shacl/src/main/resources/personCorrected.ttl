@@ -1,0 +1,21 @@
+
+	@prefix ex: <http://example.com/ns#> .
+	@prefix owl: <http://www.w3.org/2002/07/owl#> .
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+	ex:Alice
+		a ex:Person ;
+		ex:ssn "987-65-4321" .
+	  
+	ex:Bob
+		a ex:Person ;
+		ex:ssn "124-35-6789" .
+
+	ex:ACECompany a  ex:Company . 
+
+	ex:Calvin
+		a ex:Person ;
+		ex:worksFor ex:ACECompany . 
+

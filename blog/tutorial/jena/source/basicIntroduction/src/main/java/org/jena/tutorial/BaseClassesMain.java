@@ -17,8 +17,6 @@ public class BaseClassesMain {
 	// Why This Failure marker
 	private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
 	
-	private static final String NS_OWL  = "http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-742#";
-	
 	public static void main(String[] args) {
 		try {		
 			Path path = Paths.get(".").toAbsolutePath().normalize();
