@@ -1,0 +1,16 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://bakery.com/ns#AppleTartC>
+        a       <http://bakery.com/ns#NonGlutenFreeBakedGood> , <http://bakery.com/ns#VeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartB>
+        a       <http://bakery.com/ns#GlutenFreeBakedGood> , <http://bakery.com/ns#VeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartA>
+        a       <http://bakery.com/ns#NonGlutenFreeBakedGood> , <http://bakery.com/ns#NonVeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartD>
+        a       <http://bakery.com/ns#GlutenFreeBakedGood> , <http://bakery.com/ns#NonVeganBakedGood> .

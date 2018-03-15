@@ -1,0 +1,212 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Rule Execution with SHACL}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Rule Execution SHACL)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  In my previous post, ``Using Jena and SHACL to validate RDF Data'', I have looked at how RDF data can be validated using SHACL. A closely related  concern to that of constraints checking, is rule execution, for which SHACL also can be used.
+
+  
+  \section{A SHACL Rule Example}
+  We will again use an example from the SHACL specification. Assume we have the a file \texttt{rectangles.ttl} that contains the following data:
+  
+  \begin{small}
+  \begin{Verbatim}
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:InvalidRectangle
+	a ex:Rectangle .
+
+ex:NonSquareRectangle
+	a ex:Rectangle ;
+	ex:height 2 ;
+	ex:width 3 .
+	
+ex:SquareRectangle
+	a ex:Rectangle ;
+	ex:height 4 ;
+	ex:width 4 . 
+  \end{Verbatim}
+  \end{small}
+  
+\vspace{5mm}
+
+  Assuming we want to infer that when the height and width of a rectangle are equal, the rectangle represents a square, the following SHACL rule specification can be used (which we will store in \texttt{rectangleRules.ttl}):
+  \begin{small}
+  \begin{Verbatim}  
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Rectangle
+	a rdfs:Class, sh:NodeShape ;
+	rdfs:label "Rectangle" ;
+	sh:property [
+		sh:path ex:height ;
+		sh:datatype xsd:integer ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:name "height" ;
+	] ;
+	sh:property [
+		sh:path ex:width ;
+		sh:datatype xsd:integer ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:name "width" ;
+	] ;
+	sh:rule [
+		a sh:TripleRule ;
+		sh:subject sh:this ;
+		sh:predicate rdf:type ;
+		sh:object ex:Square ;
+		sh:condition ex:Rectangle ;
+		sh:condition [
+			sh:property [
+				sh:path ex:width ;
+				sh:equals ex:height ;
+			] ;
+		] ;
+	] .
+  \end{Verbatim}
+  \end{small}
+  
+  
+  \section{A Code Example using Jena}
+  Naturally you will need to add SHACL to your Maven pom dependencies. Then the following code will execute your SHACL rules:
+  
+  \begin{small}
+  \begin{Verbatim}   
+package org.shacl.tutorial;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+import org.topbraid.shacl.rules.RuleUtil;
+import org.topbraid.spin.util.JenaUtil;
+
+public class ShaclRuleExecution {
+  private static Logger logger = LoggerFactory.getLogger(ShaclValidation.class);
+  // Why This Failure marker
+  private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
+
+  
+  public static void main(String[] args) {
+    try {   
+      Path path = Paths.get(".").toAbsolutePath().normalize();
+      String data = "file:" + path.toFile().getAbsolutePath() + 
+	  "/src/main/resources/rectangles.ttl";
+      String shape = "file:" + path.toFile().getAbsolutePath() + 
+	  "/src/main/resources/rectangleRules.ttl";   
+      
+      
+      Model dataModel = JenaUtil.createDefaultModel();
+      dataModel.read(data);
+      Model shapeModel = JenaUtil.createDefaultModel();
+      shapeModel.read(shape);
+      Model inferenceModel = JenaUtil.createDefaultModel();
+      
+      inferenceModel = RuleUtil.executeRules(dataModel, shapeModel, 
+	  inferenceModel, null);
+      
+      String inferences = path.toFile().getAbsolutePath() + 
+	  "/src/main/resources/inferences.ttl";
+      File inferencesFile = new File(inferences);
+      inferencesFile.createNewFile();     
+      OutputStream reportOutputStream = new FileOutputStream(inferencesFile);
+      
+      RDFDataMgr.write(reportOutputStream, inferenceModel, RDFFormat.TTL);        
+    } catch (Throwable t) {
+      logger.error(WTF_MARKER, t.getMessage(), t);
+    }   
+  }
+}
+  \end{Verbatim}
+  \end{small}
+  
+  
+  \section{Running the Code}
+  Running the code will cause an \texttt{inferences.ttl} file to be written out to \\\texttt{\$Project/src/main/resources/}. It contains the following output:
+  \begin{small}
+  \begin{Verbatim} 
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.com/ns#SquareRectangle>
+        a       <http://example.com/ns#Square> .
+  \end{Verbatim}
+  \end{small}
+  Note that \texttt{ex:InvalidRectangle} has been ignore because it does not adhere to \texttt{sh:condition ex:Rectangle}, since it does not have \texttt{ex:height} and \texttt{ex:width} properties. Also, \texttt{ex:NonSquareRectangle} is a rectangle, not a square.
+
+  \section{Conclusion}
+  In this post I gave a brief overview of how SHACL can be used to implement rules on RDF data. This code example is available at 
+  \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/jena/source/shacl}{shacl tutorial}.
+  
+  
+  
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{./BibliographicDetails_v.0.1}
+ 
+\end{document}

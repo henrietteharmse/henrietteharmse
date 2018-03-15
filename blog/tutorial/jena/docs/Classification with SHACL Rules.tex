@@ -1,0 +1,264 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Classification with SHACL Rules}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Classification with SHACL Rules)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  In my previous post, ``Rule Execution with SHACL'', we have looked at how SHACL rules can be utilized to make inferences. In this post we consider a more complex situation where SHACL rules are used to classify baked goods as vegan friendly or gluten free based on their ingredients.
+
+  \section{Why use SHACL and not RDF/RDFS/OWL?}
+  In my discussion I will only concentrate on the definition of vegan friendly baked goods since the translation to gluten free baked goods is similar. Gluten free baked goods are included to give a more representative example.
+  
+  Essentially what we need to do is look at a baked good and determine whether it includes non-vegan friendly ingredients. If it includes no non-vegan friendly ingredients, we want to assume that it is a vegan friendly baked good. This kind of reasoning uses what is called \textbf{closed world reasoning}, i.e. when a fact does not follow from the data, it is assumed to be false. SHACL uses closed world reasoning and hence the reason for why it is a good fit for this problem.
+  
+  RDF/RDFS/OWL uses \textbf{open world reasoning}, which means when a fact does not follow from data or schema, it cannot derive that the fact is necessarily false. Rather, it is both possible (1) that the fact holds but it is not captured in data (or schema), or (2) the fact does not hold. For this reason RDF/RDFS/OWL will only infer that a fact holds (or does not hold) if it explicitly stated in the data or can be derived from a combination of data and schema information. Hence, for this reason RDF/RDFS/OWL are not a good fit for this problem.
+   
+  
+  
+  \section{Baked Goods Data}
+  Below are example baked goods RDF data: 
+  
+  \begin{small}
+  \begin{Verbatim}
+bakery:hasIngredient rdf:type owl:ObjectProperty ;
+    rdfs:domain bakery:BakeryGood ;
+    rdfs:range bakery:Ingredient .
+	
+bakery:VeganFriendly rdf:type owl:Class .
+	
+bakery:NonVeganFriendly rdf:type owl:Class ;
+    owl:disjointWith bakery:VeganFriendly .
+	
+bakery:GlutenFree rdf:type owl:Class .
+		
+bakery:NonGlutenFree rdf:type owl:Class ;
+    owl:disjointWith bakery:GlutenFree .	
+
+bakery:Apple a bakery:VeganFriendly, bakery:GlutenFree .
+
+bakery:Egg a bakery:NonVeganFriendly, bakery:GlutenFree .
+
+bakery:Flour a bakery:VeganFriendly, bakery:NonGlutenFree .
+
+bakery:AlmondFlour a bakery:VeganFriendly, bakery:GlutenFree .
+
+bakery:RiceMilk a bakery:VeganFriendly, bakery:GlutenFree .
+
+bakery:AppleTartA
+    a bakery:BakedGood ;
+    bakery:hasIngredient bakery:Apple, bakery:Egg, bakery:Flour .
+	
+bakery:AppleTartB
+    a bakery:BakedGood ;
+    bakery:hasIngredient bakery:Apple, bakery:RiceMilk, 
+	bakery:AlmondFlour .
+
+bakery:AppleTartC
+    a bakery:BakedGood ;
+    bakery:hasIngredient bakery:Apple, bakery:RiceMilk, bakery:Flour .
+	
+bakery:AppleTartD
+    a bakery:BakedGood ;
+    bakery:hasIngredient bakery:Apple, bakery:Egg, bakery:AlmondFlour .		  
+  \end{Verbatim}
+  \end{small}
+  
+A couple of points are important w.r.t. the RDF data:
+\begin{enumerate}
+ \item Note that we define both \texttt{VeganFriendly} and \texttt{NonVeganFriendly} ingredients to be able to identify ingredients completely. Importantly we state that \texttt{VeganFriendly} and \texttt{NonVeganFriendly} are disjoint so that we cannot inadvertently state that an ingredient is both \texttt{VeganFriendly} and \texttt{NonVeganFriendly}.
+ \item We state that \texttt{AppleTartA}-\texttt{AppleTartD} are of type \texttt{BakedGood} so that when we specify our rules, we can state that the rules are applicable only to instances of type \texttt{BakedGood}.
+ \item We enforce the domain and range for \texttt{bakery:hasIngredient} which results in whenever we say \texttt{bakery:a bakery:hasIngredient bakery:b}, the reasoner can infer that \texttt{bakery:a} is of type \texttt{bakery:BakedGood} and \texttt{bakery:b} is of type \texttt{bakery:Ingredient}.
+\end{enumerate}  
+
+  
+  
+  \section{Baked Good Rules}
+Now we define the shape of a baked good:  
+  \begin{small}
+  \begin{Verbatim}   
+bakery:BakedGood
+    a rdfs:Class, sh:NodeShape ;
+    sh:property [
+	sh:path bakery:hasIngredient ;
+	sh:class bakery:Ingredient ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+    ] ;
+  
+  \end{Verbatim}
+  \end{small}
+  We state that \texttt{bakery:BakedGood a rdfs:Class} which is important to be able to apply rules to instances of \texttt{bakery:BakedGood}. We also state that \texttt{bakery:BakedGood a sh:NodeShape} which allows us to add shape and rule information to \texttt{bakery:BakedGood}. Note that our \texttt{bakery:BakedGood} shape state that a baked good has at least one property called \texttt{bakery:hasIngredient} with range \texttt{bakery:Ingredient}.
+  
+  We now add a \texttt{bakery:NonVeganFriendly} shape 
+  \begin{small}
+  \begin{Verbatim}   
+bakery:NonVeganFriendly
+    a rdfs:Class, sh:NodeShape . 
+  \end{Verbatim}
+  \end{small}
+  which we will use in the rule definition of \texttt{bakery:BakedGood}:  
+  \begin{small}
+  \begin{Verbatim}   
+    sh:rule [
+	a sh:TripleRule ;
+	sh:subject sh:this ;
+	sh:predicate rdf:type ;
+	sh:object bakery:VeganBakedGood ;
+	sh:condition bakery:BakedGood ;
+	sh:condition [
+	    sh:property [
+		    sh:path bakery:hasIngredient ;
+		    sh:qualifiedValueShape 
+			[ sh:class bakery:NonVeganFriendly ] ;
+		    sh:qualifiedMaxCount 0 ;
+	    ] ;
+	] ;
+    ] ; 
+    sh:rule [
+	a sh:TripleRule ;
+	sh:subject sh:this ;
+	sh:predicate rdf:type ;
+	sh:object bakery:NonVeganBakedGood ;
+	sh:condition bakery:BakedGood ;
+	sh:condition [
+	    sh:property [
+		    sh:path bakery:hasIngredient ;
+		    sh:qualifiedValueShape 
+			[ sh:class bakery:NonVeganFriendly ] ;
+		    sh:qualifiedMinCount 1 ;
+	    ] ;
+	] ;
+    ] ;
+  \end{Verbatim}
+  \end{small}  
+  We add two rules, one for identifying a \texttt{bakery:VeganBakedGood} and one for a \texttt{bakery:NonVeganBakedGood}. Note that these rules are of type \texttt{sh:TripleRule}, which will infer the existence of a new triple if the rule is triggered. The first rule states that the subject of this triple is \texttt{sh:this}, which refers to instances of our \texttt{bakery:BakedGood} class. The predicate is \texttt{rdf:type} and the object is \texttt{bakery:VeganBakedGood}. So if this rule is triggered it will infer that an instance of \texttt{bakery:BakedGood} is also an instance of type \texttt{bakery:VeganBakedGood}. 
+  
+  Both rules have two conditions which instances must adhere to before these rules will trigger. These rules will only apply to instances of \texttt{bakery:BakedGood} according to the first condition. The second condition of the rule for \texttt{bakery:VeganBakedGood} checks for \texttt{bakery:hasIngredient} properties of the shape \texttt{bakery:NonVeganFriendly}. This ensures that the range of \texttt{bakery:hasIngredient} is of type \texttt{bakery:NonVeganFriendly}. If \texttt{bakery:hasIngredient} has a maximum count of 0, it will infer that this instance of \texttt{bakery:BakedGood} is of type \texttt{bakery:VeganBakedGood}. The rule for \texttt{bakery:NonVeganBakedGood} will also check for \texttt{bakery:hasIngredient} properties of the shape \texttt{bakery:NonVeganFriendly}, but with minimum count of 1 for which it will then infer that this instance is of type \texttt{bakery:NonVeganBakedGood}. 
+  
+  \section{Jena SHACL Rule Execution Code}
+  The Jena SHACL implementation provides command line scripts (\texttt{/bin/shaclinfer.sh} or \texttt{/bin/shaclinfer.bat}) which takes as arguments a data file and a shape file which can be used to do rule execution. However, for this specific example you have to write your own Java code. The reason being that the scripts creates a default model that has no reasoning support. In this section I provide the SHACL Jena code needed to do the classification of baked goods.
+
+  \begin{small}
+  \begin{Verbatim} 
+public static void main(String[] args) {
+  try {   
+    Path path = Paths.get(".").toAbsolutePath().normalize();
+  
+    String data = "file:" + path.toFile().getAbsolutePath() + 
+	"/src/main/resources/bakery.ttl";
+    String shape = "file:" + path.toFile().getAbsolutePath() + 
+	"/src/main/resources/bakeryRules.ttl";
+    
+    Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+    Model dataModel = JenaUtil.createDefaultModel();
+    dataModel.read(data);
+    InfModel infModel = ModelFactory.createInfModel(reasoner, dataModel);
+    ValidityReport validity = infModel.validate();
+    if (!validity.isValid()) {
+      logger.trace("Conflicts");
+      for (Iterator i = validity.getReports(); i.hasNext(); ) {
+	logger.trace(" - " + i.next());
+      }        
+    } else {
+      Model shapeModel = JenaUtil.createDefaultModel();
+      shapeModel.read(shape);
+      Model inferenceModel = JenaUtil.createDefaultModel(); 
+      inferenceModel = RuleUtil.executeRules(infModel, shapeModel, 
+	  inferenceModel, null);        
+      String inferences = path.toFile().getAbsolutePath() + 
+	  "/src/main/resources/inferences.ttl";
+      File inferencesFile = new File(inferences);
+      inferencesFile.createNewFile();     
+      OutputStream reportOutputStream = new FileOutputStream(inferencesFile);        
+      RDFDataMgr.write(reportOutputStream, inferenceModel, RDFFormat.TTL);
+    }
+  } catch (Throwable t) {
+    logger.error(WTF_MARKER, t.getMessage(), t);
+  }   
+}  
+  \end{Verbatim}
+  \end{small} 
+  
+  \section{Running the Code}
+  Running the code will cause an \texttt{inferences.ttl} file to be written out to \\\texttt{\$Project/src/main/resources/}. It contains the following output:
+  
+  \begin{small}
+  \begin{Verbatim} 
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://bakery.com/ns#AppleTartC>
+    a	<http://bakery.com/ns#NonGlutenFreeBakedGood> , 
+	<http://bakery.com/ns#VeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartB>
+    a   <http://bakery.com/ns#GlutenFreeBakedGood> , 
+	<http://bakery.com/ns#VeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartA>
+    a   <http://bakery.com/ns#NonGlutenFreeBakedGood> , 
+	<http://bakery.com/ns#NonVeganBakedGood> .
+
+<http://bakery.com/ns#AppleTartD>
+    a   <http://bakery.com/ns#GlutenFreeBakedGood> , 
+	<http://bakery.com/ns#NonVeganBakedGood> .
+  \end{Verbatim}
+  \end{small}
+
+  \section{Conclusion}
+  In this post I gave a brief overview of how SHACL can be used to do classification based on some property. This code example is available at 
+  \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/jena/source/shacl}{shacl tutorial}. This post was inspired by a question on \href{https://stackoverflow.com/questions/49253553/owl-rdf-ttl-make-an-instance-member-of-class-based-on-property}{Stack Overflow}.
+  
+  
+  
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{./BibliographicDetails_v.0.1}
+ 
+\end{document}

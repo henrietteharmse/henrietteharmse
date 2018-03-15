@@ -1,0 +1,77 @@
+	@prefix bakery: <http://bakery.com/ns#> .
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix dash: <http://datashapes.org/dash#> .
+	@prefix sh: <http://www.w3.org/ns/shacl#> .
+	@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+	bakery:NonVeganFriendly
+		a rdfs:Class, sh:NodeShape .
+	bakery:NonGlutenFree
+		a rdfs:Class, sh:NodeShape .			
+		
+	bakery:BakedGood
+		a rdfs:Class, sh:NodeShape ;
+		sh:property [
+			sh:path bakery:hasIngredient ;
+			sh:class bakery:Ingredient ;
+			sh:nodeKind sh:IRI ;
+			sh:minCount 1 ;
+		] ;
+		sh:rule [
+			a sh:TripleRule ;
+			sh:subject sh:this ;
+			sh:predicate rdf:type ;
+			sh:object bakery:VeganBakedGood ;
+			sh:condition bakery:BakedGood ;
+			sh:condition [
+				sh:property [
+					sh:path bakery:hasIngredient ;
+					sh:qualifiedValueShape [ sh:class bakery:NonVeganFriendly ] ;
+					sh:qualifiedMaxCount 0 ;
+				] ;
+			] ;
+		] ; 
+		sh:rule [
+			a sh:TripleRule ;
+			sh:subject sh:this ;
+			sh:predicate rdf:type ;
+			sh:object bakery:NonVeganBakedGood ;
+			sh:condition bakery:BakedGood ;
+			sh:condition [
+				sh:property [
+					sh:path bakery:hasIngredient ;
+					sh:qualifiedValueShape [ sh:class bakery:NonVeganFriendly ] ;
+					sh:qualifiedMinCount 1 ;
+				] ;
+			] ;
+		] ; 
+		sh:rule [
+			a sh:TripleRule ;
+			sh:subject sh:this ;
+			sh:predicate rdf:type ;
+			sh:object bakery:GlutenFreeBakedGood ;
+			sh:condition bakery:BakedGood ;
+			sh:condition [
+				sh:property [
+					sh:path bakery:hasIngredient ;
+					sh:qualifiedValueShape [ sh:class bakery:NonGlutenFree ] ;
+					sh:qualifiedMaxCount 0 ;
+				] ;
+			] ;
+		] ; 
+		sh:rule [
+			a sh:TripleRule ;
+			sh:subject sh:this ;
+			sh:predicate rdf:type ;
+			sh:object bakery:NonGlutenFreeBakedGood ;
+			sh:condition bakery:BakedGood ;
+			sh:condition [
+				sh:property [
+					sh:path bakery:hasIngredient ;
+					sh:qualifiedValueShape [ sh:class bakery:NonGlutenFree] ;
+					sh:qualifiedMinCount 1 ;
+				] ;
+			] ;
+		] .

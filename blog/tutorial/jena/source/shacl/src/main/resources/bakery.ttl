@@ -1,0 +1,45 @@
+@prefix bakery: <http://bakery.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+	bakery:hasIngredient rdf:type owl:ObjectProperty ;
+		rdfs:domain bakery:BakeryGood ;
+		rdfs:range bakery:Ingredient .
+		
+	bakery:VeganFriendly rdf:type owl:Class .
+		
+	bakery:NonVeganFriendly rdf:type owl:Class ;
+		owl:disjointWith bakery:VeganFriendly .
+		
+	bakery:GlutenFree rdf:type owl:Class .
+			
+	bakery:NonGlutenFree rdf:type owl:Class ;
+		owl:disjointWith bakery:GlutenFree .	
+
+	bakery:Apple a bakery:VeganFriendly, bakery:GlutenFree .
+
+	bakery:Egg a bakery:NonVeganFriendly, bakery:GlutenFree .
+
+	bakery:Flour a bakery:VeganFriendly, bakery:NonGlutenFree .
+
+	bakery:AlmondFlour a bakery:VeganFriendly, bakery:GlutenFree .
+
+	bakery:RiceMilk a bakery:VeganFriendly, bakery:GlutenFree .
+
+	bakery:AppleTartA
+		a bakery:BakedGood ;
+		bakery:hasIngredient bakery:Apple, bakery:Egg, bakery:Flour .
+		
+	bakery:AppleTartB
+		a bakery:BakedGood ;
+		bakery:hasIngredient bakery:Apple, bakery:RiceMilk, bakery:AlmondFlour .
+
+	bakery:AppleTartC
+		a bakery:BakedGood ;
+		bakery:hasIngredient bakery:Apple, bakery:RiceMilk, bakery:Flour .
+		
+	bakery:AppleTartD
+		a bakery:BakedGood ;
+		bakery:hasIngredient bakery:Apple, bakery:Egg, bakery:AlmondFlour .	
+
