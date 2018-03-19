@@ -8,6 +8,7 @@
 
 	bakery:NonVeganFriendly
 		a rdfs:Class, sh:NodeShape .
+        
 	bakery:NonGlutenFree
 		a rdfs:Class, sh:NodeShape .			
 		
