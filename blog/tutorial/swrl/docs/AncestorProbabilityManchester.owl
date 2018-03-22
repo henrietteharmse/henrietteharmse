@@ -1,0 +1,120 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746>
+
+
+AnnotationProperty: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled>
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:decimal
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+    
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Range: 
+        xsd:decimal
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a1>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_y>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_x>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>  0.2
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a2>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_z>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_y>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>  0.31
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a3>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#AncestorProbability>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>  <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_x>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_x>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_y>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_z>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#Person>
+    
+    
+DifferentIndividuals: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a1>,<http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a2>,<http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_a3>
+
+DifferentIndividuals: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_x>,<http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_y>,<http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#_z>
+
+Rule: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>(?<a1>, ?<y>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>(?<a1>, ?<x>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>(?<a1>, ?<p1>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>(?<a2>, ?<z>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>(?<a2>, ?<y>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>(?<a2>, ?<p2>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#descendant>(?<a3>, ?<x>), <http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#eval>(?<p1>, ?<p2>, ?<p3>, "p1 * p2"^^xsd:string) -> <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#ancestor>(?<a3>, ?<z>), <http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-746#probability>(?<a3>, ?<p3>)
+

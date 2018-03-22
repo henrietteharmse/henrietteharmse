@@ -1,0 +1,59 @@
+        
+    ObjectProperty: ancestor
+        Domain: AncestorProbability
+        Range: Person
+
+    ObjectProperty: descendant
+        Domain: AncestorProbability
+        Range: Person
+        
+    DataProperty: probability
+        Domain: AncestorProbability
+        Range: xsd:decimal
+        
+    Class: AncestorProbability
+
+    Class: Person
+        
+    Individual: _a1
+        Types: 
+            AncestorProbability
+        Facts:  
+         ancestor  _y,
+         descendant  _x,
+         probability  0.2
+        
+        
+    Individual: _a2
+        Types: 
+            AncestorProbability
+        Facts:  
+         ancestor  _z,
+         descendant  _y,
+         probability  0.31
+    Individual: _a3
+        Types: 
+            AncestorProbability
+        Facts: 
+            descendant  _x
+        
+    Individual: _x
+        Types: Person
+
+    Individual: _y
+        Types: Person
+        
+    Individual: _z
+        Types: Person
+        
+    DifferentIndividuals: 
+        _a1,_a2,_a3
+
+    DifferentIndividuals: 
+        _x,_y,_z
+
+    Rule: 
+        ancestor(?a1, ?y), descendant(?a1, ?x), probability(?a1, ?p1), 
+        ancestor(?a2, ?z), descendant(?a2, ?y), probability(?a2, ?p2), probability(?a3, ?p3) 
+        -> ancestor(?a3, ?z), descendant(?a3, ?x)
+

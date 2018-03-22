@@ -17,7 +17,7 @@ public class SparqlQueryMain {
 	// Why This Failure marker
 	private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
 	
-	private static final String SPARQL_ENDPOINT = "http://REMOTE_IP_ADDRESS:7200/repositories/DBPediaPersonData";
+	private static final String SPARQL_ENDPOINT = "http://192.168.1.6:7200/repositories/DBPediaPersonData";
 	
 	public static void main(String[] args) {
 		try {		
