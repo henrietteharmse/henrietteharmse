@@ -35,7 +35,7 @@
         Model inferenceModel = JenaUtil.createDefaultModel();      
         inferenceModel = RuleUtil.executeRules(dataModel, shapeModel, inferenceModel, null);
         
-        String inferences = path.toFile().getAbsolutePath() + "/src/main/resources/inferences.ttl";
+        String inferences = path.toFile().getAbsolutePath() + "/src/main/resources/rectangleInferences.ttl";
         File inferencesFile = new File(inferences);
         inferencesFile.createNewFile();     
         OutputStream reportOutputStream = new FileOutputStream(inferencesFile);

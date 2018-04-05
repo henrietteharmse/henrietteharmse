@@ -1,0 +1,116 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753>
+
+
+AnnotationProperty: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled>
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#hasOrientation>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Object>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Orientation>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isParallel>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Object>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Object>
+
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Orientation>
+
+    EquivalentTo: 
+        {<http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Horizontal> , <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Vertical>}
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Pen>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Object>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface>
+
+    EquivalentTo: 
+        {<http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Ground> , <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Rock> , <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Wall>}
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Ground>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Horizontal>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Orientation>
+    
+    DifferentFrom: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Vertical>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Rock>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Vertical>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Orientation>
+    
+    DifferentFrom: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Horizontal>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Wall>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#myPen>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Pen>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isParallel>  <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Ground>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#someGround>
+
+    
+Rule: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Pen>(?<pen>), <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isParallel>(?<pen>, <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Ground>) -> <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#hasOrientation>(?<pen>, <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Horizontal>)
+

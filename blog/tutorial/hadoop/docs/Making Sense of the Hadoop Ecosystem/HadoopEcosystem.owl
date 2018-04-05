@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasFunction">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#processesDataStoredIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#processesDataStoredIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#uses -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#uses"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#AmazonS3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#AmazonS3">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFS"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ApacheDrill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ApacheDrill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Distributed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Application -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Application"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Avro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Avro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataSerializer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Cassandra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Cassandra">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFS"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NoSQL"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ClusterManager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ClusterManager"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Columnar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Columnar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#FileFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Consumer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Consumer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Application"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataAnalyzer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataAnalyzer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataNode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataNode">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFSNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataSerializer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataSerializer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Distributed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Distributed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SQLQueryEngine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedComputerEngine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedComputerEngine"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedFileSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedFileSystem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#FileFormat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#FileFormat"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Function"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HBase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NoSQL"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedFileSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NameNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFSNode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFSNode">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Hadoop -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Hadoop">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ReliableScalableDistributedComputing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#uses"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SequenceFile"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Hive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Hive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataAnalyzer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#processesDataStoredIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Impala -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Impala">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Distributed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Kafka -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Kafka">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MessagingSystems"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Map -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Map">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MapReduce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MapReduce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedComputerEngine"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasFunction"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Map"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasFunction"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Reduce"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#uses"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SequenceFile"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MessagingSystems -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MessagingSystems">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Consumer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Producer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NameNode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NameNode">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#HDFSNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NoSQL -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#NoSQL"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Node -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Node"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ORC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ORC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Columnar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Parquet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Parquet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Columnar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Presto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Presto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Distributed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Producer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Producer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Application"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ProtocolBuffers -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ProtocolBuffers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataSerializer"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#FileFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#RCFile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#RCFile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Columnar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Reduce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Reduce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ReliableScalableDistributedComputing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ReliableScalableDistributedComputing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ClusterManager"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedComputerEngine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#hasA"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedFileSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SQLQueryEngine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SQLQueryEngine"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SequenceFile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#SequenceFile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#FileFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Spark -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Spark">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DistributedComputerEngine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Thrift -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#Thrift">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#DataSerializer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#YARN -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#YARN">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ClusterManager"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ZeroMQ -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#ZeroMQ">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/2/untitled-ontology-747#MessagingSystems"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

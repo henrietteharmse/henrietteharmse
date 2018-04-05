@@ -1,0 +1,43 @@
+    ObjectProperty: hasOrientation
+        Domain: Object
+        Range: Orientation
+        
+    ObjectProperty: isParallel
+        Domain: Object
+        Range: Surface
+        
+    Class: Object
+
+    Class: Orientation
+        EquivalentTo: {Horizontal , Vertical}
+        
+    Class: Pen
+        SubClassOf: Object
+        
+    Class: Surface
+        EquivalentTo: {Ground , Rock , Wall}
+        
+    Individual: Ground
+        Types: Surface
+        
+    Individual: Horizontal
+        Types: Orientation    
+        DifferentFrom: Vertical
+        
+    Individual: Rock
+        Types: Surface
+        
+    Individual: Vertical
+        Types: Orientation
+        DifferentFrom: Horizontal
+        
+    Individual: Wall
+        Types: Surface
+        
+    Individual: myPen
+        Types: Pen
+        Facts:  isParallel  Ground
+        
+    Rule: 
+        Pen(?aPen), isParallel(?aPen, Ground) -> hasOrientation(?aPen, Horizontal)
+        Pen(?aPen), isParallel(?aPen, Wall) -> hasOrientation(?aPen, Vertical)
