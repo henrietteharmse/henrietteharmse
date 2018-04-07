@@ -1,0 +1,324 @@
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://xmlns.com/foaf/0.1/givenName> "Lorenzo" .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://dbpedia.org/ontology/deathDate> "1583-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://xmlns.com/foaf/0.1/name> "Lorenzo Costa" .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://dbpedia.org/ontology/birthDate> "1537-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Mantua> .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Mantua> .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://xmlns.com/foaf/0.1/surname> "Costa" .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Lorenzo_Costa_the_Younger> <http://purl.org/dc/terms/description> "Italian painter" .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://xmlns.com/foaf/0.1/givenName> "Lorenzo" .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://dbpedia.org/ontology/deathDate> "1535-3-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://xmlns.com/foaf/0.1/name> "Lorenzo Costa" .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://dbpedia.org/ontology/birthDate> "1460-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ferrara> .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Mantua> .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://xmlns.com/foaf/0.1/surname> "Costa" .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Lorenzo_Costa> <http://purl.org/dc/terms/description> "Italian painter" .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://xmlns.com/foaf/0.1/givenName> "Marilyn" .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://dbpedia.org/ontology/deathDate> "2009-3-25"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://xmlns.com/foaf/0.1/name> "Marilyn Borden" .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://dbpedia.org/ontology/birthDate> "1932-5-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Hartford,_Connecticut> .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Modesto,_California> .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://xmlns.com/foaf/0.1/surname> "Borden" .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://xmlns.com/foaf/0.1/gender> "female" .
+<http://dbpedia.org/resource/Marilyn_Borden> <http://purl.org/dc/terms/description> "Actress, singer" .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://xmlns.com/foaf/0.1/givenName> "Rosalyn" .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://dbpedia.org/ontology/deathDate> "2003-1-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://xmlns.com/foaf/0.1/name> "Rosalyn Borden" .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://dbpedia.org/ontology/birthDate> "1932-5-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Hartford,_Connecticut> .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Modesto,_California> .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://xmlns.com/foaf/0.1/surname> "Borden" .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://xmlns.com/foaf/0.1/gender> "female" .
+<http://dbpedia.org/resource/Rosalyn_Borden> <http://purl.org/dc/terms/description> "Actress, singer" .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://xmlns.com/foaf/0.1/givenName> "William" .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://dbpedia.org/ontology/deathDate> "1839-2-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://xmlns.com/foaf/0.1/name> "William Steuart" .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://dbpedia.org/ontology/birthDate> "1754-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Anne_Arundel_County,_Maryland> .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://xmlns.com/foaf/0.1/surname> "Steuart" .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/William_Steuart_(planter)> <http://purl.org/dc/terms/description> "American planter" .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://xmlns.com/foaf/0.1/givenName> "William" .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://dbpedia.org/ontology/deathDate> "1839-2-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://xmlns.com/foaf/0.1/name> "William Steuart" .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://dbpedia.org/ontology/birthDate> "1754-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Baltimore> .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://xmlns.com/foaf/0.1/surname> "Steuart" .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/William_Steuart_(Mayor_of_Baltimore)> <http://purl.org/dc/terms/description> "American mayor" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://xmlns.com/foaf/0.1/givenName> "Francis" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://dbpedia.org/ontology/deathDate> "1933-7-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://xmlns.com/foaf/0.1/name> "Francis Fitzpatrick" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/County_Monaghan> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Glasgow> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://xmlns.com/foaf/0.1/surname> "Fitzpatrick" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://xmlns.com/foaf/0.1/givenName> "Francis" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://dbpedia.org/ontology/deathDate> "1933-7-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://xmlns.com/foaf/0.1/name> "Francis Fitzpatrick" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://dbpedia.org/ontology/birthDate> "1859-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/County_Monaghan> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Glasgow> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://xmlns.com/foaf/0.1/surname> "Fitzpatrick" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Francis_Fitzpatrick_(VC)> <http://purl.org/dc/terms/description> "Recipient of the Victoria Cross" .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://xmlns.com/foaf/0.1/givenName> "Dino" .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://dbpedia.org/ontology/deathDate> "1949-5-4"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://xmlns.com/foaf/0.1/name> "Dino Ballarin" .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://dbpedia.org/ontology/birthDate> "1925-9-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Chioggia> .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Superga> .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://xmlns.com/foaf/0.1/surname> "Ballarin" .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Dino_Ballarin> <http://purl.org/dc/terms/description> "Italian footballer" .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://xmlns.com/foaf/0.1/givenName> "Aldo" .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://dbpedia.org/ontology/deathDate> "1949-5-4"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://xmlns.com/foaf/0.1/name> "Aldo Ballarin" .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://dbpedia.org/ontology/birthDate> "1922-1-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Chioggia> .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Superga> .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://xmlns.com/foaf/0.1/surname> "Ballarin" .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Aldo_Ballarin> <http://purl.org/dc/terms/description> "Italian footballer" .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://xmlns.com/foaf/0.1/givenName> "Millie" .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://dbpedia.org/ontology/deathDate> "2004-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://xmlns.com/foaf/0.1/name> "Millie Jeffrey" .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://dbpedia.org/ontology/birthDate> "1910-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://xmlns.com/foaf/0.1/surname> "Jeffrey" .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://xmlns.com/foaf/0.1/gender> "female" .
+<http://dbpedia.org/resource/Millie_Jeffrey> <http://purl.org/dc/terms/description> "American activist" .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://xmlns.com/foaf/0.1/givenName> "Mildred" .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://dbpedia.org/ontology/deathDate> "2004-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://xmlns.com/foaf/0.1/name> "Mildred Jeffrey" .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://dbpedia.org/ontology/birthDate> "1910-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://xmlns.com/foaf/0.1/surname> "Jeffrey" .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://xmlns.com/foaf/0.1/gender> "female" .
+<http://dbpedia.org/resource/Mildred_Jeffrey> <http://purl.org/dc/terms/description> "American activist" .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://xmlns.com/foaf/0.1/givenName> "Paul" .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://dbpedia.org/ontology/deathDate> "1978-6-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://xmlns.com/foaf/0.1/name> "Paul McGuire" .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://dbpedia.org/ontology/birthDate> "1903-4-3"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Adelaide> .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://xmlns.com/foaf/0.1/surname> "McGuire" .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Paul_McGuire_(author)> <http://purl.org/dc/terms/description> "Hong Kong writer" .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://xmlns.com/foaf/0.1/givenName> "Dominic" .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://dbpedia.org/ontology/deathDate> "1978-7-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://xmlns.com/foaf/0.1/name> "Paul McGuire" .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://dbpedia.org/ontology/birthDate> "1903-4-3"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Peterborough,_South_Australia> .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Adelaide> .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Paul_McGuire_(diplomat)> <http://purl.org/dc/terms/description> "Australian diplomat" .
+<http://dbpedia.org/resource/Charles_Bargue> <http://xmlns.com/foaf/0.1/givenName> "Charles" .
+<http://dbpedia.org/resource/Charles_Bargue> <http://dbpedia.org/ontology/deathDate> "1883-4-6"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Charles_Bargue> <http://xmlns.com/foaf/0.1/name> "Charles Bargue" .
+<http://dbpedia.org/resource/Charles_Bargue> <http://dbpedia.org/ontology/birthDate> "1826-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Charles_Bargue> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Charles_Bargue> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Charles_Bargue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Charles_Bargue> <http://xmlns.com/foaf/0.1/surname> "Bargue" .
+<http://dbpedia.org/resource/Charles_Bargue> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Charles_Bargue> <http://purl.org/dc/terms/description> "French painter" .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://xmlns.com/foaf/0.1/givenName> "Charles" .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://dbpedia.org/ontology/deathDate> "1895-3-6"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://xmlns.com/foaf/0.1/name> "Charles Édouard Armand-Dumaresq" .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://dbpedia.org/ontology/birthDate> "1826-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Charles_Édouard_Armand-Dumaresq> <http://purl.org/dc/terms/description> "French painter" .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://xmlns.com/foaf/0.1/givenName> "novalue (given name)" .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://dbpedia.org/ontology/deathDate> "1600-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://xmlns.com/foaf/0.1/name> "Master of the Baroncelli Portraits" .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://dbpedia.org/ontology/birthDate> "1500-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Master_of_the_Baroncelli_Portraits> <http://purl.org/dc/terms/description> "Dutch painter" .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://xmlns.com/foaf/0.1/givenName> "novalue (given name)" .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://dbpedia.org/ontology/deathDate> "1600-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://xmlns.com/foaf/0.1/name> "Master of the Legend of Saint Lucy" .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://dbpedia.org/ontology/birthDate> "1500-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Bruges> .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Master_of_the_Legend_of_Saint_Lucy> <http://purl.org/dc/terms/description> "Dutch painter" .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://xmlns.com/foaf/0.1/givenName> "William" .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://dbpedia.org/ontology/deathDate> "1871-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://xmlns.com/foaf/0.1/name> "William Caine" .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://dbpedia.org/ontology/birthDate> "1798-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://xmlns.com/foaf/0.1/surname> "Caine" .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/William_Caine_(colonial_administrator)> <http://purl.org/dc/terms/description> "British colonial administrator" .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://xmlns.com/foaf/0.1/givenName> "William" .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://dbpedia.org/ontology/deathDate> "1871-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://xmlns.com/foaf/0.1/name> "William Rutherford" .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://dbpedia.org/ontology/birthDate> "1798-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://xmlns.com/foaf/0.1/surname> "Rutherford" .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/William_Rutherford_(mathematician)> <http://purl.org/dc/terms/description> "English mathematician" .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://xmlns.com/foaf/0.1/givenName> "Ioannis" .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://dbpedia.org/ontology/deathDate> "1887-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://xmlns.com/foaf/0.1/name> "Ioannis Diakos" .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://dbpedia.org/ontology/birthDate> "1805-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pyrgos,_Elis> .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Patras> .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://xmlns.com/foaf/0.1/surname> "Diakos" .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Ioannis_Diakos> <http://purl.org/dc/terms/description> "Greek revolutionary leader" .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://xmlns.com/foaf/0.1/givenName> "Anastasios" .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://dbpedia.org/ontology/deathDate> "1887-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://xmlns.com/foaf/0.1/name> "Anastasios Christopoulos" .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://dbpedia.org/ontology/birthDate> "1805-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pyrgos,_Elis> .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Patras> .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://xmlns.com/foaf/0.1/surname> "Christopoulos" .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Anastasios_Christopoulos> <http://purl.org/dc/terms/description> "Greek revolutionary leader" .
+<http://dbpedia.org/resource/Jean_Richer> <http://xmlns.com/foaf/0.1/givenName> "Jean" .
+<http://dbpedia.org/resource/Jean_Richer> <http://dbpedia.org/ontology/deathDate> "1696-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Jean_Richer> <http://xmlns.com/foaf/0.1/name> "Jean Richer" .
+<http://dbpedia.org/resource/Jean_Richer> <http://dbpedia.org/ontology/birthDate> "1630-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Jean_Richer> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Jean_Richer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Jean_Richer> <http://xmlns.com/foaf/0.1/surname> "Richer" .
+<http://dbpedia.org/resource/Jean_Richer> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Jean_Richer> <http://purl.org/dc/terms/description> "French astronomer" .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://xmlns.com/foaf/0.1/givenName> "Jean" .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://dbpedia.org/ontology/deathDate> "1696-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://xmlns.com/foaf/0.1/name> "Jean Baptiste Mathey" .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://dbpedia.org/ontology/birthDate> "1630-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Dijon> .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Jean_Baptiste_Mathey> <http://purl.org/dc/terms/description> "French painter" .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://xmlns.com/foaf/0.1/givenName> "Pasquale" .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://dbpedia.org/ontology/deathDate> "1630-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://xmlns.com/foaf/0.1/name> "Pasquale Ottini" .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Verona> .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Verona> .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://xmlns.com/foaf/0.1/surname> "Ottini" .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Pasquale_Ottini> <http://purl.org/dc/terms/description> "Italian painter" .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://xmlns.com/foaf/0.1/givenName> "Pasquale" .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://dbpedia.org/ontology/deathDate> "1630-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://xmlns.com/foaf/0.1/name> "Pasquale Ottino" .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://dbpedia.org/ontology/birthDate> "1578-1-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Verona> .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Verona> .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://xmlns.com/foaf/0.1/surname> "Ottino" .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Pasquale_Ottino> <http://purl.org/dc/terms/description> "Italian painter" .
+<http://dbpedia.org/resource/Harry_Salt> <http://xmlns.com/foaf/0.1/givenName> "Harry" .
+<http://dbpedia.org/resource/Harry_Salt> <http://dbpedia.org/ontology/deathDate> "1971-0-0"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Harry_Salt> <http://xmlns.com/foaf/0.1/name> "Harry Salt" .
+<http://dbpedia.org/resource/Harry_Salt> <http://dbpedia.org/ontology/birthDate> "1899-11-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Harry_Salt> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ecclesfield> .
+<http://dbpedia.org/resource/Harry_Salt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Harry_Salt> <http://xmlns.com/foaf/0.1/surname> "Salt" .
+<http://dbpedia.org/resource/Harry_Salt> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://xmlns.com/foaf/0.1/givenName> "Harold" .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://dbpedia.org/ontology/deathDate> "1971-0-0"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://xmlns.com/foaf/0.1/name> "Harold Salt" .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://dbpedia.org/ontology/birthDate> "1899-11-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ecclesfield> .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://xmlns.com/foaf/0.1/surname> "Salt" .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Harold_Salt_(footballer)> <http://purl.org/dc/terms/description> "Footballer" .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://xmlns.com/foaf/0.1/givenName> "Christian" .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://dbpedia.org/ontology/deathDate> "1883-5-2"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://xmlns.com/foaf/0.1/name> "Christian Hansen" .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://dbpedia.org/ontology/birthDate> "1803-4-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Copenhagen> .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Copenhagen> .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://xmlns.com/foaf/0.1/surname> "Hansen" .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Christian_Hansen_(architect)> <http://purl.org/dc/terms/description> "Danish architect" .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://xmlns.com/foaf/0.1/givenName> "Christian" .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://dbpedia.org/ontology/deathDate> "1845-7-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://xmlns.com/foaf/0.1/name> "Christian Frederik Hansen" .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://dbpedia.org/ontology/birthDate> "1756-2-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Copenhagen> .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Copenhagen> .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://xmlns.com/foaf/0.1/surname> "Hansen" .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Christian_Frederik_Hansen> <http://purl.org/dc/terms/description> "Danish architect" .
+<http://dbpedia.org/resource/J.Trill> <http://xmlns.com/foaf/0.1/givenName> "J." .
+<http://dbpedia.org/resource/J.Trill> <http://xmlns.com/foaf/0.1/name> "J.Trill" .
+<http://dbpedia.org/resource/J.Trill> <http://dbpedia.org/ontology/birthDate> "1989-3-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/J.Trill> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Tifton,_Georgia> .
+<http://dbpedia.org/resource/J.Trill> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/J.Trill> <http://xmlns.com/foaf/0.1/surname> "Trill" .
+<http://dbpedia.org/resource/J.Trill> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/J.Trill> <http://purl.org/dc/terms/description> "American rapper" .
+<http://dbpedia.org/resource/Josh_Jordan> <http://xmlns.com/foaf/0.1/givenName> "J." .
+<http://dbpedia.org/resource/Josh_Jordan> <http://xmlns.com/foaf/0.1/name> "J. Trill" .
+<http://dbpedia.org/resource/Josh_Jordan> <http://dbpedia.org/ontology/birthDate> "1989-3-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Josh_Jordan> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Tifton,_Georgia> .
+<http://dbpedia.org/resource/Josh_Jordan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Josh_Jordan> <http://xmlns.com/foaf/0.1/surname> "Trill" .
+<http://dbpedia.org/resource/Josh_Jordan> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Josh_Jordan> <http://purl.org/dc/terms/description> "American rapper" .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://xmlns.com/foaf/0.1/givenName> "Javier" .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://xmlns.com/foaf/0.1/name> "Javier Hernández" .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://dbpedia.org/ontology/birthDate> "1961-8-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Guadalajara> .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://xmlns.com/foaf/0.1/surname> "Hernández" .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Javier_Hernández_(footballer,_born_1961)> <http://purl.org/dc/terms/description> "Mexican footballer" .
+<http://dbpedia.org/resource/Javier_Hernández> <http://xmlns.com/foaf/0.1/givenName> "Javier" .
+<http://dbpedia.org/resource/Javier_Hernández> <http://xmlns.com/foaf/0.1/name> "Javier Hernández" .
+<http://dbpedia.org/resource/Javier_Hernández> <http://dbpedia.org/ontology/birthDate> "1988-6-1"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Javier_Hernández> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Guadalajara> .
+<http://dbpedia.org/resource/Javier_Hernández> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Javier_Hernández> <http://xmlns.com/foaf/0.1/surname> "Hernández" .
+<http://dbpedia.org/resource/Javier_Hernández> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Javier_Hernández> <http://purl.org/dc/terms/description> "Mexican footballer" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://xmlns.com/foaf/0.1/givenName> "Dániel" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://xmlns.com/foaf/0.1/name> "Dániel Kovács" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://dbpedia.org/ontology/birthDate> "1990-6-16"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Békéscsaba> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://xmlns.com/foaf/0.1/surname> "Kovács" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_July_1990)> <http://purl.org/dc/terms/description> "football player" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://xmlns.com/foaf/0.1/givenName> "Dániel" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://xmlns.com/foaf/0.1/name> "Dániel Kovács" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://dbpedia.org/ontology/birthDate> "1990-6-16"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Békéscsaba> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://xmlns.com/foaf/0.1/surname> "Kovács" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://xmlns.com/foaf/0.1/gender> "male" .
+<http://dbpedia.org/resource/Dániel_Kovács_(footballer,_born_June_1990)> <http://purl.org/dc/terms/description> "Hungarian association football player" .
