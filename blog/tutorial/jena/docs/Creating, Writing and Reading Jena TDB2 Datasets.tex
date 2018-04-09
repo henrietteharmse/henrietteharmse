@@ -1,0 +1,118 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Creating, Writing and Reading Jena TDB2 Datasets}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Creating, Writing and Reading Jena TDB2 Datasets)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+  Jena TDB2 can be used as an RDF datastore. Note that TDB (version 1 of Jena TDB) and TDB2 are not compatible with each other. 
+  TDB2 is per definition transactional (while TDB is not). In this post I give a simple example that
+  \begin{enumerate}
+   \item create a new Jena TDB2 dataset,
+   \item create a write transaction and write data to the datastore, 
+   \item create a read transaction and read the data from the datastore, and
+   \item release resources associated with the dataset on writing and reading is done.
+  \end{enumerate}
+
+
+  \section{Create TDB2 Dataset}
+  To create a Jena TDB2 dataset, we use the \texttt{TDB2Factory}. Note that the class name is \texttt{TDB}\textbf{2}\texttt{Factory} and not \texttt{TDBFactory}. We need to specify a directory where our dataset will be created. Multiple datasets cannot be written to the same directory.
+  
+  \begin{small}
+   \begin{verbatim}
+Path path = Paths.get(".").toAbsolutePath().normalize();      
+String dbDir = path.toFile().getAbsolutePath() + "/db/"; 
+Location location = Location.create(dbDir);      
+Dataset dataset = TDB2Factory.connectDataset(location);    
+   \end{verbatim}
+  \end{small}
+  
+  \section{Create WRITE Transaction and Write}
+  \begin{small}
+   \begin{verbatim}
+dataset.begin(ReadWrite.WRITE);
+UpdateRequest updateRequest = UpdateFactory.create(
+  "INSERT DATA {<http://dbpedia.org/resource/Grace_Hopper> " 
+  + "<http://xmlns.com/foaf/0.1/name> \"Grace Hopper\" .}");
+UpdateProcessor updateProcessor = 
+  UpdateExecutionFactory.create(updateRequest, dataset);
+updateProcessor.execute();
+dataset.commit();    
+   \end{verbatim}
+  \end{small}
+  
+  \section{Create READ Transaction and Read}
+  \begin{small}
+  \begin{verbatim}
+dataset.begin(ReadWrite.READ);
+QueryExecution qe = QueryExecutionFactory
+  .create("SELECT ?s ?p ?o WHERE {?s ?p ?o .}", dataset);
+for (ResultSet results = qe.execSelect(); results.hasNext();) {
+  QuerySolution qs = results.next();
+  String strValue = qs.get("?o").toString();
+  logger.trace("value = " + strValue);
+}   
+  \end{verbatim} 
+  \end{small}
+  
+  \section{Release Dataset Resources and Run Application}
+  The dataset resources can be release calling \texttt{close()} on the dataset.  
+  \begin{small}
+   \begin{verbatim}
+dataset.close();
+   \end{verbatim}
+  \end{small}
+  
+  Running the application will cause a \texttt{/db} directory to be create in the directory from where you run your application, which consists of the various files that represent your dataset. 
+  
+  \section{Conclusion}
+  In this post I have given a simple example creating a TDB2 dataset and writing to and reading from it. This code can be found on \href{}{github}
+  
+
+  
+
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}
