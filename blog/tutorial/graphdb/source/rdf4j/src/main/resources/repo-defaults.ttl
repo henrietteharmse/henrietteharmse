@@ -12,6 +12,7 @@
     rdfs:label "graphdb-repo-label" ;
     rep:repositoryImpl [
         rep:repositoryType "graphdb:FreeSailRepository" ;
+        rep:repositoryType "owlim:MonitorRepository" ;
         sr:sailImpl [
             sail:sailType "graphdb:FreeSail" ;
        
@@ -21,7 +22,6 @@
             owlim:entity-id-size  "32" ;
             owlim:imports "" ;
             owlim:repository-type "file-repository" ;
-#        	owlim:repository-type "openrdf:HTTPRepository" ;
             owlim:ruleset "owl-horst-optimized" ;
             owlim:storage-folder "storage" ;
  

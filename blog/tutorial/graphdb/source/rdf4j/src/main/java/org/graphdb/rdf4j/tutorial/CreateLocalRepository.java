@@ -5,13 +5,10 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Iterator;
 
-import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
-import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.impl.TreeModel;
-import org.eclipse.rdf4j.model.util.GraphUtil;
+import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -53,18 +50,16 @@ public class CreateLocalRepository {
 		config.close();
 
 		// Retrieve the repository node as a resource
-//		Resource repositoryNode = GraphUtil.getUniqueSubject(graph, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
-		Model model = graph.filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
-		Iterator<Statement> iterator = model.iterator(); 
-		if (!iterator.hasNext()) 
-		  throw new RuntimeException("Oops, no <http://www.openrdf.org/config/repository#> subject found!");
-		Statement statement = iterator.next();
-		Resource repositoryNode =  statement.getSubject();
+		Resource repositoryNode =  Models.subject(graph
+		    .filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY))
+		    .orElseThrow(() -> new RuntimeException(
+		        "Oops, no <http://www.openrdf.org/config/repository#> subject found!"));
 
 		
 		// Create a repository configuration object and add it to the repositoryManager
 		RepositoryConfig repositoryConfig = RepositoryConfig.create(graph, repositoryNode);
 		repositoryManager.addRepositoryConfig(repositoryConfig);
+
 
 		// Get the repository from repository manager, note the repository id set in configuration .ttl file
 		Repository repository = repositoryManager.getRepository("graphdb-repo");

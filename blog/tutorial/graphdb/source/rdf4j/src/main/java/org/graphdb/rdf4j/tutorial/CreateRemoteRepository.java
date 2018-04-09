@@ -10,6 +10,7 @@ import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.impl.TreeModel;
+import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -55,10 +56,10 @@ public class CreateRemoteRepository {
 		config.close();
 
 		// Retrieve the repository node as a resource
-		Model model = graph.filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
-		Iterator<Statement> iterator = graph.iterator();
-		Statement statement = iterator.next();
-		Resource repositoryNode =  statement.getSubject();
+    Resource repositoryNode =  Models.subject(graph
+        .filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY))
+        .orElseThrow(() -> new RuntimeException(
+            "Oops, no <http://www.openrdf.org/config/repository#> subject found!"));
 
 		
 		// Create a repository configuration object and add it to the repositoryManager		
