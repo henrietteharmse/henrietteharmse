@@ -30,7 +30,6 @@ public class BaseClassesMain {
 				OntClass ontClass = i.next();
 				logger.debug("Base class = " + ontClass);
 			}
-			
 		} catch (Throwable t) {
 			logger.error(WTF_MARKER, t.getMessage(), t);
 		}		
