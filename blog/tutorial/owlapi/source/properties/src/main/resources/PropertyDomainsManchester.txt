@@ -1,0 +1,16 @@
+    Datatype: xsd:string
+        
+    DataProperty: hasLastName
+        Domain: 
+            Person,
+            Student
+        
+        Range: 
+            xsd:string
+        
+        
+    Class: Person
+        
+    Class: Student
+
+    
