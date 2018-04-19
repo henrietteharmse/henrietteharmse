@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:c="http://review-analyzer.local/ontologies/reviews_2.owl#">
+
+<rdf:Description rdf:ID="me">
+    <c:review>Display looks amazing!</c:review>
+    <c:raitng>5</c:raitng>
+</rdf:Description>
+<rdf:Description rdf:ID="me2">
+    <c:review>Display is great!</c:review>
+    <c:raitng>5</c:raitng>
+</rdf:Description>
+</rdf:RDF>
