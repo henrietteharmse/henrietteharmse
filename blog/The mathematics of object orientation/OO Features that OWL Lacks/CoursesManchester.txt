@@ -1,0 +1,24 @@
+
+    ObjectProperty: hasSubject
+        Domain: Course
+        Range: Subject
+        
+    Class: Course
+        SubClassOf: 
+            hasSubject min 4 ElectiveSubject
+            hasSubject max 7 Subject
+        
+    Class: ElectiveSubject
+        SubClassOf: Subject    
+        DisjointWith: NonElectiveSubject
+        
+    Class: NonElectiveSubject
+        SubClassOf: Subject    
+        DisjointWith: ElectiveSubject
+        
+    Class: Subject
+        
+    Individual: AdvancedMaths
+        Types: ElectiveSubject
+    
+    

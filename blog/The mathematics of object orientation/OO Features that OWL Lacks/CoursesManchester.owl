@@ -1,0 +1,53 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764>
+
+
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#hasSubject>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Course>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Subject>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Course>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#hasSubject> min 4 <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#ElectiveSubject>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#ElectiveSubject>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Subject>
+    
+    DisjointWith: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#NonElectiveSubject>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#NonElectiveSubject>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Subject>
+    
+    DisjointWith: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#ElectiveSubject>
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#Subject>
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#AdvancedMaths>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-764#ElectiveSubject>
+    
+    

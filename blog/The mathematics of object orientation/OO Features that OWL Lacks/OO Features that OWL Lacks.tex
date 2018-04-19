@@ -1,0 +1,91 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Object Oriented Features that OWL lacks}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Object Oriented Features that OWL lacks)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  At some level OWL seem to be very similar to UML, but there are important differences that you have to keep in mind.
+  In this post I detail features you will have to do without coming from a coding or object orientation perspective when you start using OWL. These are:
+  \begin{enumerate}
+   \item classes do not have attributes,
+   \item classes do have class variables (but \textbf{not} in the way you think),
+   \item you have to live without methods,
+   \item there are no interfaces, and
+   \item neither are there any abstract classes.
+  \end{enumerate}
+
+  
+  \section{Classes do not have Attributes}
+  Programmers are used to classes that have attributes or properties. This is also refered to as instance/member variables of the class. In OWL classes do not have properties. Rather, properties can be used to model relations that exist between classes and data types. You can however state that a class is a subclass of something that has some property. I.e., 
+\begin{verbatim}
+Class: Course
+  SubClassOf: 
+    hasSubject some Subject  
+\end{verbatim}
+which states that a \texttt{Course} is a subclass of things that have some \texttt{Subject}. I explain this \href{https://henrietteharmse.com/2017/09/09/a-simple-class/}{here} and \href{https://henrietteharmse.com/2017/09/10/add-some-more-attributes/}{here}.
+  
+  \section{Classes do have Class Variables (but \textbf{not} in the way you think)}
+  In programming class variables are values that describe the class rather than instances of the class. In OWL this is achieved trough \texttt{annotations}. There exist pre-defined annotation properties and you can define your own annotation properties. Interestingly annotation properties can be specified for any class, individual or axiom, as well as the ontology itself. Annotations are purely used to specify additional information and no reasoning is done over them.
+  
+  
+  \section{There are no Methods nor Interfaces}
+  This may seem like silly a comment, but is worth making it explicit: ``OWL does not have methods''. Why not? Well, OWL is not a programming language nor a modelling language for designing software. It is a conceptual modelling language. Can you model methods in OWL? Yes, I have done it \href{https://henrietteharmse.files.wordpress.com/2017/09/scenariotestingusingowl_v0-1-7-final.pdf}{here} to find software modelling heuristic violations, but it is not trivial. However, even if you can define the conceptual notion of a method, there is no way to execute methods in OWL. Again, because it is not a programming language.
+  
+  What about interfaces? Well, since there are no methods in OWL, there are no interfaces either. In programming the idea is that an interface defines the signature of an interaction, usually in terms of method signatures, without specifying how the methods are actually implemented. This allows for the same interface to have different implementations. 
+  
+  \section{Neither are there Abstract Classes}
+  Abstract classes in programming are used to enable programmers to only implement a subset of the interfaces specified, thereby forcing subclasses to do the implementation. However, again since interfaces do not exist, and there are no methods, it does not make sense for OWL to support abstract classes.
+  
+  What about the case where in programming an abstract class is defined that only consist of member/instance variables? In programming this has the effect that no instances of this class can be created directly. The only way an instance can be created is by creating an instance of a subclass of the abstract class. Importantly these instances created of the subclass are still instances of the abstract class. 
+  
+  In OWL there is \textbf{no} way to force that individuals cannot be created of a class, but only for its subclasses. The closest to not being able to create individuals for a class is the class `owl:Nothing`, but that really means the class has zero individuals, which is not what is meant by an abstract class in programming. 
+  
+  \section{Conclusion}  
+  In this post I detailed some object oriented features programmer may feel OWL lacks. However, OWL is a conceptual modelling language with reasoning capability. Thinking about that causes one to realize it makes as little sense to say OWL lacks some object oriented feature as saying that Java or C\# lacks reasoning capability. 
+  
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+  
+ 
+\end{document}

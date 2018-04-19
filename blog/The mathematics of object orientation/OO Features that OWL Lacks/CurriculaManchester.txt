@@ -1,0 +1,23 @@
+
+    ObjectProperty: hasCourse
+        Domain: Curricula
+        Range: Course
+        
+    Class: Curricula
+        SubClassOf: 
+            hasCourse min 4 ElectiveCourse
+        
+    Class: ElectiveCourse
+        SubClassOf: Course    
+        DisjointWith: NonElectiveCourse
+        
+    Class: NonElectiveCourse
+        SubClassOf: Course    
+        DisjointWith: ElectiveCourse
+        
+    Class: Course
+        
+    Individual: AdvancedMaths
+        Types: ElectiveCourse
+    
+    
