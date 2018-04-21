@@ -1,0 +1,8 @@
+@prefix : <http://org.jena.rules.tutorial#> .
+ 
+:Peet :takesCourse :ComputerScience .
+:Ruth :teachesCourse :ComputerScience .
+
+:Peet :hasTestResult 77 .
+:Peet :hasExamResult 86 .
+:Peet :hasProjectResult 91 .

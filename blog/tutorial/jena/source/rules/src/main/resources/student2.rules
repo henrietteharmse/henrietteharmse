@@ -1,0 +1,10 @@
+@prefix : <http://org.jena.rules.tutorial#> .
+ 
+[hasStudentRule: (?student :takesCourse ?course) (?lecturer :teachesCourse ?course) -> (?lecturer :hasStudent ?student)] 
+
+[calcStudentFinalMarkRule: 
+  (?student :hasTestResult ?testResult) 
+  (?student :hasExamResult ?examResult) 
+  (?student :hasProjectResult ?projectResult) 
+  calcFinalMark(?testResult, ?examResult, ?projectResult, ?finalMark)
+    -> (?student :hasFinalMark ?finalMark)]

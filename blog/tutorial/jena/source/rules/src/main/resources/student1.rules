@@ -1,0 +1,5 @@
+@prefix : <http://org.jena.rules.tutorial#> .
+ 
+[hasStudentRule: (?student :takesCourse ?course) (?lecturer :teachesCourse ?course) -> (?lecturer :hasStudent ?student)] 
+[pensionerRule: (?person :hasAge ?age) greaterThan(?age, 60) -> (?person a :Pensioner)]
+

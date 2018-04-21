@@ -1,0 +1,149 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Creating Custom Rules for Jena}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Creating Custom Rules for Jena)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  In this post I will show you
+  \begin{enumerate}
+   \item how to add your own custom rules to Jena,
+   \item how to use rule primitives, and
+   \item I will mention some things you may want to keep in mind when using rules. 
+  \end{enumerate}
+
+  \section{Add and Active Rules}
+  We assume we start with the following simple triples
+
+\begin{small}
+\begin{verbatim}
+@PREFIX : <http://org.jena.rules.tutorial#> .
+ 
+:Peet :takesCourse :ComputerScience .
+:Ruth :teachesCourse :ComputerScience . 
+\end{verbatim}
+\end{small}
+
+  for which we add the following rule to a \texttt{student.rules} file:
+
+\begin{small}
+\begin{verbatim}
+@PREFIX : <http://org.jena.rules.tutorial#> .
+
+[hasStudentRule: 
+  (?student :takesCourse ?course) (?lecturer :teachesCourse ?course) 
+    -> (?lecturer :hasStudent ?student)]  
+\end{verbatim}
+\end{small}
+
+The \texttt{hasStudentRule} says that if a student takes a course and that course is presented by some lecturer, then the student is a student of that lecturer. The
+\texttt{(?student :takesCourse ?course) (?lecturer :teachesCourse ?course)}
+part of the rule is referred to as the \textbf{premise} or \textbf{body} of the rule and the
+\texttt{(?lecturer :hasStudent ?student)} part as the \textbf{conclusion} or \textbf{head} of the rule.
+
+To activate the rules in Jena we have to create a model that is capable of doing inferences. In the context of Jena inferencing means that it will re-evaluate the rules against the data, which will cause additional statements to be potentially added to the model. This can be achieved by calling methods that will cause Jena to re-evaluate the model, i.e. calls like \texttt{InfModel.rebind()} and \texttt{InfModel.validate()}.
+
+\begin{small}
+\begin{verbatim}
+Path path = Paths.get(".").toAbsolutePath().normalize();
+
+// Load RDF data
+String data = path.toFile().getAbsolutePath() + 
+  "/src/main/resources/data.ttl";
+Model model = ModelFactory.createDefaultModel();
+model.read(data);
+    
+// Load rules
+String rules = path.toFile().getAbsolutePath() + 
+  "/src/main/resources/student.rules";
+Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL(rules));
+
+InfModel infModel = ModelFactory.createInfModel(reasoner, model);   
+infModel.rebind();    
+\end{verbatim}
+\end{small}
+When the \texttt{hasStudentRule} is activated a new statement will be added to the Jena model:
+\begin{small}
+\begin{verbatim}
+:Ruth :hasStudent :Peet .
+\end{verbatim}
+\end{small}
+
+\section{Using Rule Primitives}
+Jena supports a number of builtin rule primitives that are intuitive to understand, i.e. 
+\begin{small}
+\begin{verbatim}
+[pensionerRule: 
+  (?person :hasAge ?age) greaterThan(?age, 60) 
+    -> (?person a :Pensioner)]
+\end{verbatim}
+\end{small}
+which states that when \texttt{?person} has an age greater than 60, \texttt{?person} is considered to be a pensioner. Assuming we have the data 
+
+\begin{small}
+\begin{verbatim}
+:Peet :hasAge 90 .
+\end{verbatim}
+\end{small}
+
+the following triple will be added to the Jena model:
+\begin{small}
+\begin{verbatim}
+:Peet a :Pensioner .
+\end{verbatim}
+\end{small}
+
+\section{Things to Keep in Mind}
+There are two main things I think one needs to keep in mind with Jena rules:
+\begin{enumerate}
+ \item The purpose of rules are to manipulate the triples in the Jena model. For the most part it adds triples to the model, but it can also remove triples from the model if primitives like \texttt{remove} and \texttt{drop} are used. 
+ \item Adding and removing of triples can be achieved through SPARQL queries which can perform better or worse than rules. It is therefore best to check both approaches for your given use case.
+\end{enumerate}
+
+\section{Conclusion}
+In this post I gave a brief introduction in how to use custom rules and builtin rule primitives in Jena.
+This code is available at \href{http:}{github}.
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

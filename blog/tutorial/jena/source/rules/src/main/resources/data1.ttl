@@ -1,0 +1,7 @@
+@prefix : <http://org.jena.rules.tutorial#> .
+ 
+:Peet :takesCourse :ComputerScience .
+:Ruth :teachesCourse :ComputerScience .
+
+:Peet :hasAge 90 .
+

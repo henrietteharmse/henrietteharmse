@@ -1,0 +1,212 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Creating Custom Rule Primitives for Jena}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Creating Custom Rule Primitives for Jena)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  In this post I will show you
+  \begin{enumerate}
+   \item how to add your own custom rule primitive, 
+   \item how to inform Jena of your custom rule primitive, and 
+   \item I will discuss things you have to keep in mind when writing a custom primitive. 
+  \end{enumerate}
+
+\section{Adding a Custom Rule Primitive}
+A powerful feature of Jena is that it allows you to create your own custom builtin rule primitives. Building on our student example of the previous post, assume we want to calculate the final mark for a student given their test result, exam result and project result. We assume we have the following data
+
+\begin{small}
+\begin{verbatim}
+:Peet :hasTestResult 77 .
+:Peet :hasExamResult 86 .
+:Peet :hasProjectResult 91 .
+\end{verbatim}
+\end{small}
+
+for which we add the following rule 
+
+\begin{small}
+\begin{verbatim}
+[calcStudentFinalMarkRule: 
+  (?student :hasTestResult ?testResult) 
+  (?student :hasExamResult ?examResult) 
+  (?student :hasProjectResult ?projectResult) 
+  calcFinalMark(?testResult, ?examResult, ?projectResult, ?finalMark)
+    -> (?student :hasFinalMark ?finalMark)]
+\end{verbatim}
+\end{small}
+
+This states that when \texttt{?student} has a \texttt{?testResult}, \texttt{?examResult} and \texttt{?projectResult}, a \texttt{?finalMark} can be calculated for which we add an associated triple for \texttt{?student}. What is left for us is to implement our \texttt{calcFinalMark} primitive, which we do by creating a class \texttt{CalcFinalMark} that extends the \texttt{BaseBuiltin} abstract class. To name our custom primitive we override \texttt{getName()}:
+\begin{small}
+\begin{verbatim}
+@Override
+public String getName() {
+  return "calcFinalMark";
+}
+\end{verbatim}
+\end{small}
+
+
+We state that our custom primitive has 4 parameters by overriding:
+\begin{small}
+\begin{verbatim}
+@Override
+public int getArgLength() {
+  return 4;
+}
+\end{verbatim}
+\end{small}
+
+To ensure that \texttt{calcFinalMark} can be used both in the body and the head of rules we override
+\begin{small}
+\begin{verbatim} 
+@Override
+public boolean bodyCall(Node[] args, int length, RuleContext context) {
+  return doUserRequiredAction(args, length, context);
+}
+  
+@Override
+public void headAction(Node[] args, int length, RuleContext context) {
+  doUserRequiredAction(args, length, context);
+}    
+\end{verbatim}
+\end{small}
+
+The meat of the implementation is the \texttt{doUserRequiredAction(args, length, context)} method, which consists of the following steps:
+\begin{enumerate}
+ \item check that we have the correct number of parameters.
+ \item retrieve the input parameters,
+ \item verify the typing of input parameters,
+ \item doing the actual calculation,
+ \item creating a node for the output parameter, and
+ \item binding the node to the output parameter.
+\end{enumerate}
+
+
+\begin{small}
+\begin{verbatim} 
+private boolean doUserRequiredAction(Node[] args, int length, 
+  RuleContext context) {
+  
+  // Check we received the correct number of parameters
+  checkArgs(length, context);
+
+  boolean success = false;
+  
+  // Retrieve the input arguments
+  Node studentTestResult = getArg(0, args, context);
+  Node studentExamResult = getArg(1, args, context);
+  Node studentProjectResult = getArg(2, args, context);
+
+  // Verify the typing of the parameters
+  if (studentTestResult.isLiteral() && studentExamResult.isLiteral() && 
+    studentProjectResult.isLiteral()) {
+    Node finalMark = null;
+    if (studentTestResult.getLiteralValue() instanceof Number && 
+      studentExamResult.getLiteralValue() instanceof Number &&
+      studentProjectResult.getIndexingValue() instanceof Number) {
+    
+      Number nvStudentTestResult = 
+        (Number)studentTestResult.getLiteralValue();
+      Number nvStudentExamResult = 
+        (Number)studentExamResult.getLiteralValue();
+      Number nvStudentProjectResult = 
+        (Number)studentProjectResult.getLiteralValue();
+    
+      // Doing the calculation
+      int nFinalMark = (nvStudentTestResult.intValue() * 20)/100 + 
+        (nvStudentExamResult.intValue() * 50)/100 +
+        (nvStudentProjectResult.intValue() * 30)/100;
+      
+      // Creating a node for the output parameter
+      finalMark = Util.makeIntNode(nFinalMark);  
+      
+      // Binding the output parameter to the node
+      BindingEnvironment env = context.getEnv();    
+      success = env.bind(args[3], finalMark);
+    } 
+  }   
+  return success;
+}
+\end{verbatim}
+\end{small}
+
+
+\section{Registering a Custom Primitive with Jena}
+Our code for load our rules and activating it is similar to my previous post, except that you have to make a call to register the custom primitive:
+\begin{small}
+\begin{verbatim} 
+// Load RDF data
+String data = path.toFile().getAbsolutePath() + 
+  "/src/main/resources/data2.ttl";
+Model model = ModelFactory.createDefaultModel();
+model.read(data);
+      
+// Register custom primitive
+BuiltinRegistry.theRegistry.register(new CalcFinalMark());
+      
+// Load rules
+String rules = path.toFile().getAbsolutePath() + 
+  "/src/main/resources/student2.rules";
+Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL(rules));
+     
+InfModel infModel = ModelFactory.createInfModel(reasoner, model);  
+infModel.rebind();   
+\end{verbatim}
+\end{small}
+
+
+\section{Things to Keep in Mind}
+There are two main things I think one needs to keep in mind with Jena custom rule primitives:
+\begin{enumerate}
+ \item A primitive is suppose to be a elementary building block. Being able to create your own primitives may tempt you to add all sorts of interesting processing besides the manipulation of triples, but I strongly advice against that. Arbitrary processing in your builtin primitive can degrade performance of inferencing.
+ \item Do not assume that you have control over when a rule will be triggered. Exactly when a rule will be triggered is dependent on when the Jena \texttt{InfModel} implementation decides to re-evaluate the rules, which is dependent on internal caching of the \texttt{InfModel} implementation and how it deals with modifications made to the model. Even though I believe \texttt{InfModel} implementers will avoid arbitrarily re-evaluating rules, I still think it is conceivable that under some circumstance the same rule may be triggered more than once for the same data. Furthermore, the Jena documentation of 3.6.0 states that the \texttt{InfModel} interface is still in flux, which could mean that even if rule is only triggered once for given data currently, due to unforeseen changes it may be triggered more than once at a later stage.
+\end{enumerate}
+
+\section{Conclusion}
+In this post I gave an example of how you can develop a custom rule primitive for Jena. The code for this example can be found at \href{http://}{github}.
+
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}
