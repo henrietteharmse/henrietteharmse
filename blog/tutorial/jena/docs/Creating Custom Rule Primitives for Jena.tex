@@ -114,7 +114,7 @@ public void headAction(Node[] args, int length, RuleContext context) {
 
 The meat of the implementation is the \texttt{doUserRequiredAction(args, length, context)} method, which consists of the following steps:
 \begin{enumerate}
- \item check that we have the correct number of parameters.
+ \item check that we have the correct number of parameters,
  \item retrieve the input parameters,
  \item verify the typing of input parameters,
  \item doing the actual calculation,
@@ -200,11 +200,11 @@ infModel.rebind();
 There are two main things I think one needs to keep in mind with Jena custom rule primitives:
 \begin{enumerate}
  \item A primitive is suppose to be a elementary building block. Being able to create your own primitives may tempt you to add all sorts of interesting processing besides the manipulation of triples, but I strongly advice against that. Arbitrary processing in your builtin primitive can degrade performance of inferencing.
- \item Do not assume that you have control over when a rule will be triggered. Exactly when a rule will be triggered is dependent on when the Jena \texttt{InfModel} implementation decides to re-evaluate the rules, which is dependent on internal caching of the \texttt{InfModel} implementation and how it deals with modifications made to the model. Even though I believe \texttt{InfModel} implementers will avoid arbitrarily re-evaluating rules, I still think it is conceivable that under some circumstance the same rule may be triggered more than once for the same data. Furthermore, the Jena documentation of 3.6.0 states that the \texttt{InfModel} interface is still in flux, which could mean that even if rule is only triggered once for given data currently, due to unforeseen changes it may be triggered more than once at a later stage.
+ \item Do not assume that you have control over when a rule will be triggered. Exactly when a rule will be triggered is dependent on when the Jena \texttt{InfModel} implementation decides to re-evaluate the rules, which is dependent on internal caching of the \texttt{InfModel} implementation and how it deals with modifications made to the model. Even though I believe \texttt{InfModel} implementations will avoid arbitrarily re-evaluating rules, I still think it is conceivable that under some circumstance the same rule may be triggered more than once for the same data. Furthermore, the Jena documentation of 3.6.0 states that the \texttt{InfModel} interface is still in flux, which could mean that even if a rule is only triggered once for given data currently, due to unforeseen changes it may be triggered more than once in future updates of Jena.
 \end{enumerate}
 
 \section{Conclusion}
-In this post I gave an example of how you can develop a custom rule primitive for Jena. The code for this example can be found at \href{http://}{github}.
+In this post I gave an example of how you can develop a custom rule primitive for Jena. The code for this example can be found at \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/jena/source/rules/}{github}.
 
   \bibliographystyle{amsplain}
   \bibliography{../../../BibliographicDetails_v.0.1}

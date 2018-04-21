@@ -61,10 +61,10 @@ public class CalcFinalMark extends BaseBuiltin {
             (nvStudentExamResult.intValue() * 50)/100 +
             (nvStudentProjectResult.intValue() * 30)/100;
            
-        // Creating our output parameter
+        // Creating a node for the output parameter
         finalMark = Util.makeIntNode(nFinalMark);
         
-        // Binding our parameter
+        // Binding the output parameter to the node
         BindingEnvironment env = context.getEnv();
         success = env.bind(args[3], finalMark);
       } 
