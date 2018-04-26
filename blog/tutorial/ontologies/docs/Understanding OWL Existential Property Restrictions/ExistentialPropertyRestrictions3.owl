@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://henrietteharmse.com/tutorials/UniversalRestrictionPains#"
+     xml:base="http://henrietteharmse.com/tutorials/UniversalRestrictionPains"
+     xmlns:PropertyRestrictions="http://henrietteharmse.com/tutorials/PropertyRestrictions#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:UniversalRestrictionPains="http://henrietteharmse.com/tutorials/UniversalRestrictionPains#"
+     xmlns:UniversalRestrictionGotchas="http://henrietteharmse.com/tutorials/UniversalRestrictionGotchas#"
+     xmlns:ExistentialPropertyRestrictions2="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions2#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ExistentialPropertyRestrictions3="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ExistentialPropertyRestrictions="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions#">
+    <owl:Ontology rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#owns -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#owns"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#AnimalLover -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#AnimalLover">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#owns"/>
+                <owl:someValuesFrom rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Cat -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Cat">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Dog -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Dog">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Person -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Person">
+        <owl:disjointWith rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Pet">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Cat"/>
+            <rdf:Description rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Dog"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#aCat -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#aCat">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#Cat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#aPetOwner -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#aPetOwner">
+        <ExistentialPropertyRestrictions3:owns rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#aCat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#anAnimalLoverWithoutAPet -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#anAnimalLoverWithoutAPet">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/ExistentialPropertyRestrictions3#AnimalLover"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

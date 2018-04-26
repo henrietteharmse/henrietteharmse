@@ -1,0 +1,21 @@
+
+ObjectProperty: hasPet
+    
+    
+Class: Cat
+  SubClassOf: Pet
+    
+Class: Dog
+    SubClassOf: Pet
+    
+    
+Class: Person
+    SubClassOf: hasPet some Pet
+    DisjointWith: Pet
+    
+    
+Class: Pet
+    DisjointUnionOf: Cat, Dog
+    DisjointWith: Person
+    
+    
