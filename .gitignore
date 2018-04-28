@@ -43,3 +43,4 @@ catalog-*.xml
 
 # explicit files to exclude
 Ideas.txt
+Thumbs.db*

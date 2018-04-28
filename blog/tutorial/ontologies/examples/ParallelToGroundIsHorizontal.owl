@@ -56,7 +56,14 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isParallel">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Object"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Surface"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isPerpendicular"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isPerpendicular -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isPerpendicular"/>
     
 
 
@@ -208,7 +215,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="pen">
+    <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/pen">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
@@ -223,7 +230,7 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Pen"/>
-                        <swrl:argument1 rdf:resource="pen"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/pen"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -233,7 +240,7 @@
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#isParallel"/>
-                                <swrl:argument1 rdf:resource="pen"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/pen"/>
                                 <swrl:argument2 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Ground"/>
                             </rdf:Description>
                         </rdf:first>
@@ -249,7 +256,7 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#hasOrientation"/>
-                        <swrl:argument1 rdf:resource="pen"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/pen"/>
                         <swrl:argument2 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-753#Horizontal"/>
                     </rdf:Description>
                 </rdf:first>

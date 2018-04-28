@@ -62,14 +62,13 @@ Class: Person
         
 Class: Pet
   DisjointUnionOf: Cat, Dog
-  DisjointWith: Person
-      
+  DisjointWith: Person    
 \end{verbatim}
 \end{small}  
 
-I have specified this ontology using the \href{http://www.w3.org/TR/owl2-manchester-syntax/}{OWL 2 Manchester syntax}. Other syntaxes can be used as well, notably the functional-style syntax, which is used to define the \href{https://www.w3.org/TR/owl2-direct-semantics/}{direct semantics of OWL 2}. In this post I use the Manchester syntax because it tends to be more intuitive to non-logicians, but it has some weaknesses which I will point when we get to it. Also for clarity and compactness I have ommitted the prefixes.
+I have specified this ontology using the \href{http://www.w3.org/TR/owl2-manchester-syntax/}{OWL 2 Manchester syntax}. Other syntax can be used as well, notably the functional-style syntax, which is used to define the \href{https://www.w3.org/TR/owl2-direct-semantics/}{direct semantics of OWL 2}. In this post I use the Manchester syntax because it tends to be more intuitive to non-logicians, but it has some weaknesses which I will point out when we get to it. Also for clarity and compactness I have omitted the prefixes.
 
-This ontology states that in our domain we have persons (\texttt{Class: Person}) and pets (\texttt{Class: Pet}). Persons cannot be pets, and pets cannot be persons (\texttt{Class: Pet DisjointWith: Person}). Cats (\texttt{Class: Cat SubclassOf: Pet}) and dogs (\texttt{Class: Dog SubclassOf: Pet}) are pets. We further assume that cats and dogs are the only pets in our domain, and a cat is not a dog and vice versa (\texttt{Class: Pet  DisjointUnionOf: Cat, Dog}). I have also defined a \texttt{owns} object property, which will be the basis of our discussions on existential property restrictions. You can run the reasoner to confirm for yourself that this ontology is indeed consistent, that is, it contains no logical constradictions.
+This ontology states that in our domain we have persons (\texttt{Class: Person}) and pets (\texttt{Class: Pet}). Persons cannot be pets, and pets cannot be persons (\texttt{Class: Pet DisjointWith: Person}). Cats (\texttt{Class: Cat SubClassOf: Pet}) and dogs (\texttt{Class: Dog SubClassOf: Pet}) are pets. We further assume that cats and dogs are the only pets in our domain, and a cat is not a dog and vice versa (\texttt{Class: Pet  DisjointUnionOf: Cat, Dog}). I have also defined an \texttt{owns} object property, which will be the basis of our discussions on existential property restrictions. You can run the reasoner to confirm for yourself that this ontology is indeed consistent, that is, it contains no logical contradictions.
   
   In this post I will explain through visual representations what is the meaning of
   \begin{enumerate}
@@ -89,10 +88,10 @@ This ontology states that in our domain we have persons (\texttt{Class: Person})
       \caption{\texttt{owns some owl:Thing}}\label{fig_ownsSomeThing}
     \end{figure}  
     
-  In Figure~\ref{fig_ownsSomeThing} I have illustrated an example domain consisting of some individuals (the small circles) and some \texttt{owns} properties (the arrows) that exist between indivuals. At this stage I have not indicated the \texttt{Person} or \texttt{Pet} classes as yet. The meaning of \texttt{owns some owl:Thing} is that it represents the set of those individuals that we know owns something. In our example it consists of the individuals represented by the green circles (i.e. 5 individuals). Note that due to the \texttt{open world assumption}, we cannot assume that individuals that do not form part of the \texttt{owns} property, necessarily do not own anything. Rather, OWL reasoners assume that it is not know whether these individuals own something or do not own something. Because \texttt{owns some owl:Thing} represents a set OWL reasoners and ontology editors some times refer to an expression like \texttt{owns some owl:Thing} as an \texttt{anonymous class}. I.e. it is a class just like \texttt{Person}, but unlike \texttt{Person} it does not have name.
+  In Figure~\ref{fig_ownsSomeThing} I have illustrated an example domain consisting of some individuals (the small circles) and some \texttt{owns} properties (the arrows) that exist between individuals. At this stage I have not indicated the \texttt{Person} or \texttt{Pet} classes as yet. The meaning of \texttt{owns some owl:Thing} is that it represents the set of those individuals that we know owns something. In our example it consists of the individuals represented by the green circles (i.e. 5 individuals). Note that due to the \texttt{open world assumption}, we cannot assume that individuals that do not form part of the \texttt{owns} property, necessarily do not own anything. Rather, OWL reasoners assume that it is not know whether these individuals own something or do not own something. Because \texttt{owns some owl:Thing} represents a set OWL reasoners and ontology editors some times refer to an expression like \texttt{owns some owl:Thing} as an \texttt{anonymous class}. I.e. it is a class just like \texttt{Person}, but unlike \texttt{Person} it does not have name.
   
   
-  To refer specifically to owners of pets we have to define our existential restriction as \texttt{owns some Pet}. This is illustrated in Figure~\ref{fig_ownsSomePet}. As you can see \texttt{owns some Pet} is a subset (subclass) of \texttt{owns some owl:Thing}. 
+  To refer specifically to owners of pets we have to define our existential property restriction as \texttt{owns some Pet}. This is illustrated in Figure~\ref{fig_ownsSomePet}. As you can see \texttt{owns some Pet} is a subset (subclass) of \texttt{owns some owl:Thing}. 
   
     \begin{figure}
     %trim option's parameter order: left bottom right top
@@ -107,10 +106,10 @@ This ontology states that in our domain we have persons (\texttt{Class: Person})
 Class: AnimalLover
   SubClassOf: 
     Person,
-    owns some owl:Thing
+    owns some Pet
 \end{verbatim}
 \end{small}  
-To test our ontology we create an individual without pet.
+To test our ontology we create an individual without a pet.
 \begin{small}
 \begin{verbatim} 
 Individual: anAnimalLoverWithoutAPet
@@ -126,13 +125,13 @@ Individual: anAnimalLoverWithoutAPet
     owns max 0 Pet
 \end{verbatim}
 \end{small} 
-which states that \texttt{anAnimalLoverWithoutAPet} has a maximum of zero pets. If we now run the reasoner it will give an inconsistency. When your ontology gives an inconsistency when you expects it, it is good idea to check whether it gives an inconsistency for the correct reasons. This will help you to confirm whether you designed your ontology correctly for your desired outcomes. In this case the explanation for the inconsistency are given in Figure~\ref{ExplanationAnimalLoverWithoutAPet}:
+which states that \texttt{anAnimalLoverWithoutAPet} has a maximum of zero pets. If we now run the reasoner it will give an inconsistency. When your ontology gives an inconsistency (even when you expect it), it is good idea to check whether it gives an inconsistency for the correct reasons. This will help you to confirm whether you designed your ontology correctly for your desired outcomes. In this case the explanation for the inconsistency is given in Figure~\ref{fig_ExplanationAnimalLoverWithoutAPet}:
     \begin{figure}
     %trim option's parameter order: left bottom right top
       \centering \includegraphics[trim = 0mm 0mm 0mm 0mm, clip, scale=0.6]{./ExplanationAnimalLoverWithoutAPet.png}
       \caption{Explanation for an animal lover not owning a pet}\label{fig_ExplanationAnimalLoverWithoutAPet}
     \end{figure} 
-It states that the inconsistency is due to the following reasons: (1) \texttt{anAnimalLoverWithoutAPet} ia an animal lover (\texttt{anAnimalLoverWithoutAPet Types AnimalLover}), (2) who does not own a pet \texttt{ anAnimalLoverWithoutAPet Types owns max 0 owl:Thing}, (3) but the expectation is that an animal lover should own a pet (\texttt{AnimalLover SubClassOf owns some Pet}).
+It states that the inconsistency is due to the following reasons: (1) \texttt{anAnimalLoverWithoutAPet} is an animal lover (\texttt{anAnimalLoverWithoutAPet Types AnimalLover}), (2) who does not own a pet \texttt{ anAnimalLoverWithoutAPet Types owns max 0 owl:Thing}, (3) but the expectation is that an animal lover should own a pet (\texttt{AnimalLover SubClassOf owns some Pet}).
 
 Explanations are minimal. That means that if you remove any 1 of the reasons given in an explanation, it is no longer an explanation for the inconsistency (or an entailment). Hence, 
 \begin{small}
@@ -141,13 +140,8 @@ anAnimalLoverWithoutAPet Type AnimalLover
 AnimalLover owns some Pet
 \end{verbatim}
 \end{small} 
-is \textbf{not} an explanation for the inconsistency. This gives us a hint on how to remove an inconsistency from an ontology. If we can change our ontology such that any of the reasons given in an explanation for an inconsistency no longer holds, our ontology will be consistent. In this case we remove the \texttt{owns max 0 Pet} type from \texttt{anAnimalLoverWithoutAPet}:
-\begin{small}
-\begin{verbatim} 
-Individual: anAnimalLoverWithoutAPet
-  Types: AnimalLover
-\end{verbatim}
-\end{small} 
+is \textbf{not} an explanation for the inconsistency. This gives us a hint on how to remove an inconsistency from an ontology. If we can change our ontology such that any of the reasons given in an explanation for an inconsistency no longer holds, our ontology will be consistent. In this case we can (again) remove the \texttt{owns max 0 Pet} type from \texttt{anAnimalLoverWithoutAPet}.
+
 
 
 An incorrect assumption we may make based on the design of our ontology is that when ever an individual has a pet, the reasoner will infer that the individual is an \texttt{AnimalLover}. However, as I said, this assumption is incorrect. Thus, changing our ontology as follows
@@ -185,7 +179,7 @@ Class: AnimalLover
   SubClassOf: Person
 \end{verbatim}
 \end{small}   
-Note that if you now save your ontology in Manchester syntax, you will loose the \texttt{owns some owl:Thing SubClassOf: AnimalLover} general class axiom. Rather save it in say RDF/XML or OWL/XML syntax. We also add the following individuals:
+Note that if you now save your ontology in Manchester syntax, you will loose the \texttt{owns some Pet SubClassOf: AnimalLover} general class axiom. Rather save it in say RDF/XML or OWL/XML syntax. We also add the following individuals:
 \begin{small}
 \begin{verbatim} 
 Individual: aCat
@@ -197,15 +191,7 @@ Individual: aPetOwner
 \end{small}  
 Ensure that you have specified no type information for \texttt{aCat} and \texttt{aPetOwner}. If you run the reasoner it will not infer that \texttt{aCat} is of type \texttt{Cat}. This is because \texttt{aCat} is not of type \texttt{Cat}. If you state that \texttt{aCat} is of type \texttt{Cat}, it will infer that \texttt{aPetOwner} is an \texttt{AnimalLover}.
 
-One reason why this design may not be ideal is that if we again consider the case where an individual of type \texttt{AnimalLover} wdoes not have a pet, it will not give an inconsistency. 
-\begin{small}
-\begin{verbatim} 
-Individual: anAnimalLoverWithoutAPet
-  Types: 
-    AnimalLover, 
-    owns max 0 Pet
-\end{verbatim}
-\end{small} 
+One reason why this design may not be ideal is that if we again consider the case where an individual \texttt{anAnimalLoverWithoutAPet} of type \texttt{AnimalLover} does not have a pet (as defined in the previous section), it will not give an inconsistency. 
 To understand the reason why the reasoner cannot make this inference, see Figure~\ref{fig_OwnsSomePetSubclassAnimalLover}.
     \begin{figure}
     %trim option's parameter order: left bottom right top
@@ -223,7 +209,7 @@ Class: AnimalLover
   EquivalentTo: owns some Pet
 \end{verbatim}
 \end{small}  
-With this definition in place, an individual who owns a pet will be inferred to be of type \texttt{AnimalLover}. If an individual is of type \texttt{AnimalLover}, but is known to have no pets, it will cause an inconsistency. The reason way this definition is not suffering of the problems we encountered with our previous approaches is because the \texttt{AnimalLover} is now equivalent to the  \texttt{owns some Pet} class.
+With this definition in place, an individual who owns a pet will be inferred to be of type \texttt{AnimalLover}. If an individual is of type \texttt{AnimalLover}, but it is known to have no pets, it will cause an inconsistency. The reason way this definition is not suffering of the problems we encountered with our previous approaches is because the \texttt{AnimalLover} class is now equivalent to the  \texttt{owns some Pet} class.
 
 Does this mean it is better to define classes in terms of equivalence rather than subclasses? No. In this instance it turned out to be the case only because we made the assumption that \texttt{AnimalLover}s are equivalent to someone owning a pet. Clearly in reality there may be people owning pets but who do not like pets. Hence, given other assumptions a different ontology may have been a better choice.
 
@@ -236,9 +222,9 @@ ObjectProperty: owns
   Range: Pet
 \end{verbatim}
 \end{small}  
-However, domain and range restrictions are really just syntactical sugar what can be expressed in terms of existential restrictions (or universal restrictions).  
+However, domain and range restrictions are really just syntactical sugar that can be expressed in terms of existential property restrictions (or universal property restrictions).  
  
-\href{http://}{github}	
+The example ontologies of this post can be found in \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/ontologies/docs/Understanding\%20OWL\%20Existential\%20Property\%20Restrictions}{github}.
 
   \bibliographystyle{amsplain}
   \bibliography{../../../BibliographicDetails_v.0.1}

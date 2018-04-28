@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774"
+     xmlns:untitled-ontology-774="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#hasMean -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#hasMean">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#GPS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#GPS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#GPS">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#hasMean"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#jamming"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#spoofing"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#GPS"/>
+        <hasMean rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#jamming"/>
+        <hasMean rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#spoofing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#GPS"/>
+        <hasMean rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#speed_change"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#jamming -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#jamming">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#speed_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#speed_change">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#spoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#spoofing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#Mean"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#gps2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#jamming"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#speed_change"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/3/untitled-ontology-774#spoofing"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
