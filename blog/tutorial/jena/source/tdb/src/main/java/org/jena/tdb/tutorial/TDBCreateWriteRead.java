@@ -1,4 +1,4 @@
-package org.jena.tdb.tutorial;
+  package org.jena.tdb.tutorial;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://henrietteharmse.com/tutorial#"
+     xml:base="http://henrietteharmse.com/tutorial"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:tutorial="http://henrietteharmse.com/tutorial#">
+    <owl:Ontology rdf:about="http://henrietteharmse.com/tutorial"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#hasDisease -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorial#hasDisease">
+        <rdfs:domain rdf:resource="http://henrietteharmse.com/tutorial#Patient"/>
+        <rdfs:range rdf:resource="http://henrietteharmse.com/tutorial#Disease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#hasGender -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorial#hasGender">
+        <rdfs:domain rdf:resource="http://henrietteharmse.com/tutorial#Human"/>
+        <rdfs:range rdf:resource="http://henrietteharmse.com/tutorial#Gender"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Cancer -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Cancer">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Disease -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Disease"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Doctor -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Doctor">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Female -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Female">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Gender"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Gender -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Gender"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Human -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Human"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Male -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Male">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Gender"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#Patient -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#Patient">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#ProstateCancer -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorial#ProstateCancer">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Cancer"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#aProstateCancer -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorial#aProstateCancer">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorial#ProstateCancer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorial#anIndividualWithProstateCancer -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorial#anIndividualWithProstateCancer">
+        <hasDisease rdf:resource="http://henrietteharmse.com/tutorial#aProstateCancer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorial#hasDisease"/>
+        <owl:someValuesFrom rdf:resource="http://henrietteharmse.com/tutorial#ProstateCancer"/>
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorial#Male"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

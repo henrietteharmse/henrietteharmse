@@ -13,6 +13,7 @@ import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.slf4j.Logger;
@@ -20,8 +21,8 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
-public class OWLProperties {
-	private static Logger logger = LoggerFactory.getLogger(OWLProperties.class);
+public class ObjectPropertyDomains {
+	private static Logger logger = LoggerFactory.getLogger(ObjectPropertyDomains.class);
 	// Why This Failure marker
 	private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
 	
@@ -47,7 +48,10 @@ public class OWLProperties {
   	  
   	  for (OWLClassExpression owlClass : domainClasses) {
         logger.trace("Domain class = " + owlClass);
-      }  	  
+      } 
+  	  
+//  	  IRI relatedClassPropertyIRI = IRI.create(ontologyIRI + "#relatedClass");
+//  	  OWLObjectProperty relatedClass = dataFa
   	} catch (Throwable t) {
   		logger.error(WTF_MARKER, t.getMessage(), t);
   	}		
