@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/StartingOntology#"
+     xml:base="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/StartingOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#owns -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#owns"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Cat -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Cat">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Dog -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Dog">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#DogLover -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#DogLover">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Person -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Person">
+        <owl:disjointWith rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Pet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Pet -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Pet">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Cat"/>
+            <rdf:Description rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Dog"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#anIndividualOwningNothing -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#anIndividualOwningNothing">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#owns"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#owns"/>
+        <owl:allValuesFrom rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#Dog"/>
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/UniversalPropertyRestrictions/OwnsNothing#DogLover"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

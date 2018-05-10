@@ -1,0 +1,19 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{Horridge2011}
+M.~Horridge, \emph{{Justification Based Explanation in Ontologies}}, Ph.D.
+  thesis, University of Manchester, 2011.
+
+\bibitem{Horridge2013}
+Matthew Horridge, Samantha Bail, Bijan Parsia, and Uli Sattler, \emph{{Toward
+  cognitive support for OWL justifications.}}, Knowl.-Based Syst. \textbf{53}
+  (2013), 66--79.
+
+\end{thebibliography}
