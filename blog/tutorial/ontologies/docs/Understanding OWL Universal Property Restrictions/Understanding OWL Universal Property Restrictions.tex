@@ -45,7 +45,7 @@
 \begin{document}
   \maketitle
   
-  In my \href{https://henrietteharmse.com/2018/04/26/understanding-owl-existential-property-restrictions/}{previous} post I explained existential property restrictions. In this post I want to deal with universal property restrictions. In designing ontologies existential property restrictions tend to be used more often than universal property restrictions. However, beginners in ontology design tends to prefer universal property restrictions, which can lead to inconsistencies that can be very difficult to debug, even for experienced ontology designers~\cite{Horridge2011,Horridge2013}.
+  In my \href{https://henrietteharmse.com/2018/04/26/understanding-owl-existential-property-restrictions/}{previous} post I explained existential property restrictions. In this post I want to deal with universal property restrictions. In designing ontologies existential property restrictions tend to be used more often than universal property restrictions. However, beginners in ontology design tend to prefer universal property restrictions, which can lead to inconsistencies that can be very difficult to debug, even for experienced ontology designers~\cite{Horridge2011,Horridge2013}.
   
   We again start with a very simple ontolgy:  
 \begin{small}
@@ -71,11 +71,11 @@ We will use this ontology as basis for explaining universal property restriction
   \begin{enumerate}
    \item I will introduce the \texttt{DogLover} class which I will define as \texttt{Class: DogLover EquivalentTo: owns only Dog},
    \item I will show you how this definition can lead to inconsistencies that can be difficult to debug, and
-   \item I will explain why we will rather define \texttt{DogLover} as \texttt{Class: DogLover SubClassOf: owns only Dog}.
+   \item I will explain how we can fix this error.
    \end{enumerate}
 
   \section{Class: DogLover EquivalentTo: owns only Dog}
-  Let us start out by defining the \texttt{DogLover} as 
+  Let us start out by defining the \texttt{DogLover} class as 
 \begin{small}
 \begin{verbatim} 
 Class: DogLover
@@ -92,7 +92,7 @@ Individual: aDogOnlyOwner
   Facts: owns aDog
 \end{verbatim}
 \end{small}
-If we run the reasoner it will \textbf{not} infer that \texttt{aDogOnlyOwner} is a \texttt{DogLover}. Reason being that due to the open world assumption the reasoner has no information from which it can derive that \texttt{aDogOnlyOwner} owns only dogs. We can try and fix this by stating that
+If we run the reasoner it will \textbf{not} infer that \texttt{aDogOnlyOwner} is a \texttt{DogLover}, reason being that due to the open world assumption the reasoner has no information from which it can derive that \texttt{aDogOnlyOwner} owns only dogs. We can try and fix this by stating that
 \begin{small}
 \begin{verbatim} 
 Individual: aDogOnlyOwner
@@ -117,11 +117,11 @@ Individual: aDogLover
   Facts: owns aCat
 \end{verbatim}
 \end{small}
-If we run the reasoner, it will give an inconsistency. As said in my \href{https://henrietteharmse.com/2018/04/26/understanding-owl-existential-property-restrictions/}{previous} post, it is always a good idea to review the explanations for an inconsistency, even when you expect an inconsistency, as seen in Figure~\ref{fig_ExplanationForDogLoverWithCat}. It states that the inconsistency is due to
+If we run the reasoner, it will give an inconsistency. As I said in my \href{https://henrietteharmse.com/2018/04/26/understanding-owl-existential-property-restrictions/}{previous} post, it is always a good idea to review the explanations for an inconsistency, even when you expect an inconsistency, as seen in Figure~\ref{fig_ExplanationForDogLoverWithCat}. It states that the inconsistency is due to
 \begin{enumerate}
- \item a \texttt{aDogLover} owning a cat (\texttt{aDogLover owns aCat}),
+ \item \texttt{aDogLover} owning a cat (\texttt{aDogLover owns aCat}),
  \item a cat is not a dog (\texttt{Pet DisjointUnionOf Cat, Dog}),
- \item a dog lover owns only dogs (\texttt{DogLover EquivalentTo owns only Dog}),
+ \item an individual that loves dogs owns only dogs (\texttt{DogLover EquivalentTo owns only Dog}),
  \item the \texttt{aDogLover} individual is of type \texttt{DogLover} (\texttt{aDogLover Type DogLover}), and
  \item the \texttt{aCat} individual is of type \texttt{Cat} (\texttt{aCat Type Cat}).
 \end{enumerate}
@@ -152,7 +152,7 @@ ObectProperty: owns
 Now, this looks like a rather innocent change, but when you run the reasoner again you will find that \texttt{Pet}, \texttt{Cat} and \texttt{Dog} are all equivalent to \texttt{owl:Nothing} while \texttt{Person} is equivalent to \texttt{owl:Thing}.
 An explanation for why \texttt{Pet} is equivalent to \texttt{owl:Nothing} is given in Figure~\ref{fig_ExplanationForPetEquivalentToNothing}.
 
-The explanation given in Figure~\ref{fig_ExplanationForPetEquivalentToNothing} can be difficult to undestand. Indeed, research has shown that there are explanations that are difficult to understand even for experienced ontology designers~\cite{Horridge2011,Horridge2013}. In cases where it is hard to understand explanations, using laconic explanations can be helpful. Laconic justifications aims to remove subexpressions from axioms that do not contribute to explaining an entailment or inconsistency~\cite{Horridge2011,Horridge2013}. Ticking the ``Display laconic explanation'' displays the laconic explanation in Figure~\ref{fig_LaconicExplanationForPetEquivalentToNothing}.
+The explanation given in Figure~\ref{fig_ExplanationForPetEquivalentToNothing} can be difficult to understand. Indeed, research has shown that there are explanations that are difficult to understand even for experienced ontology designers~\cite{Horridge2011,Horridge2013}. In cases where it is hard to understand explanations, using laconic explanations can be helpful. Laconic justifications aim to remove subexpressions from axioms that do not contribute to explaining an entailment or inconsistency~\cite{Horridge2011,Horridge2013}. Ticking the ``Display laconic explanation'' displays the laconic explanation in Figure~\ref{fig_LaconicExplanationForPetEquivalentToNothing}.
 
 The main difference between the explanations in Figures~\ref{fig_ExplanationForPetEquivalentToNothing} and \ref{fig_LaconicExplanationForPetEquivalentToNothing} are 
 
@@ -179,7 +179,7 @@ owns only owl:Nothing SubClassOf DogLover
 
 Where does \texttt{owns only owl:nothing SubClassOf DogLover} come from? Recall that \texttt{A EquivalentTo B} is just syntactical sugar for the two axioms \texttt{A SubClassOf B} and \texttt{B SubClassOf A}. What this explanation is saying is that there is a problem with the \texttt{owns only Dog SubClassOf DogLover} part of our axiom (there is no problem with the \texttt{DogLover SubClassOf owns only Dog} part of our axiom). Furthermore, it states that \texttt{Dog} is inferred to be equivalent to \texttt{owl:Nothing}. For this we need to understand the meaning of \texttt{owns only Dog} better. 
 
-In Figure~\ref{fig_OwnsOnlyDog} I give an example domain where I make the assumption that for all individuals all ownership information is specified explicitly. Thus, individuals with no ownership links own nothing and individuals with ownership links own only what is specified and nothing else. \texttt{owns only Dog} class includes all individuals that are known to own nothing besides dogs. However, a confusing aspect of the semantics of universal restrictions is that it also includes those individuals that owns nothing. To confirm this for yourself you can use the following ontology (from which I removed the domain restriction for the moment). This ontology will infer that \texttt{anIndividualOwningNothing} is of type \texttt{DogLover}.
+In Figure~\ref{fig_OwnsOnlyDog} I give an example domain where I make the assumption that for all individuals all ownership information is specified explicitly. Thus, individuals with no ownership links own nothing and individuals with ownership links own only what is specified and nothing else. The \texttt{owns only Dog} class includes all individuals that are known to own nothing besides dogs. However, a confusing aspect of the semantics of universal restrictions is that it also includes those individuals that owns nothing. To confirm this for yourself you can use the following ontology (from which I removed the domain restriction for the moment). This ontology will infer that \texttt{anIndividualOwningNothing} is of type \texttt{DogLover}.
 
 \begin{small}
 \begin{verbatim} 
@@ -203,11 +203,11 @@ Class: DogLover
   owns only Dog SubClassOf: DogLover
   
 Individual: anIndividualOwningNothing
-Types: owns only (not owl:Thing)
+  Types: owns only (not owl:Thing)
 \end{verbatim}
 \end{small} 
 
-The reason why \texttt{Pet} is equivalent to \texttt{owl:Nothing} is because:
+We are now ready to explain why \texttt{Pet} is equivalent to \texttt{owl:Nothing}:
 \begin{enumerate}
  \item \texttt{owns Domain Person} states that whenever an individual owns something, that individual is a \texttt{Person}. 
  \item \texttt{owns only Pet SubClassOf DogLover} includes saying that when an individual owns nothing at all, that individual is a \texttt{DogLover}.
@@ -230,7 +230,7 @@ Class: DogLover
 \end{verbatim}
 \end{small}   
 
-The example ontologies of this post can be found in \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/ontologies/docs/Understanding\%20OWL\%20Existential\%20Property\%20Restrictions}{github}.
+The example ontologies of this post can be found in \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/ontologies/docs/Understanding%20OWL%20Universal%20Property%20Restrictions}{github}.
 
   \bibliographystyle{amsplain}
   \bibliography{./BibliographicDetails_v.0.1}
