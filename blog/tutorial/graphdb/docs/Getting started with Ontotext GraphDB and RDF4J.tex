@@ -1,0 +1,192 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Getting started with Ontotext GraphDB and RDF4J}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Getting started with Ontotext GraphDB and RDF4J)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  In this post I will explain how to quickly get started with the free version of Ontotext GraphDB and RDF4J. Ontotext GraphDB is an RDF datastore and RDF4J is a Java framework for accessing RDF datastores (not just GraphDB).
+  I will explain 
+  \begin{enumerate}
+   \item how to install and start GraphDB, as well as how to use the workbench to add a repository, and
+   \item how to do SPARQL queries against GraphDB using RDF4J.
+  \end{enumerate}
+
+  \section{Install and start GraphDB and create a Repository}
+  To gain access  to the free version of GraphDB you have to email Ontotext. They will respond with an email with links to a desktop and stand-alone server version of GraphDB. You want to download the stand-alone server version. This is a \texttt{graphdb-free-VERSION-dist.zip} file, that you can extract somewhere on your filesystem, which I will refer to here as \texttt{\$GRAPHDB\_ROOT}. To start GraphDB, go to  \texttt{\$GRAPHDB\_ROOT/bin} and run \texttt{./graphdb}.
+  
+  To access the workbench you can go to \texttt{http://localhost:7200}. To create a new repository, in the left-hand side menu navigate to \texttt{Setup-->Repositories}.  Click the \texttt{Create new repository} button. For our simple example we will use \texttt{PersonData} as an \texttt{Repository ID}. The rest of the settings we leave as-is. At the bottom of the page you can press the \texttt{Create} button.
+  
+    
+  \section{Accessing a GraphDB Repository using RDF4J}
+  To access our \texttt{PersonData} repository we will use RDF4J.  Since GraphDB is based on the RDF4J libraries, we only need to include the GraphDB dependencies since these already include RDF4J. Thus, in our \texttt{pom.xml} file we only need to add the following:
+
+\begin{small}
+\begin{verbatim} 
+<dependency>
+    <groupId>com.ontotext.graphdb</groupId>
+    <artifactId>graphdb-free-runtime</artifactId>
+    <version>8.5.0</version>
+</dependency>
+\end{verbatim}
+\end{small}
+
+In our example Java code we first insert some data and then do a query based on the added data. For inserting data we start a transaction and commit it, or, if it fails we do a rollback. For querying the data we iterate through the \texttt{TupleQueryResult}, retrieving values for the binding variables we are interested in (i.e. \texttt{name} in this case). In line with the \texttt{TupleQueryResult} documentation, we close the \texttt{TupleQueryResult} once we are done.
+
+\begin{small}
+\begin{verbatim} 
+package org.graphdb.rdf4j.tutorial;
+
+import org.eclipse.rdf4j.model.impl.SimpleLiteral;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.Update;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.http.HTTPRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+
+public class SimpleInsertQueryExample {
+  private static Logger logger = LoggerFactory.getLogger(SimpleInsertQueryExample.class);
+  // Why This Failure marker
+  private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
+  
+  // GraphDB 
+  private static final String GRAPHDB_SERVER = "http://localhost:7200/";
+  private static final String REPOSITORY_ID = "PersonData";
+
+
+  private static String strInsert;
+  private static String strQuery;
+  
+  static {
+    strInsert = 
+        "INSERT DATA {"
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/birthDate> \"1906-12-09\"^^<http://www.w3.org/2001/XMLSchema#date> ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/New_York_City> ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/deathDate> \"1992-01-01\"^^<http://www.w3.org/2001/XMLSchema#date> ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Arlington_County,_Virginia> ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://purl.org/dc/terms/description> \"American computer scientist and United States Navy officer.\" ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/gender> \"female\" ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/givenName> \"Grace\" ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/name> \"Grace Hopper\" ."
+         + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/surname> \"Hopper\" ."        
+         + "}";
+    
+    strQuery = 
+        "SELECT ?name FROM DEFAULT WHERE {" +
+        "?s <http://xmlns.com/foaf/0.1/name> ?name .}";
+  }  
+  
+  private static RepositoryConnection getRepositoryConnection() {
+    Repository repository = new HTTPRepository(GRAPHDB_SERVER, REPOSITORY_ID);
+    repository.initialize();
+    RepositoryConnection repositoryConnection = repository.getConnection();
+    return repositoryConnection;
+  }
+  
+  private static void insert(RepositoryConnection repositoryConnection) {
+    repositoryConnection.begin();
+    
+    Update updateOperation = repositoryConnection.prepareUpdate(QueryLanguage.SPARQL, strInsert);
+    updateOperation.execute();
+    
+    try {
+      repositoryConnection.commit();
+    } catch (Exception e) {
+      if (repositoryConnection.isActive())
+        repositoryConnection.rollback();
+    }
+  }
+
+  private static void query(RepositoryConnection repositoryConnection) {
+    TupleQuery tupleQuery = repositoryConnection.prepareTupleQuery(QueryLanguage.SPARQL, strQuery);
+    TupleQueryResult result = null;
+    try {
+      result = tupleQuery.evaluate();
+      while (result.hasNext()) {
+        BindingSet bindingSet = result.next();
+
+        SimpleLiteral name = (SimpleLiteral)bindingSet.getValue("name");
+        logger.trace("name = " + name.stringValue());
+      }
+    }
+    catch (QueryEvaluationException qee) {
+      logger.error(WTF_MARKER, qee.getStackTrace().toString(), qee);
+    } finally {
+      result.close();
+    }    
+  }  
+  
+  public static void main(String[] args) {
+    RepositoryConnection repositoryConnection = null;
+    try {   
+      repositoryConnection = getRepositoryConnection();
+      
+      insert(repositoryConnection);
+      query(repositoryConnection);      
+      
+    } catch (Throwable t) {
+      logger.error(WTF_MARKER, t.getMessage(), t);
+    } finally {
+      repositoryConnection.close();
+    }
+  }  
+}
+\end{verbatim}
+\end{small}
+
+\section{Conclusion}
+    In this brief post I gave a quick example of how you can setup a simple GraphDB repository and query it using SPARQL. You can find sample code on
+\href{http://}{github}.
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

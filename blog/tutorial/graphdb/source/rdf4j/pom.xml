@@ -15,18 +15,26 @@
   </properties>
 
   <dependencies>
-
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.6.2</version>
     </dependency>
 	  
    <dependency>
       <groupId>com.ontotext.graphdb</groupId>
       <artifactId>graphdb-free-runtime</artifactId>
-      <version>8.4.1</version>
+      <version>8.5.0</version>
     </dependency>	
  
   </dependencies>
