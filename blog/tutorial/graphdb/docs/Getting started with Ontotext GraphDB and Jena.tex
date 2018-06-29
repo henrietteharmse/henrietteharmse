@@ -1,3 +1,68 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Getting started with Ontotext and Jena}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Getting started with Ontotext and Jena)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  In my previous post I explained how you can create an GraphDB repository and how you can update and query your repository using RDF4J. In this post I provide an example of how you can update and query a GraphDB repository using Jena. However, even though the code works, there are some pitfalls.
+
+ \section{A Quick Example}
+ First you need to add Jena as a Maven dependency:
+ 
+\begin{small}
+\begin{verbatim} 
+<dependency>
+    <groupId>org.apache.jena</groupId>
+    <artifactId>apache-jena-libs</artifactId>
+    <version>3.7.0</version>
+    <type>pom</type>
+</dependency> 
+\end{verbatim}
+\end{small}  
+  
+ The Java code is straightforward:
+\begin{small}
+\begin{verbatim} 
 package org.graphdb.jena.tutorial;
 
 import org.apache.jena.query.QueryExecution;
@@ -92,3 +157,16 @@ public class SimpleInsertQueryExample {
     }   
   }  
 }
+\end{verbatim}
+\end{small} 
+
+ \section{Some Pitfalls}
+ The example I  provided will insert RDF data into GraphDB and query it successfully. However, the data is inserted into the repository in the absence of a transaction. The transaction API of Jena is based on a \texttt{Dataset}. Historically Ontotext provided a Jena adapter with which a Jena \texttt{Dataset} could be created. However, based on my question on \href{https://stackoverflow.com/questions/51098996/writing-to-ontotext-graphdb-using-jena}{Stack Overflow} in this regard, the Jena adapter is no longer supported by Ontotext. Hence, currently it is not clear to me how to enable transactions when using Jena to access GraphDB. So, if you know how to address this, please be so kind as to leave a comment with your insight!
+ 
+ \section{Conclusion}
+ In this post I provided a quick example of how you can access GraphDB using Jena. However, this example does not support transactions, and therefore you may want to look at rather using RDF4J with GraphDB. You can find this code at \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/graphdb/source/jena}{github}.
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}
