@@ -1,0 +1,49 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://henrietteharmse.com/tutorial/ontologies/Animals>
+
+
+ObjectProperty: <http://henrietteharmse.com/tutorial/ontologies/Animals#eats>
+
+    Domain: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>
+    
+    Range: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>
+    
+    
+Class: <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>
+
+    DisjointUnionOf: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Cat>, <http://henrietteharmse.com/tutorial/ontologies/Animals#Dog>, <http://henrietteharmse.com/tutorial/ontologies/Animals#Mouse>
+    
+    
+Class: <http://henrietteharmse.com/tutorial/ontologies/Animals#Cat>
+
+    EquivalentTo: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#eats> some <http://henrietteharmse.com/tutorial/ontologies/Animals#Mouse>
+    
+    SubClassOf: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>
+    
+    
+Class: <http://henrietteharmse.com/tutorial/ontologies/Animals#Dog>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>,
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#eats> only (not (<http://henrietteharmse.com/tutorial/ontologies/Animals#Mouse>))
+    
+    
+Class: <http://henrietteharmse.com/tutorial/ontologies/Animals#Mouse>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#Animal>,
+        <http://henrietteharmse.com/tutorial/ontologies/Animals#eats> only (not (<http://henrietteharmse.com/tutorial/ontologies/Animals#Mouse>))
+    
+    

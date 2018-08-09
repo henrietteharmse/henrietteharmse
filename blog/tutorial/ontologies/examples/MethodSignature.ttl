@@ -1,0 +1,32 @@
+# syntax: Turtle
+
+:SetCallArgumentList
+    rdfs:subClassOf a owl:Class ;
+    owl:intersectionOf (
+        rdf:List
+        [
+            a owl:Restriction ;
+            owl:onProperty rdf:first ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:allValuesFrom xsd:unsignedInt ;  # 1st parameter: uint
+        ]
+        [
+            a owl:Restriction ;
+            owl:onProperty rdf:rest ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:allValuesFrom [
+                a owl:Class ;
+                owl:intersectionOf rdf:List, [
+                    a owl:Restriction ;
+                    owl:onProperty rdf:first ;
+                    owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                    owl:allValuesFrom xsd:string ;  # 2nd parameter: string
+                ], [
+                    a owl:Restriction ;
+                    owl:onProperty rdf:rest ;
+                    owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                    owl:hasValue rdf:nil ;  # end-of-list
+                ] ;
+            ] ;
+        ] ;
+    ) . 

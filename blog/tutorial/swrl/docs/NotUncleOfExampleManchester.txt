@@ -1,0 +1,31 @@
+    
+    ObjectProperty: childOf
+        Characteristics: Irreflexive
+        
+    ObjectProperty: parentOf
+        Characteristics: Irreflexive
+        
+    ObjectProperty: brotherOf
+        Characteristics: Reflexive
+        
+    ObjectProperty: uncleOf
+        Characteristics: Irreflexive
+        
+    ObjectProperty: owl:topObjectProperty
+        
+    Individual: c1
+        
+    Individual: p1
+        Facts:  
+         parentOf  c1,
+         uncleOf  c1
+        
+    Individual: p2
+        Facts:  
+         brotherOf  p1
+            
+    DisjointProperties: 
+        childOf,parentOf,brotherOf,uncleOf
+    Rule: 
+        brotherOf(?x, ?y), parentOf(?y, ?z) - uncleOf(?x, ?z)
+

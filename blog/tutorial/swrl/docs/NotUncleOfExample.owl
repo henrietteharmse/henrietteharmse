@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:untitled-ontology-1149="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#childOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#childOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#siblingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#siblingOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Man -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Man">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Woman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Woman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p1">
+        <parentOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1"/>
+        <uncleOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Man"/>
+        <siblingOf rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#childOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#siblingOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UncleRule</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#Man"/>
+                        <swrl:argument1 rdf:resource="x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#siblingOf"/>
+                                <swrl:argument1 rdf:resource="x"/>
+                                <swrl:argument2 rdf:resource="y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf"/>
+                                        <swrl:argument1 rdf:resource="y"/>
+                                        <swrl:argument2 rdf:resource="z"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf"/>
+                        <swrl:argument1 rdf:resource="x"/>
+                        <swrl:argument2 rdf:resource="z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

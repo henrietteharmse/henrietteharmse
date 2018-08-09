@@ -1,0 +1,42 @@
+@prefix j.0:     <http://ifo.com/GarminHeartRateMeasure#> .
+
+<http://ifo.com/GarminHeartRateMeasure/103>
+        a                      j.0:Measure ;
+        j.0:hasNumericalValue  "156"^^xsd:float , "106"^^xsd:float ;
+        j.0:hasUnit            j.0:bpm .
+
+<http://ifo.com/GarminHeartRate/103>
+        a                        j.0:HeartRate ;
+        j.0:hasMeasure           <http://ifo.com/GarminHeartRateMeasure/103> ;
+        j.0:hasTemporalRelationshipToPhysicalActivity
+                j.0:DuringExercise ;
+        j.0:hasTimeInterval      <http://ifo.com/GarminHeartRateTimeFrame/103> ;
+        j.0:hasUniqueIdentify    "103" ;
+        j.0:isRelativeToAPerson  <http://ifo.com/user/103> .
+
+<http://ifo.com/user/103>
+        a                j.0:Person ;
+        j.0:hasUsername  "vero" .
+
+<http://ifo.com/GarminHeartRateTimeFrame/103>
+        a              j.0:TimeInterval ;
+        j.0:endDate    "2012-09-16T06:36:54Z"^^xsd:dateTime , "2012-09-16T06:51:59Z"^^xsd:dateTime ;
+        j.0:startDate  "2012-09-16T06:36:54Z"^^xsd:dateTime , "2012-09-16T06:51:59Z"^^xsd:dateTime .
+
+<http://ifo.com/GarminAverageMeasure/103>
+        a                            j.0:Measure ;
+        j.0:hasDescriptiveStatistic  j.0:average ;
+        j.0:hasNumericalValue        "150"^^xsd:float ;
+        j.0:hasUnit                  j.0:bpm .
+
+<http://ifo.com/GarminAverageTimeFrame/103>
+        a              j.0:TimeInterval ;
+        j.0:endDate    "2012-09-16T06:51:59Z"^^xsd:dateTime ;
+        j.0:startDate  "2012-09-16T06:36:54Z"^^xsd:dateTime .
+
+<http://ifo.com/GarminAverageHeartRate/103>
+        a                        j.0:HeartRate ;
+        j.0:hasMeasure           <http://ifo.com/GarminAverageMeasure/103> ;
+        j.0:hasTimeInterval      <http://ifo.com/GarminAverageTimeFrame/103> ;
+        j.0:hasUniqueIdentify    "103" ;
+        j.0:isRelativeToAPerson  <http://ifo.com/user/103> . 

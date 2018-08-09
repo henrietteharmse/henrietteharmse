@@ -1,0 +1,16 @@
+
+	@prefix ex: <http://example.com/ns#> .
+	@prefix owl: <http://www.w3.org/2002/07/owl#> .
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+    ex:Rosie
+        a ex:Person .
+    
+	ex:Colin
+		a ex:Teenager ;
+        ex:mum ex:Rosie ;
+		ex:age 13 .
+	  
+	 

@@ -1,0 +1,135 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{A Common Misconception regarding OWL Properties}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (A Common Misconception regarding OWL Properties)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  A misconception w.r.t. OWL properties that I come across from time-to-time is that people mistakenly think that properties express relations between classes rather than relations between individuals. In this post  
+  \begin{enumerate}
+   \item I explain how this misconception fails,
+   \item I explain what is the meaning of OWL properties, and 
+   \item I explain how you can model relations between classes if that is really what you want to do.
+  \end{enumerate}
+  
+  Throughout this post I will refer to object properties only, even though what I say applies to data properties as well, except of course that object properties relate objects to objects whereas data properties relate objects to data type values.
+ 
+  As an example ontology I will use the following:
+\begin{small}
+\begin{verbatim} 
+Class: Employer
+Class: Employee
+
+ObjectProperty: employs
+   Domain: Employer
+   Range: Employee
+\end{verbatim}
+\end{small}    
+  
+  
+  \section{How thinking that Properties express Relations between Classes fails}
+  Thinking that properties express relations between classes fails in two different ways:
+\begin{enumerate}
+ \item The first way in which the expectations of users fail under this misconception is that their assumption is that domain and range axioms behave as constraints. That is if we extend our \texttt{Employer} ontology with something nonsensical like 
+\begin{small}
+\begin{verbatim} 
+Class: Cheese
+Class: Fridge
+
+Individual: companyFridge 
+    Types: Fridge
+    
+Individual: blueCheese
+   Types: Cheese
+   Facts: employs companyFridge
+\end{verbatim}
+\end{small} 
+the reasoner will indicate that our ontology is inconsistent because the individual \texttt{blueCheese} is \textbf{not} of type \texttt{Employer} and neither is the individual \texttt{companyFridge} an instance of \texttt{Employee}. However, this is \textbf{not} the case. This ontology \textbf{is} in fact consistent because domain and range axioms do \textbf{not} behave as constraints. 
+
+\item The other way in which the assumption of users is shattered is that they tend to think that domain and range axioms mean that in our \texttt{Employer} ontology it means that instances of the \texttt{Employer} class must necessarily be linked via the \texttt{employs} property to an instance (or instances?) of \texttt{Employee}. Thus, the expectation is that if we have an instance of \texttt{Employer} that is not linked to an instance of \texttt{Employee} via the \texttt{employs} property, the reasoner should give an inconsistency. Again, this is \textbf{wrong}. This ontology will still be consistent.
+\end{enumerate}
+
+  
+   \section{The Real Meaning of OWL Object Properties}
+The OWL specification is very explicit about the meaning of object properties. Is states:
+\begin{quote}
+ Object properties connect pairs of individuals.
+\end{quote}
+
+   
+So what is the meaning of domain and range axioms then? Domain and range axioms are \textbf{not} constraints to be checked, but rather they are axioms from which the reasoner can make inferences. What domain and range axioms state is that whenever two instances are linked via the \texttt{employs} property, for example, it means that the first instance is of type \texttt{Employer} and the second instance is of type \texttt{Employee}. Thus, in our cheese and fridge example, no matter how silly it is, the reasoner will infer that \texttt{blueCheese} is an instance of \texttt{Employer} and \texttt{companyFridge} is an instance of \texttt{Employee}.
+
+Finally, the underlying mathematical formalization of object properties themselves does not enable linking of pairs of classes. An OWL object property \texttt{r} is represented as a role $r$ in description logics. Stating that the role $r$ has the domain $C$ and the range $D$, where $C$ and $D$ are concepts, is achieved through the following axioms:
+\[\{\exists a.\top \sqsubseteq C, \top \sqsubseteq \forall a.D \}\]
+\[\text{ where } \top \text{ is the set representing the application domain.}\]
+An object property \texttt{r} between instances \texttt{a} and \texttt{b} is expressed as a role assertion
+\[r(a, b)\]
+in description logics. Note that this assertion contains no information regarding description logic concepts (i.e. classes in OWL). 
+   
+
+   \section{If you really, really want to have a Link between Classes}
+So if you really, really want to express a relation between classes, how can this be done? For our \texttt{Employer} ontology we can state the following:
+\begin{small}
+\begin{verbatim} 
+Class: Employer
+   SubClassOf: employs some Employee
+\end{verbatim}
+\end{small}  
+This states that the \texttt{Employer} class is a subclass of the class consisting of the instances that are linked to at least 1 instance of the \texttt{Employee} class. If we now have an instance of \texttt{Employer} that is not linked via \texttt{employs} to an instance of \texttt{Employee}, the reasoner will find that our ontology is inconsistent. To state that \texttt{acme} is an employer without employees, we state it as follows:
+\begin{small}
+\begin{verbatim} 
+Individual: acme
+   Types: Employer
+   Facts: employs max 0 Employee
+\end{verbatim}
+\end{small}     
+   
+\section{Conclusion}
+In this post I explained that object properties link individuals (\textbf{not} classes!) and that thinking otherwise can lead to various errors when designing an ontology. 
+
+
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

@@ -1,0 +1,49 @@
+    ObjectProperty: partOf
+        
+    ObjectProperty: partOfKA
+        SubPropertyOf: partOf
+        Domain: Course
+        
+    ObjectProperty: partOfKG
+        SubPropertyOf: partOf
+        Domain: Knowledge_Area
+        
+    ObjectProperty: partOfTerm
+        SubPropertyOf: partOf
+        Domain: Course
+        
+    ObjectProperty: partOfYear
+        SubPropertyOf: partOf
+        Domain: Term
+        
+    Class: Course
+    Class: Knowledge_Area
+
+        
+    Class: Knowledge_Group
+        DisjointWith: Year
+        
+    Class: Term
+        
+    Class: Year
+        DisjointWith: Knowledge_Group
+        
+    Individual: Course_1
+        Facts:  
+         partOfKA  Knowledge_Area_1,
+         partOfTerm  Term_1
+        
+    Individual: Knowledge_Area_1
+        Facts:  partOfKG  Knowledge_Group_1
+        
+    Individual: Knowledge_Group_1
+        Types: Knowledge_Group
+        
+        
+    Individual: Term_1
+        Facts: partOfYear  Year_1
+        
+    Individual: Year_1
+        Types: Year
+    
+    

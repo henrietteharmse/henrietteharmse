@@ -36,7 +36,7 @@
 \date{\today}
 
 \pdfinfo{%
-  /Title    (Rule Execution SHACL)
+  /Title    (Rule Execution with SHACL)
   /Author   (Henriette Harmse)
   /Creator  ()
   /Producer ()
@@ -196,7 +196,7 @@ public class ShaclRuleExecution {
         a       <http://example.com/ns#Square> .
   \end{Verbatim}
   \end{small}
-  Note that \texttt{ex:InvalidRectangle} has been ignore because it does not adhere to \texttt{sh:condition ex:Rectangle}, since it does not have \texttt{ex:height} and \texttt{ex:width} properties. Also, \texttt{ex:NonSquareRectangle} is a rectangle, not a square.
+  Note that \texttt{ex:InvalidRectangle} has been ignored because it does not adhere to \texttt{sh:condition ex:Rectangle}, since it does not have \texttt{ex:height} and \texttt{ex:width} properties. Also, \texttt{ex:NonSquareRectangle} is a rectangle, not a square.
 
   \section{Conclusion}
   In this post I gave a brief overview of how SHACL can be used to implement rules on RDF data. This code example is available at 

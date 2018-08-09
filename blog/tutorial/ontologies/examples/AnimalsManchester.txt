@@ -1,0 +1,30 @@
+
+ObjectProperty: eats
+    Domain: 
+        Animal
+    Range: 
+        Animal
+    
+    Class: Animal
+        DisjointUnionOf: 
+            Cat, Dog, Mouse
+        
+        
+    Class: Cat
+        EquivalentTo: 
+            eats some Mouse
+        SubClassOf: 
+            Animal
+        
+    Class: Dog
+        SubClassOf: 
+            Animal,
+            eats only (not (Mouse))
+        
+        
+    Class: Mouse
+        SubClassOf: 
+            Animal,
+            eats only (not (Mouse))
+    
+    

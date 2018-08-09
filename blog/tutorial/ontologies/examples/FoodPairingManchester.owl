@@ -1,0 +1,183 @@
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://henrietteharmse.com/ontologies/FoodPairing>
+
+
+ObjectProperty: <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient>
+
+    Characteristics: 
+        Transitive
+    
+    Domain: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#FoodCombination>
+    
+    Range: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+    
+    
+ObjectProperty: <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste>
+
+    SubPropertyChain: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> o <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste>
+    
+    Characteristics: 
+        Transitive
+    
+    Domain: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+    
+    Range: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Allergen>
+
+    EquivalentTo: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#Allergen>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Bitter>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#BitterSweetCombination>
+
+    EquivalentTo: 
+        (<http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Bitter>)
+         and (<http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Sweet>)
+    
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#TastyCombination>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#BitterUmamiCombination>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#DespicableCombination>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Broccoli>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Bitter>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#BroccoliQuiche>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#CulinaryDish>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#Broccoli>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#BroccoliQuicheWithFigPreserve>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#BroccoliQuiche>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#FigPreserve>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#CulinaryDish>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#FoodCombination>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#DespicableCombination>
+
+    EquivalentTo: 
+        (<http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Bitter>)
+         and (<http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Umami>)
+    
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#FoodCombination>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Fig>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Allergen>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Sweet>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#FigPreserve>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#Fig>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+
+    DisjointWith: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#FoodCombination>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Kale>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Bitter>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Pear>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasTaste> some <http://henrietteharmse.com/ontologies/FoodPairing#Sweet>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#PearKaleDelight>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#CulinaryDish>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#Kale>,
+        <http://henrietteharmse.com/ontologies/FoodPairing#hasIngredient> some <http://henrietteharmse.com/ontologies/FoodPairing#Pear>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Sugar>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Sweet>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+
+    DisjointWith: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Food>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#TastyCombination>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#FoodCombination>
+    
+    
+Class: <http://henrietteharmse.com/ontologies/FoodPairing#Umami>
+
+    SubClassOf: 
+        <http://henrietteharmse.com/ontologies/FoodPairing#Taste>
+    
+    

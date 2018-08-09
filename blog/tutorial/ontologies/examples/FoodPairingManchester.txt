@@ -1,0 +1,137 @@
+
+ObjectProperty: hasTaste
+    SubPropertyChain: hasIngredient o hasTaste
+    Domain: Food
+    Range: Taste
+    
+Class: Taste
+    DisjointWith: Food
+            
+Class: Bitter
+    SubClassOf: Taste
+
+Class: Sweet
+    SubClassOf: Taste    
+    
+Class: Umami
+    SubClassOf: Taste
+
+
+Class: Allergen
+    EquivalentTo: hasIngredient some Allergen        
+
+Class: Pear
+    SubClassOf: 
+        Food,
+        hasTaste some Sweet         
+        
+Class: Broccoli
+    SubClassOf: 
+        Food,
+        hasTaste some Bitter        
+        
+Class: Fig
+    SubClassOf: 
+        Allergen,
+        Food,
+        hasTaste some Sweet
+        
+    
+Class: Kale
+    SubClassOf: 
+        Food,
+        hasTaste some Bitter       
+        
+Class: FigPreserve
+    SubClassOf: 
+        Food,
+        hasIngredient some Fig        
+
+ObjectProperty: hasIngredient
+    Characteristics: 
+        Transitive
+    
+    Domain: 
+        FoodCombination
+    
+    Range: 
+        Food
+    
+    
+
+    
+    
+Class: BitterSweetCombination
+
+    EquivalentTo: 
+        (hasTaste some Bitter)
+         and (hasTaste some Sweet)
+    
+    SubClassOf: 
+        TastyCombination
+    
+    
+Class: BitterUmamiCombination
+
+    SubClassOf: 
+        DespicableCombination
+
+    
+    
+Class: BroccoliQuiche
+
+    SubClassOf: 
+        CulinaryDish,
+        hasIngredient some Broccoli
+    
+    
+Class: BroccoliQuicheWithFigPreserve
+
+    SubClassOf: 
+        BroccoliQuiche,
+        hasIngredient some FigPreserve
+    
+    
+Class: CulinaryDish
+
+    SubClassOf: 
+        FoodCombination
+    
+    
+Class: DespicableCombination
+
+    EquivalentTo: 
+        (hasTaste some Bitter)
+         and (hasTaste some Umami)
+    
+    SubClassOf: 
+        FoodCombination
+
+    
+    
+Class: Food
+
+    DisjointWith: 
+        Taste
+    
+    
+Class: FoodCombination
+
+    SubClassOf: 
+        Food
+    
+    
+    
+Class: PearKaleDelight
+    SubClassOf: 
+        CulinaryDish,
+        hasIngredient some Kale,
+        hasIngredient some Pear
+    
+    
+Class: TastyCombination
+
+    SubClassOf: 
+        FoodCombination
+        
+    

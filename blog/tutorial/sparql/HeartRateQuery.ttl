@@ -1,0 +1,18 @@
+PREFIX ifo:     <http://ifo.com/GarminHeartRateMeasure#>
+
+SELECT ?val ?start ?end
+WHERE { 
+      ?person rdf:type ifo:Person .
+      ?episode rdf:type ifo:HeartRate .
+      ?measure rdf:type ifo:Measure .
+      ?timeFrame rdf:type ifo:TimeInterval  .
+      ?episode ifo:hasMeasure ?measure .
+      ?episode ifo:hasUniqueIdentify ?id .
+      ?episode ifo:hasTimeInterval  ?timeFrame .    
+      ?episode ifo:isRelativeToAPerson ?person .
+      ?measure ifo:hasNumericalValue ?val .
+      ?timeFrame ifo:startDate ?start .
+      ?timeFrame ifo:endDate ?end .
+      ?person ifo:hasUsername ?name .
+      FILTER(REGEX(str(?name),"vero")&&(REGEX((?id),"103")))
+} 

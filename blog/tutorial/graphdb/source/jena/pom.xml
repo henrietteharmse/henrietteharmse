@@ -36,12 +36,12 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-	<!-- https://mvnrepository.com/artifact/org.apache.jena/apache-jena-libs -->
+	<!-- Jena -->
 	<dependency>
 	  <groupId>org.apache.jena</groupId>
 	  <artifactId>apache-jena-libs</artifactId>
-	  <version>3.6.0</version>
+	  <version>3.7.0</version>
 	  <type>pom</type>
-	</dependency>    	
+	</dependency>   
   </dependencies>
 </project>

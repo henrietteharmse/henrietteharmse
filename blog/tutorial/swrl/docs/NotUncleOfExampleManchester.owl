@@ -1,0 +1,75 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149>
+
+
+AnnotationProperty: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled>
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#brotherOf>
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#childOf>
+
+    Characteristics: 
+        Irreflexive
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf>
+
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    Characteristics: 
+        Irreflexive
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf>
+
+    Characteristics: 
+        Irreflexive
+    
+    
+ObjectProperty: owl:topObjectProperty
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1>
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p1>
+
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf>  <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1>,
+     <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf>  <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#c1>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p2>
+
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#brotherOf>  <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#p1>
+    
+    
+DisjointProperties: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#brotherOf>,<http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#childOf>,<http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf>,<http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf>
+
+Rule: 
+    <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#brotherOf>(?<x>, ?<y>), <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#parentOf>(?<y>, ?<z>) -> <http://www.semanticweb.org/henriette/ontologies/2018/6/untitled-ontology-1149#uncleOf>(?<x>, ?<z>)
+

@@ -15,12 +15,12 @@
       <AppenderRef ref="Console"/>
       <AppenderRef ref="Log"/>
     </Root>
-    <!--<Logger name="root" level="trace" additivity="false">
+    <Logger name="root" level="trace" additivity="false">
       <AppenderRef ref="Console"/>
     </Logger>
     <Logger name="root" level="trace" additivity="false">
       <AppenderRef ref="Console"/>
 			<AppenderRef ref="Log"/>
-    </Logger>-->
+    </Logger>
 </Loggers>
 </Configuration>

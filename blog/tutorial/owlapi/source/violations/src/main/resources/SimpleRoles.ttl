@@ -1,0 +1,39 @@
+@prefix : <http://www.onto.com/test#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.onto.com/test#> .
+
+<http://www.onto.com/test#> rdf:type owl:Ontology ;
+                             rdfs:label "Test"@en .
+
+xsd:date rdf:type rdfs:Datatype .
+
+<http://www.onto.com/test#hasPart2> rdf:type owl:ObjectProperty .
+
+<http://www.onto.com/test#isPartOf> rdf:type owl:ObjectProperty ,
+                                             owl:TransitiveProperty ;
+                                    rdfs:domain <http://www.onto.com/test#TestRestriction> .
+
+<http://www.onto.com/test#isPartOf2> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     rdf:type owl:TransitiveProperty ;
+                                     rdfs:domain <http://www.onto.com/test#A2PartOfClass> .
+
+<http://www.onto.com/test#maxCardinality0> rdf:type owl:ObjectProperty .
+
+<http://www.onto.com/test#A2PartOfClass> rdf:type owl:Class .
+
+<http://www.onto.com/test#TestRestriction> rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.onto.com/test#isPartOf2> ;
+                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass <http://www.onto.com/test#A2PartOfClass>
+                                                           ] ;
+                                           rdfs:comment "A1 PartOf Class Comment"@en ;
+                                           rdfs:label "A1PartOfClass"@en .
+
+
+<http://www.onto.com/test#isPartOf2> rdf:type owl:Class .
+ 
