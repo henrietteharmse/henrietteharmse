@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:untitled-ontology-6="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#AlternativeProductWith_Exactly_1_Price -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#AlternativeProductWith_Exactly_1_Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Exactly_1_Price -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Exactly_1_Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Max_1_Price -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Max_1_Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Min_1_Price -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Min_1_Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#alternativeProductExactly1Price -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#alternativeProductExactly1Price">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Max_1_Price"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Min_1_Price"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithExactly1Price -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithExactly1Price">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Exactly_1_Price"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.1</hasPrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithMoreThan1Price -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithMoreThan1Price">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Max_1_Price"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</hasPrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithoutPrice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#productWithoutPrice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#ProductWith_Max_1_Price"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#hasPrice"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

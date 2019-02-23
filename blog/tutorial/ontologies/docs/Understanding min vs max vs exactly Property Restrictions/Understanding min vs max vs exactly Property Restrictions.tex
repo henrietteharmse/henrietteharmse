@@ -1,0 +1,208 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Understanding OWL \texttt{min} vs max vs exactly Property Restrictions}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Understanding min vs max vs exactly Property Restrictions)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  The \textbf{open world assumption} trips people up in many ways. In this post we will be looking at how the open world assumption affects the semantics of the property restrictions \texttt{min}, \texttt{max} and \texttt{exactly}. 
+   
+  
+  The example we will use throughout this post is that of a product that may have no price, 1 price, exactly 1 price, or many prices. We will firstly assume a product must have at least 1 price, then that it can have a maximum of 1 price, and finally we will assume that it must have exactly 1 price. We therefore assume that we have a \texttt{hasPrice} data property that is defined as follows:
+\begin{small}
+	\begin{verbatim} 
+DataProperty: hasPrice
+  Range: 
+    xsd:decimal
+	\end{verbatim}
+\end{small}
+  
+  The example ontology can be found on \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/ontologies/examples/Min_vs_Max_vs_Exactly.owl}{GitHub}. To be able to distinguish the different product types having different rules regarding how many prices they have, we will create 3 different classes called  \texttt{ProductWith\_Min\_1\_Price}, \texttt{ProductWith\_Max\_1\_Price} and \texttt{ProductWith\_Exactly\_1\_Price} respectively.
+  
+
+  Before we look at examples and the semantics of the \texttt{min}, \texttt{max}, \texttt{exactly} property restrictions, let us briefly recall what is meant by the open world assumption.
+  
+  \section{Open World Assumption versus Closed World Assumption}
+OWL has been designed with the explicit intention to be able to deal with incomplete information. Consequently, OWL intentionally does not make any assumptions with regards to information that is not known.
+In particular, no assumption is made about the truth or falsehood of facts that cannot be deduced from the ontology.
+This approach is known as the \textbf{open world assumption}. This approach is in contrast with the \textbf{closed world assumption} typically used in information systems. 
+With the closed world assumption facts that cannot be deduced from a knowledge base (i.e. database) are implicitly understood as being false \cite{Baader2007f,Krotzsch2012,Rudolph2011}.  
+
+As an example, in a database when a product does not have a price, the general assumption is that the product does not have price. Moreover, in a database if a product has 1 price, the assumption is that the product has only 1 price and no other prices. This in stark contrast to OWL. If an OWL ontology defines a product for which no explicit price is given, the assumption is not that the product has no price. Rather, no assumption is made as to whether the product has a price, has many prices or whether it has no price. Futhermore, if a product has a price, the assumption is not that this is necessarily the only price for that product. Rather, it allows for the possibility that no other price may exist, or that many other prices may exist, which is merely not known. The only information that holds in an ontology is information that is either explicitly stated, or that can be derived form explicit information.
+  
+  \section{The \texttt{min} Property Restriction}
+  To define a product that must have at least 1 price we define it as follows:
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Min_1_Price
+  SubClassOf: 
+    hasPrice min 1 xsd:decimal
+  
+Individual: productWithoutPrice
+  Types:  
+    ProductWith_Min_1_Price
+  	\end{verbatim}
+\end{small}  
+If we now create an individual of type \texttt{ProductWith\_Min\_1\_Price}, say \texttt{productWithoutPrice}, which has no price information, we will find that the reasoner will not give an inconsistency. The reason for this is that the reasoner has no information with regards to whether \texttt{productWithoutPrice} has any price information. Hence, it is possible that \texttt{productWithoutPrice} has a price (or prices) that is merely unknown. To make explicit that \texttt{productWithoutPrice} has no price information, we can define it as follows:
+
+\begin{small}
+\begin{verbatim} 
+Individual: productWithoutPrice
+  Types:  
+    ProductWith_Min_1_Price,
+    hasPrice max 0 xsd:decimal    
+\end{verbatim}
+\end{small}
+
+This revised definition of \texttt{productWithoutPrice} will now result in the reasoner detecting an inconsistency. However, note that \texttt{ProductWith\_Min\_1\_Price} allows for products that have more than 1 price. Hence, the following will not result in an inconsistency.
+
+\begin{small}
+	\begin{verbatim} 
+Individual: productWithManyPrices
+  Types:  
+    ProductWith_Min_1_Price
+  Facts:  
+    hasPrice 2.5,
+    hasPrice 3.25 
+	\end{verbatim}
+\end{small}
+
+\section{The \texttt{max} Property Restriction}
+To define a product that cannot have more than 1 price, we can define it as follows:
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Max_1_Price
+  SubClassOf: 
+    hasPrice max 1 xsd:decimal       
+	\end{verbatim}
+\end{small}
+
+If we now define an individual \texttt{productWithMoreThan1Price} with more than 1 price (as shown in the example below), the reasoner will give an inconsistency. 
+\begin{small}
+	\begin{verbatim} 
+Individual: productWithMoreThan1Price
+  Types: 
+    ProductWith_Max_1_Price
+  Facts:  
+    hasPrice 2.5,
+    hasPrice 3.25      
+	\end{verbatim}
+\end{small}
+
+
+Note that individuals of type \texttt{ProductWith\_Max\_1\_Price} can also have no price information without resulting in the reasoner giving an inconsistency. I.e., if we define the individual \texttt{productWithoutPrice} as
+\begin{small}
+	\begin{verbatim} 
+Individual: productWithoutPrice
+  Types:  
+    ProductWith_Max_1_Price,
+    hasPrice max 0 xsd:decimal    
+	\end{verbatim}
+\end{small}
+it will not give an inconsistency.
+
+\section{The \texttt{exactly} Property Restriction}
+Let us now define \texttt{ProductWith\_Exactly\_1\_Price} with the individual \texttt{productWithExactly1Price} as follows:
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Exactly_1_Price
+  SubClassOf: 
+    hasPrice exactly 1 xsd:decimal    
+    
+Individual: productWithExactly1Price
+  Types: 
+    ProductWith_Exactly_1_Price  
+  Facts:
+    hasPrice 7.1   
+	\end{verbatim}
+\end{small}
+
+The \texttt{exactly} property is essentially syntactical shorthand for specifying both the \texttt{min} and \texttt{max} restrictions using the same cardinality. Thus, we could just as well have defined \texttt{ProductWith\_Exactly\_1\_Price} as:
+
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Exactly_1_Price
+  SubClassOf: 
+     hasPrice min 1 xsd:decimal,
+     hasPrice max 1 xsd:decimal
+	\end{verbatim}
+\end{small}
+
+or, given the classes we have already defined in the ontology, we can define it as:
+
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Exactly_1_Price
+  SubClassOf: 
+    ProductWith_Max_1_Price,
+    ProductWith_Min_1_Price   
+	\end{verbatim}
+\end{small}
+
+\section{Prefer \texttt{exactly}}
+Given that the \texttt{exactly} property restriction is syntactical sugar, should we prefer using the combination of \texttt{min} and \texttt{max} directly as shown above? My answer to this is \textbf{no}. My motivation for this is that the semantics of \texttt{exactly} is only equivalent to the intersection of \texttt{min} and \texttt{max} if the cardinalities are the same and the data/object types are the same. As such specifying  
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Exactly_1_Price
+  SubClassOf: 
+    hasPrice exactly 1 xsd:decimal    
+	\end{verbatim}
+\end{small}
+has less opportunities for mistakes than specifying 
+\begin{small}
+	\begin{verbatim} 
+Class: ProductWith_Exactly_1_Price
+  SubClassOf: 
+    hasPrice min 1 xsd:decimal,
+    hasPrice max 1 xsd:decimal
+	\end{verbatim}
+\end{small}
+
+\section{Conclusion}
+In this post we looked at some of the ways in which the \texttt{min}, \texttt{max} and \texttt{exactly} property restrictions can trip people up due to the open world assumption. Please feel free to leave a comment if you have questions or suggestions about this post.
+
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

@@ -1,0 +1,52 @@
+DataProperty: hasPrice
+    Range: 
+        xsd:decimal
+    
+    
+Class: ProductWith_Exactly_1_Price
+
+    SubClassOf: 
+        hasPrice exactly 1 xsd:decimal
+    
+    
+Class: ProductWith_Max_1_Price
+
+    SubClassOf: 
+        hasPrice max 1 xsd:decimal
+    
+    
+Class: ProductWith_Min_1_Price
+
+    SubClassOf: 
+        hasPrice min 1 xsd:decimal
+    
+    
+Individual: alternativeProductExactly1Price
+
+    Types: 
+        ProductWith_Max_1_Price,
+        ProductWith_Min_1_Price,
+        hasPrice max 0 xsd:decimal
+    
+    
+Individual: productWithExactly1Price
+
+    Types: 
+        ProductWith_Exactly_1_Price
+    
+    
+Individual: productWithMoreThan1Price
+
+    Types: 
+        ProductWith_Max_1_Price
+    
+    Facts:  
+     hasPrice  2.5
+    
+    
+Individual: productWithoutPrice
+
+    Types: 
+        hasPrice max 0 xsd:decimal
+    
+    

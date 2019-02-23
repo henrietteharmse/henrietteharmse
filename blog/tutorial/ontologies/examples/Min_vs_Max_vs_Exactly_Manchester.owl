@@ -1,0 +1,79 @@
+Prefix: : <http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: untitled-ontology-6: <http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2019/1/untitled-ontology-6>
+
+
+Datatype: xsd:decimal
+
+    
+DataProperty: untitled-ontology-6:hasPrice
+
+    Range: 
+        xsd:decimal
+    
+    
+Class: untitled-ontology-6:AlternativeProductWith_Exactly_1_Price
+
+    SubClassOf: 
+        untitled-ontology-6:hasPrice min 1 xsd:decimal,
+        untitled-ontology-6:hasPrice max 1 xsd:decimal
+    
+    
+Class: untitled-ontology-6:ProductWith_Exactly_1_Price
+
+    SubClassOf: 
+        untitled-ontology-6:hasPrice exactly 1 xsd:decimal
+    
+    
+Class: untitled-ontology-6:ProductWith_Max_1_Price
+
+    SubClassOf: 
+        untitled-ontology-6:hasPrice max 1 xsd:decimal
+    
+    
+Class: untitled-ontology-6:ProductWith_Min_1_Price
+
+    SubClassOf: 
+        untitled-ontology-6:hasPrice min 1 xsd:decimal
+    
+    
+Individual: untitled-ontology-6:alternativeProductExactly1Price
+
+    Types: 
+        untitled-ontology-6:ProductWith_Max_1_Price,
+        untitled-ontology-6:ProductWith_Min_1_Price
+    
+    
+Individual: untitled-ontology-6:productWithExactly1Price
+
+    Types: 
+        untitled-ontology-6:ProductWith_Exactly_1_Price
+    
+    Facts:  
+     untitled-ontology-6:hasPrice  7.1
+    
+    
+Individual: untitled-ontology-6:productWithMoreThan1Price
+
+    Types: 
+        untitled-ontology-6:ProductWith_Max_1_Price
+    
+    Facts:  
+     untitled-ontology-6:hasPrice  2.5
+    
+    
+Individual: untitled-ontology-6:productWithoutPrice
+
+    Types: 
+        untitled-ontology-6:ProductWith_Max_1_Price,
+        untitled-ontology-6:hasPrice max 0 xsd:decimal
+    
+    
