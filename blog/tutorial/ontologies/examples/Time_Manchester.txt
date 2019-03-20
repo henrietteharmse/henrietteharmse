@@ -1,0 +1,24 @@
+	DataProperty: hours
+	    Domain: Time 
+	    Range: xsd:byte[>= "0"^^xsd:byte , <= "24"^^xsd:byte]
+	    
+	    
+	DataProperty: minutes>
+	    Domain: Time
+	    Range: xsd:byte[>= "0"^^xsd:byte , <= "60"^^xsd:byte]
+	    
+	DataProperty: seconds>
+	    Domain: Time
+	    Range: xsd:byte[>= "60"^^xsd:byte , <= "0"^^xsd:byte]
+	    
+	Class: Time
+	    
+	Individual: openingTime
+	    Types: Time
+	    
+	    Facts:  
+	     hours  "8"^^xsd:byte,
+	     minutes  "30"^^xsd:byte,
+	     seconds  "0"^^xsd:byte
+    
+    

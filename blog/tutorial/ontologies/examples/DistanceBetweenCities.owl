@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:untitled-ontology-25="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity1">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity2">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasDistance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City"/>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#distanceLondonToManchester -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#distanceLondonToManchester">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities"/>
+        <hasCity1 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#london"/>
+        <hasCity2 rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#manchester"/>
+        <hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">335</hasDistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#london -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#london">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#manchester -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#manchester">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

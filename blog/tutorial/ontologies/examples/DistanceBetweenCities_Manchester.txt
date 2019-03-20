@@ -1,0 +1,33 @@
+	Class: City
+	Class: DistanceBetweenTwoCities
+
+	ObjectProperty: hasCity1
+	    Domain: DistanceBetweenTwoCities    
+	    Range: City
+	    
+	ObjectProperty: hasCity2
+	    Domain: DistanceBetweenTwoCities
+	    Range: City
+	    
+	DataProperty: hasDistance
+	    Domain: DistanceBetweenTwoCities
+	    Range: xsd:integer
+	    
+	    
+	Individual: distanceLondonToManchester
+	    Types: 
+		DistanceBetweenTwoCities
+	    
+	    Facts:  
+	     hasCity1  london,
+	     hasCity2  manchester,
+	     hasDistance  335
+	    
+	    
+	Individual: london
+	    Types: City
+	  
+	Individual: manchester
+	    Types: City
+	    
+	    

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#"
+     xml:base="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-27="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#hours -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#hours">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">24</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#minutes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#minutes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">60</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#seconds -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#seconds">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">60</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#openingTime -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#openingTime">
+        <rdf:type rdf:resource="http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time"/>
+        <hours rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">8</hours>
+        <seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">0</seconds>
+        <seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#byte">30</seconds>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

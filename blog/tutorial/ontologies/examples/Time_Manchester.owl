@@ -1,0 +1,55 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27>
+
+
+Datatype: xsd:byte
+
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#hours>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time>
+    
+    Range: 
+        xsd:byte[>= "0"^^xsd:byte , <= "24"^^xsd:byte]
+    
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#minutes>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time>
+    
+    Range: 
+        xsd:byte[>= "0"^^xsd:byte , <= "60"^^xsd:byte]
+    
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#seconds>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time>
+    
+    Range: 
+        xsd:byte[>= "60"^^xsd:byte , <= "0"^^xsd:byte]
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time>
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#openingTime>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#Time>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#hours>  "8"^^xsd:byte,
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#minutes>  "30"^^xsd:byte,
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-27#seconds>  "0"^^xsd:byte
+    
+    

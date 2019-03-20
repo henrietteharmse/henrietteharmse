@@ -1,0 +1,70 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25>
+
+
+Datatype: xsd:integer
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity1>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity2>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities>
+    
+    Range: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City>
+    
+    
+DataProperty: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasDistance>
+
+    Domain: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities>
+    
+    Range: 
+        xsd:integer
+    
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City>
+
+    
+Class: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities>
+
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#distanceLondonToManchester>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#DistanceBetweenTwoCities>
+    
+    Facts:  
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity1>  <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#london>,
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasCity2>  <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#manchester>,
+     <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#hasDistance>  335
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#london>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City>
+    
+    
+Individual: <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#manchester>
+
+    Types: 
+        <http://www.semanticweb.org/henriette/ontologies/2019/2/untitled-ontology-25#City>
+    
+    
