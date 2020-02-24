@@ -45,61 +45,142 @@
 \begin{document}
   \maketitle
 
-  A question that is asked regularly in testing circles is: ``When should you stop testing?''. With an infinite budget it may be reasonably easy to answer this question. When the budget is severely constrained, this question becomes more difficult to answer. An even more difficult situation to
-address is when the project starts out with a given budget, but during the project lifetime the budget
-gets significantly reduced (i.e. due to economic downturn). This forces us be able to provide the
-highest level of quality for the least amount of money.
+  A question that is asked regularly in testing circles is: ``When should you stop testing?''. Proponents of code coverage tools may suggest once some percentage of coverage is achieved you can stop testing. However, what do you do when the budget is severely constrained? An even more difficult situation to address is when a project starts out with a given budget, but during its lifetime the budget gets significantly reduced (i.e. due to economic downturn). This forces us to be able to provide the highest level of quality for the least amount of money. In this post I will explain how \textbf{risk based testing} can help to answer this question.
 
-\section{How Testing Fails}
+\section{Motivation}
 A mistake that is often made is that the testing effort is distributed equally across the system – both
-critical and less critical portions of the system are tested equally. This results in critical parts of the
-system not being tested sufficiently and less critical parts being tested to the point of diminishing
+critical and non-critical parts of the system are tested equally. This results in critical parts of the
+system not being tested sufficiently and non-critical parts being tested to the point of diminishing
 returns. 
 
-A further mistaken mindset of developers is that there is no such thing as a useless test, which may entice developers to add tests for the sake of adding tests. In actual fact every test (unit-, integration- or systems test) has to earn its place in the codebase. If there no good motivation for a test, the test must be deleted from the codebase. Why is that? It adds to volume of code that developers have to master to be productive members of the team. It adds to the volume of code that has to be maintained. As such tests adds to the overall cost of maintenance of a system. \textbf{The most cost effective code to maintain is the code that has never been written}. 
+A further mistaken mindset of developers is that there is no such thing as a useless test. This may entice developers to add tests for the sake of adding tests. In actual fact every test (unit-, integration- or systems test) has to earn its place in the codebase. If there is no good motivation for a test, the test must be deleted from the codebase. Why is that? Because every test  adds to the volume of code that developers have to master and maintain to be productive members of the team. Tests add to the volume of code that has to be maintained. As such tests adds to the overall cost of maintenance of a system. \textbf{The most cost effective code to maintain is the code that has never been written}. 
+
+Risk based testing is a testing approach that helps developers and testers to prioritize the testing effort by assigning a relative risk to each software component. 
+
+\section{Calculating the Relative Risk of a Software Component}
+The relative risk of a software component is based on the product of the relative risks assigned to the criteria deemed relevant for the project. Criteria for determining risk will be discussed in the next section. For each criteria a value is assigned between $1..X$, where $1$ indicates that the relative risk of a criterion is insignificant and $X$ indicates that the relative risk of the criterion is critical for the given software component. 
+
+Assuming we have software components ($S$) $1..m$, criteria ($C$) $1..n$ where we assign relative risks, $A_{i,1} .. A_{i,n}$ for each criterion of a software component $S_i$, the relative risk $R_i$ for each software component is given by:
+
+\[R_1 =  A_{1,1} \times ... \times A_{1,n} \]
+\[...\]
+\[R_m =  A_{m,1} \times ... \times A_{m,n} \]
+
+Ordering $R_1 ... R_m$ in descending order of their values will cause the software components with the highest relative risk to be at the top of the list. Note that the calculated relative risk for a specific software component by itself is meaningless. A calculated risk of an component is only meaningful if it can be compared to the calculated risk of another component calculated in the same way (that is, using the same criteria and value for $X$). That is why we refer to the \textbf{relative} risk of a software component.
+
+What value should you choose for $X$? In general you should choose $X$ to be equal or greater than the number of criteria you will be using in calculating the risk. If many of the calculated relative risks $R_i$ have the same value, it means you have to increase the value of $X$.  
+
+\section{What Criteria should be Used?} 
+In this section we give examples of criteria that can be used in the calculating the risk of each software component. However, these criteria merely serve as examples. You are free to choose whatever criteria are deemed of importance for your project.
+
+Some general criteria that you may want to consider using are:
+\begin{description}
+ \item[Frequency of use] How frequently is this software component used? The more often a software component is used, the higher is its potential for having an adverse effect when it fails. 
+ \item[Cost] What will be the cost of this software component failing? The cost can be monatary, but it does not have to be. It can be cost in terms of reputation, loss of clients, or whatever factor that can hurt the business. Here it may be a good idea to get the input of the project sponsor or project owner.
+ \item[Complexity] What is the complexity of this software component? If this software component forms part of a green fields project, this criteria can express the complexity of this software component in comparison with other newly developed components. In the case where enhancements are made to an existing system, code analysis tools can be used to determine complexity of software components that need to be changed. For example, when an enhancement requires that 2 classes need to be changed substantially,  the class with a higher cyclomatic complexity (the number of linear independent paths through the code) represents a higher risk.
+ \item[Frequency of change] How often will the software component be changed? If a software component realizes the core value proposition of a business, it is likely that this component will constantly need to be enhanced as the business is trying to stay competitive. If there is little chance that a software component is going to be changed after it has been completed, the tests for that software component may be of limited value in the long term. 
+ \item[Number of bugs] For a system that is already in production, the number of bugs that are logged (that can be related back to specific software components) can help give an indication as to where testing effort should be focused.
+\end{description}
 
 
-\section{Risk Based Testing}
-Risk based testing is a testing approach that is helpful in addressing these concerns. The main
-advantage of risk based testing is to enable prioritization of the testing effort. The heart of risk based
-testing is to provide a set of criteria for evaluating risk. Some criteria for determining risk can be
-found in~\cite{Naik2008}. The criteria may differ depending on the project. Ideally the set of criteria needs to be
-negotiated with the project owners. Another important aspect is to decide on the level at which risk
-will be determined. For example, risk may be determined at business process, component or use
-case levels.
+\section{An Example}
+As an example, let us assume we are working on a legacy online share trading system, naturally with zero automated tests. As with most legacy systems, a large number of users depend on the system. A steady stream of user requests for enhancements and bugs logged require the system to be frequently updated. These changes often 
+introduce new bugs. 
 
-Some general criteria are provided below:
+We further assume the system consists of the following modules:
+
 \begin{itemize}
- \item How frequently is this use case used?
- \item What will be the cost of getting this use case wrong?
- \item What is the complexity of this use case?
- \item How often will the use case be changed?
+	\item A user management, authentication and authorization module through which users and their permissions are managed. It is very seldom that any changes are required to this module.
+	\item A share price notification engine of which the main purpose is to notify users in realtime of changes in share prices. The correct functioning of this engine is critical to the business since it enables users to buy/sell shares as and when needed. Any failure of the engine could mean that users cannot buy/sell shares as needed which could result in massive losses. However, since the initial problems with the engine have been resolved, bugs are seldomly logged for this module. 
+	\item The account management system keeps track of the funds of users as they trade, calculates daily interest earned or charged (a positive balance earns interest and for a negative balance interest is charged) and generate monthly statements of transactions.
+	\item The mark-to-market process runs each day after the stock exchange has closed to calculate the gains/losses for each account. There are frequent changes to this process as quants are forever fine tuning the way commission is calculated on trades. Most of the bugs logged are related to this module.
 \end{itemize}
 
-A value from 1 to 5 is assigned for each of these criteria and the product determined. This product
-provides a way for ranking the risk of each use case. A higher risk value will indicate a use case with a
-higher risk.
 
-Ideally determining risk should not be left to developers. Developers need to be guided by the project owner, the architect and the business analyst on their project.
+
+To improve the situation, management wants the development team to add automated tests. How should we approach testing the system?
+
+  \rowcolors{1}{white}{lightgray}
+\begin{table}
+	\footnotesize
+	%     \scriptsize
+	\begin{center} 
+		\caption{Relative Calculated Risk for the Online Share Trading System}
+		\label{tab_Example1}
+		\smallskip
+		\begin{tabular}{|>{\footnotesize}p{3cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{1.75cm}|>{\footnotesize}p{1.25cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{0.75cm}|}
+			\hline
+			\textbf{Module} & \textbf{Usage} & \textbf{Cost} & \textbf{Complexity} & \textbf{Change} & \textbf{Bugs} & \textbf{Risk} \\
+			\hline
+			User management & 1 & 2 & 1 & 1 & 1 & 2\\
+			Share price notification & 5 & 5 & 5 & 1 & 1 & 125 \\
+			Account management & 4 & 5 & 3 & 3 & 2 & 360\\
+			Mark-to-market & 3 & 5 & 5 & 5 & 5 & 1875\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\normalsize
+\end{table} 
+
+If we apply risk based testing as in seen in Table~\ref{tab_Example1}, it is clear that we need to focus our testing efforts on the mark-to-market process. Let us further assume the mark-to-market process consists of the following steps for each account:
+\begin{itemize}
+	\item determine prices at which shares have been bought,
+	\item determine current prices of shares held,
+	\item calculate the profit/loss, and
+	\item update the account balance.
+\end{itemize}
+
+
+  \rowcolors{1}{white}{lightgray}
+\begin{table}
+	\footnotesize
+	%     \scriptsize
+	\begin{center} 
+		\caption{Relative Calculated Risk for the Mark-to-Market Process}
+		\label{tab_Example2}
+		\smallskip
+		\begin{tabular}{|>{\footnotesize}p{3.5cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{1.75cm}|>{\footnotesize}p{1.25cm}|>{\footnotesize}p{0.75cm}|>{\footnotesize}p{0.75cm}|}
+			\hline
+			\textbf{Methods/Functions} & \textbf{Usage} & \textbf{Cost} & \textbf{Complexity} & \textbf{Change} & \textbf{Bugs} & \textbf{Risk} \\
+			\hline
+			determineBuyPrices & 2 & 5 & 2 & 1 & 3 & 60\\
+			determineCurrentPrices & 4 & 1 & 5 & 1 & 1 & 20 \\
+			calculateProfitLoss & 2 & 5 & 5 & 5 & 4 & 1000\\
+			postAccountUpdate & 2 & 5 & 1 & 1 & 1 & 10\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\normalsize
+\end{table} 
+
+
+A detailed plan of how to approach testing of the mark-to-market process can be drawn up (see Table~\ref{tab_Example2}), but instead of listing modules, it lists the software components that the mark-to-market process consists of. These can for example be classes, methods, functions, scripts etc. 
+
+
 
 \section{Advantages/Disadvantages of Risk Based Testing}
-Advantages of this approach are:
+The advantages of risk based testing are:
 \begin{itemize}
  \item The highest risk items can be developed and tested first which reduces the overall risk on
 the project.
  \item If testing has to be watered down, a guideline exists for deciding what to test and what not
 to test.
  \item At any given time an indication can be given of the risk of the project by considering the
-highest risk use cases that has not been tested.
+highest risk software components that has not been tested.
+\item It is a valuable tool for communicating risk to management, project sponsors and project owners.
 \end{itemize}
 
-A possible disadvantage of risk based testing is that not everything will be tested, but as stated earlier, if a testcase cannot be motivated, it may be more cost effective to not have the test as part of the codebase.
+The potential disadvantages of risk based testing are:
+\begin{itemize}
+	\item With a risk based testing approach many parts of the system will go untested. However, this will be an intentional decision rather than an accidental one.
+	\item The relative risk value, that are assigned for each criterion of a software component, is likely to be subjective. That means that another person may assign a different relative risk value for a criterion of a software component. However, it is just as subjective as, for example, story points in agile methodology. It similarly makes sense to assign relative risk values as part of a team discussion.
+	\item Some teams feel risk based testing adds to their documentation load. That is, they now have to draw up a complete risk profile before they can start testing. Do I always draw up risk profiles for all my projects? Honestly? No. What I will do is to have a discussion with the team regarding what areas of the system we need to test to death and which areas we can skimp on. If there is some disagreement, then I may write it out. Writing it out is very useful when the testing approach needs to be discussed with management, the project sponsor or the project owner.
+\end{itemize}	
+
 
 \section{Conclusion}
-Risk based testing provides a means via which one can estimate how well, or how poorly, a system has been tested.
+The main aim of risk base testing is to ensure that the testing effort is focused where it will bring the most business value.
 
 
-  \bibliographystyle{amsplain}
-  \bibliography{../../../../BibliographicDetails_v.0.1}
  
 \end{document}
