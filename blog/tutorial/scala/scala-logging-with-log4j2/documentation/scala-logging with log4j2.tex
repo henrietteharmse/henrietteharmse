@@ -44,8 +44,7 @@
 
 \begin{document}
   \maketitle
-  In this brief post I provide a minimal complete example that uses \texttt{scala-logging} with \texttt{log4j2}. \href{https://github.com/lightbend/scala-logging}{\texttt{scala-logging}} is a Scala logging library wrapping \href{http://www.slf4j.org/}{SLF4J}. 
-  When I tried to setup this up myself, I could not find an example with the correct dependencies that works for \texttt{scala-logging} using \texttt{log4j2}. 
+  In this brief post I provide a minimal complete example that uses \texttt{scala-logging} with \texttt{log4j2}. \href{https://github.com/lightbend/scala-logging}{\texttt{scala-logging}} is a Scala logging library wrapping \href{http://www.slf4j.org/}{SLF4J}.  
   
   \section{Scala code}
   Here is a minimal complete Scala code example using {\texttt{scala-logging}. Note that we use a companion object to define an instance of \texttt{Logger} that will be shared across all instances of \texttt{SimpleLoggingTest}.
@@ -126,8 +125,8 @@ lazy val root = (project in file("."))
 \end{small}    
 
   \section{Conclusion}
-
-\href{http://}{github}
+  This post gives a minimal complete example for using \texttt{scala-logging} with \texttt{log4j} using SBT. The complete code example can be found
+  \href{https://github.com/henrietteharmse/henrietteharmse/tree/master/blog/tutorial/scala/scala-logging-with-log4j2}{here} on GitHub.
   
   \bibliographystyle{amsplain}
   \bibliography{../../../BibliographicDetails_v.0.1}
