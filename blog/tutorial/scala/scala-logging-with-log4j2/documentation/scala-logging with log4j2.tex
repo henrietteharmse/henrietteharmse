@@ -1,0 +1,135 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{scala-logging with log4j2}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (scala-logging with log4j2)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  In this brief post I provide a minimal complete example that uses \texttt{scala-logging} with \texttt{log4j2}. \href{https://github.com/lightbend/scala-logging}{\texttt{scala-logging}} is a Scala logging library wrapping \href{http://www.slf4j.org/}{SLF4J}. 
+  When I tried to setup this up myself, I could not find an example with the correct dependencies that works for \texttt{scala-logging} using \texttt{log4j2}. 
+  
+  \section{Scala code}
+  Here is a minimal complete Scala code example using {\texttt{scala-logging}. Note that we use a companion object to define an instance of \texttt{Logger} that will be shared across all instances of \texttt{SimpleLoggingTest}.
+\begin{small}
+\begin{verbatim} 
+package org.henrietteharmse.tutorial
+
+import com.typesafe.scalalogging.Logger
+
+class SimpleLoggingTest {
+  SimpleLoggingTest.logger.trace("Hello while instance of SimpleLoggingTest is created.")
+}
+
+object SimpleLoggingTest {
+  private val logger = Logger[SimpleLoggingTest]
+
+  def main(args: Array[String]):Unit = {
+    logger.trace("Hello from SimpleLoggingTest companion object")
+    val simpleLoggingTest = new SimpleLoggingTest
+    try {
+      throw new RuntimeException("Some error")
+    } catch {
+      case t : Throwable => logger.error(s"Error: ${t.getMessage}")
+    }    
+  }
+}
+\end{verbatim}
+\end{small}
+
+  \section{Log4j configuration}
+  In this section we provide a minimal \texttt{log4j.xml} configuration file. It defines a trace level logger for our application code with an error level logger for all other errors. Logging for our code will be written to a file in \texttt{./logs/App.log}, and all errors, originating from other code than our own code, being logged to the console.
+\begin{small}
+	\begin{verbatim} 
+<?xml version="1.0" encoding="UTF-8"?>
+  <Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%markerSimpleName %-5p %C.%M():%L - %msg %ex{full}%n"/>
+    </Console>
+    <File name="Log" fileName="./logs/App.log">
+      <PatternLayout>
+        <Pattern>%markerSimpleName %-5p %C.%M():%L - %msg %ex{full}%n</Pattern>
+      </PatternLayout>
+    </File>    
+  </Appenders>
+  <Loggers>
+    <Logger name="org.henrietteharmse.tutorial" level="trace" additivity="false">
+      <AppenderRef ref="Log"/>
+    </Logger>
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+	\end{verbatim}
+\end{small}  
+
+   \section{SBT configuration}
+   The \texttt{build.sbt} file for building this application is given below. Most importantly it states the correct dependencies for using \texttt{scala-logging} with the \texttt{libraryDependencies} setting. To get debug information from \texttt{log4j}, we set the system property \texttt{log4j2.debug} to \texttt{true}. 
+\begin{small}
+	\begin{verbatim} 
+ThisBuild / scalaVersion := "2.13.2"
+ThisBuild / organization := "org.henrietteharmse.tutorial"
+
+val setLog4jDebug = sys.props("log4j2.debug") = "true"
+
+lazy val root = (project in file("."))
+  .settings(
+  name := "scala-logging-with-log4j2",
+  libraryDependencies ++= Seq(
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
+    "org.slf4j" % "slf4j-api" % "1.7.30",
+    "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.13.3"
+  ),
+  scalacOptions ++= Seq("-deprecation")
+)
+	\end{verbatim}
+\end{small}    
+
+  \section{Conclusion}
+
+\href{http://}{github}
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

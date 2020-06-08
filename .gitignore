@@ -37,6 +37,9 @@ catalog-*.xml
 /.recommenders/
 /.settings/
 /.metadata/
+/target/
+/.idea/
+/project/
 .project
 .classpath
 .fuse*

@@ -1,0 +1,67 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{A systematic way to figure out what you did not think about}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (A systematic way to figure out what you did not think about)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (Requirements gathering, DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+   One of the most challenging problems in software engineering is that is to define a complete software specification.
+   
+   Known knowns
+   Known unknowns
+   Unknown knowns 
+   
+  \section{First}
+  \cite{Aameri2015}
+
+\begin{small}
+\begin{verbatim} 
+Some code
+\end{verbatim}
+\end{small}
+
+\href{http://}{github}
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

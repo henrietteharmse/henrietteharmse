@@ -1,0 +1,77 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Enterprise Knowledge Graph Use Cases}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Enterprise Knowledge Graph Use Cases)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (Enterprise Architecture)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  Before embarking on efforts to create an enterprise knowledge graph (EKG), organisations need to be clear on the reasons as to why they want to create an EKG. It is therefore particularly useful to understand the use cases that are particularly well suited to the use of EKGs. 
+
+  In order to relate the ideas of EKGs concretely, I will assume the organisation for which we want to role out an EKG, is a bank providing personal banking services. In general personal banking consists of the following services:
+  \begin{description}
+  	\item[Bank] Provides accounts into which clients can deposite money for easy access to support day-to-day spending and paying of bills. 
+  	\item[Borrow] Clients can borrow money for a variety of purposes. These include short term loans, student loans, financing a motor vehicle and buying a house.
+  	\item[Insure] Different insurance packages can provide guarantee of compensation in the case loss of property, damage of property, illness and death.  
+  	\item[Savings and Investments] Typically these services are geared to saving with a particular goal in mind. This can range for short term goals like saving for a holiday or long term goals like saving for retirement.
+  \end{description}
+  
+   In many banks these services are provided by different departments. For the purposes of this example we will asume further that the software systems supporting services are disparate with regards to both technology and data structures used.  
+
+
+
+  
+  
+  \cite{Aameri2015}
+
+\begin{small}
+\begin{verbatim} 
+Some code
+\end{verbatim}
+\end{small}
+
+\href{http://}{github}
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}
