@@ -1,0 +1,73 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{MnSymbol}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\title{Enterprise Knowledge Graph Use Cases}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (Knowledge Graph FAQ)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (Knowledge Graps)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+\begin{itemize}
+	\item What data should be stored in my KG? - Focus on shared data according to the operating model of your organization, department or business unit.
+	\item What maintenance is required for a KG?
+	\item What are the steps for creating a KG?
+	\item What tools will you require to create a KG? KG Reference architecture. 
+	\item How does integration provided by KG differ from traditional integration mechanisms via web services, ESBs and other enterprise integration approaches? KGs have semantics which means the results returned by searches are much richer than traditional approaches.
+\end{itemize} 
+
+
+
+  
+  
+  \cite{Aameri2015}
+
+\begin{small}
+\begin{verbatim} 
+Some code
+\end{verbatim}
+\end{small}
+
+\href{http://}{github}
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

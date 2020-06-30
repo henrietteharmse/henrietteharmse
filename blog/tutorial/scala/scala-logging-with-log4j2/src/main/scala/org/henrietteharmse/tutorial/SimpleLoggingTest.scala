@@ -3,7 +3,8 @@ package org.henrietteharmse.tutorial
 import com.typesafe.scalalogging.Logger
 
 class SimpleLoggingTest {
-    SimpleLoggingTest.logger.trace("Hello while instance of SimpleLoggingTest is created.")
+  import SimpleLoggingTest.logger
+  logger.trace("Hello while instance of SimpleLoggingTest is created.")
 }
 
 object SimpleLoggingTest {
