@@ -1,0 +1,138 @@
+@prefix : <http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10> .
+
+<http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#hasFunctionalParent
+:hasFunctionalParent rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :isFunctionalParentOf .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#isFunctionalParentOf
+:isFunctionalParentOf rdf:type owl:ObjectProperty ;
+                      rdfs:domain :A ;
+                      rdfs:range :B .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#A
+:A rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Class ;
+                         owl:oneOf ( :x1
+                                     :x5
+                                     :x7
+                                   )
+                       ] ;
+   rdfs:subClassOf :Z ,
+                   [ rdf:type owl:Restriction ;
+                     owl:onProperty :isFunctionalParentOf ;
+                     owl:someValuesFrom :B
+                   ] .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#B
+:B rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Class ;
+                         owl:oneOf ( :x2
+                                     :x3
+                                     :x6
+                                   )
+                       ] ;
+   rdfs:subClassOf :Z .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#Z
+:Z rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Class ;
+                         owl:oneOf ( :x1
+                                     :x2
+                                     :x3
+                                     :x5
+                                     :x6
+                                     :x7
+                                   )
+                       ] ;
+   owl:disjointUnionOf ( :A
+                         :B
+                       ) .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :x0
+                                            :x1
+                                            :x2
+                                            :x3
+                                            :x4
+                                            :x5
+                                            :x6
+                                            :x7
+                                          )
+                              ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x0
+:x0 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x1
+:x1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x2
+:x2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x3
+:x3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x4
+:x4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x5
+:x5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x6
+:x6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/michaelchary/ontologies/2020/8/untitled-ontology-10#x7
+:x7 rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :x0
+                        :x1
+                        :x2
+                        :x3
+                        :x5
+                        :x6
+                        :x7
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
