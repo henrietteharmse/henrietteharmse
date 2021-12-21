@@ -1,0 +1,35 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#
+Prefix: xml: <http://www.w3.org/XML/1998/namespace
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#
+
+
+ObjectProperty: a_to_b
+
+ObjectProperty: a_to_c
+    
+Class: A1
+    EquivalentTo: (a_to_b some B)and (a_to_c some C)
+      
+Class: A2
+    SubClassOf: (a_to_b some B) and (a_to_c some C)
+      
+Class: B
+    
+Class: C
+    
+Individual: b1
+    Types: 
+        B
+    
+Individual: c1
+    Types: 
+        C
+      
+Individual: x
+    Facts:  
+     a_to_b  b1,
+     a_to_c  c1
+    
+    

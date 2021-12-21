@@ -1,0 +1,56 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf>
+
+
+ObjectProperty: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_b>
+
+    
+ObjectProperty: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_c>
+
+    
+Class: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#A1>
+
+    EquivalentTo: 
+        (<http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_b> some <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#B>)
+         and (<http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_c> some <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#C>)
+    
+    
+Class: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#A2>
+
+    SubClassOf: 
+        (<http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_b> some <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#B>)
+         and (<http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_c> some <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#C>)
+    
+    
+Class: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#B>
+
+    
+Class: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#C>
+
+    
+Individual: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#b1>
+
+    Types: 
+        <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#B>
+    
+    
+Individual: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#c1>
+
+    Types: 
+        <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#C>
+    
+    
+Individual: <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#x>
+
+    Facts:  
+     <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_b>  <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#b1>,
+     <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#a_to_c>  <http://henrietteharmse.com/tutorials/ontologies/EquivalentToVersusSubClassOf#c1>
+    
+    
