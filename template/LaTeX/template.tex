@@ -10,14 +10,9 @@
 \usepackage{longtable}
 \usepackage[table]{xcolor}
 \usepackage{textcomp} 
-\usepackage{stmaryrd}
 \usepackage{graphicx}
 \usepackage{enumitem}
-\usepackage{yfonts}
-\usepackage{algpseudocode}
-\usepackage{algorithm}
 \usepackage{hyperref}
-\usepackage{MnSymbol}
 
 \setlist[enumerate]{label*=\arabic*.}
 \newtheorem{theorem}{Theorem}[section]
@@ -25,9 +20,6 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{notation}{Notation}[section]
-
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
 
 \title{Blog Post Title}
 \author{Henriette Harmse}
@@ -52,6 +44,12 @@
 Some code
 \end{verbatim}
 \end{small}
+
+\begin{figure}
+	%trim option's parameter order: left bottom right top
+	\centering \includegraphics[trim = 0mm 0mm 0mm 0mm, clip, scale=0.9]{./images/EquivalenceVersusSubClassOf-Cropped.png}
+	\caption{\texttt{A2} and \texttt{x} wrt \texttt{a\_to\_b some B}}
+\end{figure}
 
 \href{http://}{github}
   
