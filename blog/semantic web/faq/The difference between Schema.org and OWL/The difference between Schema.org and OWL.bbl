@@ -1,0 +1,17 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{hernich2015schema}
+Andre Hernich, Carsten Lutz, Ana Ozaki, and Frank Wolter, {Twenty-Fourth
+  International Joint Conference on Artificial Intelligence"}, title =.
+
+\bibitem{10.1007/978-3-319-11964-9_17}
+Peter~F. Patel-Schneider, {The Semantic Web -- ISWC 2014"}, editor = (Cham).
+
+\end{thebibliography}

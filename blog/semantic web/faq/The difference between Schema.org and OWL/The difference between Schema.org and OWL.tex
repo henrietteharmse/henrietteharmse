@@ -1,0 +1,74 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\title{The difference between Schema.org and OWL}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (The difference between Schema.org and OWL)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (Knowledge graphs)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+  In this blog post I describe some of the main differences between Schema.org vocabularies and OWL ontologies, the implications of these differences and the kind of steps you will need to take to translate Schema.org vocabularies to OWL ontologies. 
+  
+  Overall I keep this discussion at a high-level. For in-depth reviews of the differences between Schema.org and OWL I provide relevant links at the end of this post.
+  
+  \section{Key differences} 
+   There are 2 main differences between OWL and Schema.org
+   
+   \begin{enumerate}
+   	\item \textbf{Intended purpose}: The primary purpose of Schema.org is to enable sharing of structured data on the internet. The primary purpose of OWL is to enable sophisticated reasoning across the structure of your data.
+   	\item \textbf{Difference in language}: Due to the difference in purpose, there are substantial differences in language. The main reason being that the language for OWL can be translated into precise mathematical logic axioms, which allows for much richer inferences to be drawn. This is the reason for OWL preferring \texttt{rdfs:domain}/\texttt{rdfs:range} to \texttt{schema:domainIncludes}/\texttt{schema:rangeIncludes}. The benefit of using \texttt{rdfs:domain}/\texttt{rdfs:range} is that they have precise defined mathematical logic meaning, whereas \texttt{schema:domainIncludes}/\texttt{schema:rangeIncludes} do not have mathematical meaning.
+   \end{enumerate}
+   
+   \section{What does this mean?}
+	Using Schema.org you could draw some limited inferences. For example a reasoner can determine that the SNOMED concept \\ \href{http://purl.bioontology.org/ontology/SNOMEDCT/116154003}{http://purl.bioontology.org/ontology/SNOMEDCT/116154003} is a \texttt{schema:Patient} which is a \texttt{schema:Person}. But the language used in Schema.org by itself is not rich enough to detect inconsistencies. I.e., there is no way to say that \texttt{schema:Person} is disjoint from \texttt{schema:Product}. This allows for stating \texttt{myexample:john a schema:Person} and \texttt{myexample:john a schema:Product} without a reasoner being able to detect the inconsistency. Using OWL it is possible to state that \texttt{schema:Person} and \texttt{schema:Product} are disjoint.
+
+	Does this mean you should prefer OWL to Schema.org? No, not if your intended purpose of your ontology is to share data. Then it is best to use concepts from Schema.org and add the axioms that will provide the inferences you need. If reasoning is not your reason for wanting to use Schema.org/OWL, then just use Schema.org.
+   
+    \section{Can you translate Schema.org to OWL?}
+    Strictly speaking, since RDF \& RDFS is a subset of OWL, Schema.org is an OWL definition already, albeit 1 with limited reasoning capability. Any "translation" to OWL will mean adding axioms to Schema.org to increase the inferences that can be drawn from Schema.org documents. It is a pity that Schema.org does not (the current link to the OWL file is dead) provide an OWL file with the additional axioms that will enable richer reasoning. Here are examples of axioms you may want to consider adding:
+    
+    \begin{itemize}
+    	\item Add \texttt{rdfs:domain} and \texttt{rdfs:range} restrictions rather than replacing \texttt{schema:domainIncludes} and \texttt{schema:rangeIncludes}. Replacing \texttt{schema:domainIncludes} and \texttt{schema:rangeIncludes} could result in search engines not finding information.
+    	\item Add \texttt{owl:disjointWith} and \texttt{owl:disjointObjectProperties} respectively for all classes and properties that do not share individuals.
+    	\item By looking at the documentation of Schema.org it gives the impression that classes have attributes. I.e., \texttt{schema:Person} has an attribute \texttt{schema:givenName}. However, there is nothing in the definition of \texttt{schema:Person} that enforces that the \texttt{schema:Person} class must have a \texttt{schema:givenName} attribute. I describe \href{https://henrietteharmse.com/2017/09/09/a-simple-class/}{here}, \href{https://henrietteharmse.com/2017/09/10/add-some-more-attributes/}{here} and \href{https://henrietteharmse.com/2017/11/03/associations-between-classes/}{here} how to define "attributes" for classes in a way that can be used by OWL reasoners. 	
+    \end{itemize}
+
+	\section{Conclusion}
+	Schema.org is mainly for sharing structured data on the Internet. OWL is used mainly to reason over structured data to determine inconsistencies in the schema.
+  	
+  	For in-depth discussions on the differences between Schema.org and OWL I highly recommend reading \cite{10.1007/978-3-319-11964-9_17} and \cite{hernich2015schema}.
+  
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}
