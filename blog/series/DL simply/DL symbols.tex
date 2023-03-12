@@ -1,0 +1,129 @@
+\documentclass{amsart}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[british]{babel}
+%\usepackage[a4paper, inner=0.5cm, outer=0.5cm, top=1cm,
+%bottom=1.5cm, bindingoffset=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb, latexsym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{textcomp} 
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlist[enumerate]{label*=\arabic*.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{notation}{Notation}[section]
+
+\title{DL Symbols}
+\author{Henriette Harmse}
+\date{\today}
+
+\pdfinfo{%
+  /Title    (DL Symbols)
+  /Author   (Henriette Harmse)
+  /Creator  ()
+  /Producer ()
+  /Subject  (DL)
+  /Keywords ()
+}
+
+\begin{document}
+  \maketitle
+  
+\begin{longtable}{|>{\footnotesize}p{2.5cm}|>{\footnotesize}p{1.5cm}|>{\footnotesize}p{3.5cm}|>{\footnotesize}p{5cm}|}
+%%	\rowcolors{1}{white}{lightgray}
+%%	\footnotesize
+%%	\begin{center} 
+	\caption{List of DL Symbols}
+		\label{tab_DLSymbols}\\
+%%		\smallskip
+%%		\begin{tabular}
+			\hline
+         	\textbf{Name} & \textbf{DL} & \textbf{Manchester} &  \textbf{Semantics} \\
+			\hline  
+			domain of interpretation & $\triangle^{\mathcal{I}}$ & & The maximal set of all the things this ontology deals with\\
+			\hline
+			Thing(OWL) or top(DL) & $\top$ & \texttt{owl:Thing} & Equivalent to the domain of interpretation\\
+			\hline
+			Nothing(OWL) or bottom(DL) & $\bot$ & \texttt{owl:Nothing} & Equivalent to the empty set\\
+			\hline
+			Top object property & $U$ & \texttt{owl:topObjectProperty} & Maximal set of pairs for the domain of interpretation: $\triangle^{\mathcal{I}} \times \triangle^{\mathcal{I}}$  \\
+			\hline
+			Bottom object property & $B$ & \texttt{owl:bottomObjectProperty} & Maximal set of pairs for the domain of interpretation: $\triangle^{\mathcal{I}} \times \triangle^{\mathcal{I}}$  \\
+			\hline			
+			instance or individual & $c$ & \texttt{Individual: c} & $c \in \triangle^{\mathcal{I}}$ which is read as: $c$ is a member of the domain of interpretation \\
+			\hline
+			class(OWL) or concept(DL) & $C$ & \texttt{Class: C} & $C \subseteq \triangle^{\mathcal{I}}$, which is read as: $C$ is a set of individuals that is a subset of the domain of interpretation. \\
+			\hline
+			object property(OWL) or role(DL) & $r$ & \texttt{ObjectProperty: r} & A set of ordered pairs of individuals\\
+			\hline
+			data property(OWL) or concrete role(DL) & $t$ & \texttt{DataProperty: t} & A set of ordered pairs where the first component of each pair is an individual and the second component is a data value\\
+			\hline
+			concept subsumption axiom & $C \sqsubseteq D$ & \texttt{Class C:\newline SubClassOf: D} & The set of individuals represented by the concept C is a subset of the set of individuals represented by the concept D\\
+			\hline	
+			concept equivalence axiom & $C \equiv D$ & \texttt{Class C: \newline EquivalentTo: D} & The set of individuals represented by the concept C is equivalent to the set of individuals represented by the concept D\\
+			\hline
+			role subsumption axiom & $r \sqsubseteq s$ & \texttt{ObjectProperty r:\newline SubPropertyOf: s} or if r and s are concrete roles/data properties:\newline \texttt{DataProperty r:\newline SubPropertyOf: s} & The set of pairs of individuals represented by the role r is a subset of the set of pairs of individuals represented by the concept s\\
+			\hline	
+			role equivalence axiom & $r \equiv s$ & \texttt{ObjectProperty r: \newline EquivalentTo: s} & The set of pairs of individuals represented by the role r is equivalent to the set of pairs of individuals represented by the concept s\\
+			\hline
+			instance of (OWL) or concept assertion (DL) & $C(x)$ & \texttt{Class: C\newline Individual: x \newline Type: C} & The individual x is an instance of the concept C, \\
+			\hline
+			property assertion (OWL) or role assertion (DL) & $r(x, y)$ & \texttt{ObjectProperty: r\newline Individual: y \newline Individual: x \newline Facts: r y}  &  Individual x is related to individual y via the property r.\\  
+			\hline
+			individuals are the same & $x \approx y$ & \texttt{Individual: x \newline Individual: y \newline SameAs: x}& \\ 		
+			\hline	
+			individuals are different & $x \not\approx y$ & \texttt{Individual: x \newline Individual: y \newline DifferentFrom: x} & \\ 		
+			\hline					
+			concept negation & $\neg C$ & \texttt{not C} & Everything in the domain of interpretation that is not in C \\
+			\hline			
+			intersection of concepts & $C \sqcap D$ & \texttt{C and D} & The intersection of the sets represented by the concepts C and D. Read as: the conjunction of C and D.\\
+			\hline
+			disjunction of concepts & $C \sqcup D$ & \texttt{C or D} & The union of the sets represented by the concepts C and D. Read as: the disjunction of C and D.\\
+			\hline
+			qualified existential restriction & $\exists r.C$ & \texttt{r some C} & This represents the set of individuals such that for each individual d there is at least 1 element e that is linked to an individual d of type C via the role r. Read as: The set of individuals with an r-filler that is of type C.\\
+			\hline
+			unqualified existential restriction & $\exists r$ or $\exists r.\top$ & \texttt{r some owl:Thing} & This represents the set of individuals such that for each individual d there is at least 1 element e that is linked to an individual d via the role r. Read as: The set of individuals with an r-filler.\\
+			\hline
+			value restriction & $\exists r.\{x\}$ & \texttt{r hasValue x} & This a more specialized form of the existential restriction. This represents the set of individuals such that for each individual d belonging to the set, it is linked to the individual x (respectively value x when r is a data property or concrete role ). Read as: The set of individuals with the individual x (respectively, the value x) as r-filler.\\
+			\hline
+			qualified universal restriction & $\forall r.C$ & \texttt{r only C} & This is the set of individuals where for each individual d of the set, it holds that whenever d is linked to an individual e via r, then e is of type C. Read as: the set of individuals where all r-fillers are of type C.\\						
+			\hline  
+			unqualified universal restriction & $\forall r$ or $\forall r.\top$ & \texttt{r only owl:Thing} & This is the set of individuals where for each individual d of the set, it holds that whenever d is linked to an individual e via r, then e is of type C.\\						
+			\hline		
+			qualified minimum cardinality restriction & $\geq n r.C$ & \texttt{r min n C} & This represents the set of individuals such that each individual d is linked to at least n individuals of type C via the role r. Read as: The set of individuals with at least n r-fillers that are of type C.\\
+			\hline
+			unqualified minimum cardinality restriction & $\geq n r.\top$ or $\geq n r$ & \texttt{r min n owl:Thing} & This represents the set of individuals such that each individual d is linked to at least n individuals via the role r. Read as: The set of individuals with at least n r-fillers.\\
+			\hline	
+			qualified maximum cardinality restriction & $\leq n r.C$ & \texttt{r max n C} & This represents the set of individuals such that each individual d is linked to at most n individuals of type C via the role r. Read as: The set of individuals with at most n r-fillers of type C.\\
+\hline	
+			unqualified maximum cardinality restriction & $\leq n r.\top$ or $\leq n r$ & \texttt{r max n owl:Thing} & This represents the set of individuals such that each individual d is linked to at most n individuals via the role r. Read as: The set of individuals with at most n r-fillers.\\
+\hline					
+			inverse property(OWL) or inverse role(DL) & $r^-$ & \texttt{ObjectProperty: r \newline ObjectProperty: s \newline InverseOf: r} & The set that is the inverse of r consists of the pairs (x,y) of r that are swapped around to (y,x). \\
+			\hline
+			property chain(OWL) or role chain(DL) & $p1 \circ p2 \sqsubseteq p$ &  \texttt{ObjectProperty: p1 \newline ObjectProperty: p2 \newline ObjectProperty: p \newline SubPropertyChain: p1 o p2}   & If we have $p1(x,y)$ and $p2(y,z)$, then it follows that $p(x,z)$. An example is \newline \texttt{ObjectProperty: grandParentOf \newline SubPropertyChain: parentOf o parentOf}.\\
+			\hline
+			TBox & $\mathcal{T}$ & NA & The set of all concept axioms. \\
+			\hline
+			RBox & $\mathcal{R}$ & NA & The set of all role axioms .\\
+			\hline			
+			ABox & $\mathcal{A}$ & NA & The set of all assertions regarding individuals. \\
+			Ontology & $\mathcal{O}$ & NA & Consists of the union of the TBox, RBox and ABox where any of these could be potentially be empty.\\
+			\hline				
+			entailment & $\vDash$ & NA & States that an axiom or assertion follows from a TBox, RBox, ABox or ontology. I.e., $\mathcal{T} \vDash C \sqsubseteq D$ states that $C$ is subsumed by $D$ follows from the TBox $\mathcal{T}$. Typically used wrt reasoning in description logics.\\ 
+			\hline			
+\end{longtable}  
+  
+ 
+ 
+  \bibliographystyle{amsplain}
+  \bibliography{../../../BibliographicDetails_v.0.1}
+ 
+\end{document}

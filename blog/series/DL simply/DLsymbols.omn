@@ -1,0 +1,54 @@
+Prefix: : <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655>
+
+
+ObjectProperty: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#p1>
+
+    
+ObjectProperty: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#p2>
+
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#p>
+
+    SubPropertyChain: 
+        <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#p1> o <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#p2>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#r>
+
+    InverseOf: 
+        <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#s>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#s>
+
+    InverseOf: 
+        <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#r>
+    
+    
+ObjectProperty: owl:topObjectProperty
+
+    
+Individual: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#x>
+
+    SameAs: 
+        <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#y>
+    
+    
+Individual: <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#y>
+
+    SameAs: 
+        <http://www.semanticweb.org/henriette007/ontologies/2023/2/untitled-ontology-655#x>
+    
+    
