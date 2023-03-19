@@ -37,7 +37,7 @@
 \begin{document}
   \maketitle
   
-\begin{longtable}{|>{\footnotesize}p{2.5cm}|>{\footnotesize}p{1.5cm}|>{\footnotesize}p{3.5cm}|>{\footnotesize}p{5cm}|}
+\begin{longtable}{|>{\footnotesize}p{2cm}|>{\footnotesize}p{1.3cm}|>{\footnotesize}p{4cm}|>{\footnotesize}p{5cm}|}
 %%	\rowcolors{1}{white}{lightgray}
 %%	\footnotesize
 %%	\begin{center} 
@@ -56,7 +56,7 @@
 			\hline
 			Top object property & $U$ & \texttt{owl:topObjectProperty} & Maximal set of pairs for the domain of interpretation: $\triangle^{\mathcal{I}} \times \triangle^{\mathcal{I}}$  \\
 			\hline
-			Bottom object property & $B$ & \texttt{owl:bottomObjectProperty} & Maximal set of pairs for the domain of interpretation: $\triangle^{\mathcal{I}} \times \triangle^{\mathcal{I}}$  \\
+			Bottom object property & $B$ & \texttt{owl:bottomObjectProperty} & Empty set of pairs.  \\
 			\hline			
 			instance or individual & $c$ & \texttt{Individual: c} & $c \in \triangle^{\mathcal{I}}$ which is read as: $c$ is a member of the domain of interpretation \\
 			\hline
@@ -92,7 +92,7 @@
 			\hline
 			unqualified existential restriction & $\exists r$ or $\exists r.\top$ & \texttt{r some owl:Thing} & This represents the set of individuals such that for each individual d there is at least 1 element e that is linked to an individual d via the role r. Read as: The set of individuals with an r-filler.\\
 			\hline
-			value restriction & $\exists r.\{x\}$ & \texttt{r hasValue x} & This a more specialized form of the existential restriction. This represents the set of individuals such that for each individual d belonging to the set, it is linked to the individual x (respectively value x when r is a data property or concrete role ). Read as: The set of individuals with the individual x (respectively, the value x) as r-filler.\\
+			value restriction & $\exists r.\{x\}$ & \texttt{r hasValue x} & This a more specialized form of the existential restriction. This represents the set of individuals such that for each individual d belonging to the set, it is linked to the individual x (respectively value x when r is a data property or concrete role). Read as: The set of individuals with the individual x (respectively, the value x) as r-filler.\\
 			\hline
 			qualified universal restriction & $\forall r.C$ & \texttt{r only C} & This is the set of individuals where for each individual d of the set, it holds that whenever d is linked to an individual e via r, then e is of type C. Read as: the set of individuals where all r-fillers are of type C.\\						
 			\hline  
@@ -105,7 +105,9 @@
 			qualified maximum cardinality restriction & $\leq n r.C$ & \texttt{r max n C} & This represents the set of individuals such that each individual d is linked to at most n individuals of type C via the role r. Read as: The set of individuals with at most n r-fillers of type C.\\
 \hline	
 			unqualified maximum cardinality restriction & $\leq n r.\top$ or $\leq n r$ & \texttt{r max n owl:Thing} & This represents the set of individuals such that each individual d is linked to at most n individuals via the role r. Read as: The set of individuals with at most n r-fillers.\\
-\hline					
+\hline
+			qualified exact restriction & $= n r.C$ & \texttt{r exactly n C} &	This represents the set of individuals such that each individual d is linked to exactly n individuals of type C via the role r. Read as: The set of individuals with exactly n r-fillers of type C.	\\
+\hline			
 			inverse property(OWL) or inverse role(DL) & $r^-$ & \texttt{ObjectProperty: r \newline ObjectProperty: s \newline InverseOf: r} & The set that is the inverse of r consists of the pairs (x,y) of r that are swapped around to (y,x). \\
 			\hline
 			property chain(OWL) or role chain(DL) & $p1 \circ p2 \sqsubseteq p$ &  \texttt{ObjectProperty: p1 \newline ObjectProperty: p2 \newline ObjectProperty: p \newline SubPropertyChain: p1 o p2}   & If we have $p1(x,y)$ and $p2(y,z)$, then it follows that $p(x,z)$. An example is \newline \texttt{ObjectProperty: grandParentOf \newline SubPropertyChain: parentOf o parentOf}.\\
@@ -115,6 +117,7 @@
 			RBox & $\mathcal{R}$ & NA & The set of all role axioms .\\
 			\hline			
 			ABox & $\mathcal{A}$ & NA & The set of all assertions regarding individuals. \\
+			\hline
 			Ontology & $\mathcal{O}$ & NA & Consists of the union of the TBox, RBox and ABox where any of these could be potentially be empty.\\
 			\hline				
 			entailment & $\vDash$ & NA & States that an axiom or assertion follows from a TBox, RBox, ABox or ontology. I.e., $\mathcal{T} \vDash C \sqsubseteq D$ states that $C$ is subsumed by $D$ follows from the TBox $\mathcal{T}$. Entailment is typically used in discussions wrt reasoning.\\ 
