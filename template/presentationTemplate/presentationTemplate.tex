@@ -1,0 +1,64 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage[utf8]{inputenc}
+%\usepackage{beamerthemeshadow}
+%\usepackage{stmaryrd} % Needed for \bigsqcap
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+
+
+\definecolor{Green}{rgb}{0.506, 0.727, 0.396} % (primary)
+
+\usecolortheme[named=Green]{structure}
+
+\newcommand\owlIndent{\hspace{4mm}}
+\newcommand\setspacing{\hspace{2pt}}
+
+\renewcommand{\arraystretch}{1.2} % Vertical spacing of rows in table
+
+
+
+\begin{document}
+\title{Add Title}
+\author{Henriette Harmse}
+\date{}
+
+\frame{\titlepage}
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[]
+%  \end{frame}
+%}
+
+
+%\section{Section1}
+\frame{\frametitle{Slide1}
+	
+	\begin{table} 
+		\begin{center} 
+			\begin{small}
+				\begin{tabular}{|p{1.75cm}|p{1.75cm}|p{1.75cm}|p{5cm}|} 
+					\hline					
+					\textbf{col1}&\textbf{col2}&\textbf{col3}&\textbf{col4}\\
+
+					\hline  				  
+				\end{tabular}
+			\end{small}
+		\end{center}
+	\end{table}
+}
+
+\frame{\frametitle{Slide2}
+	\begin{itemize}
+		\item item1.
+	\end{itemize}	
+	
+	
+	%trim option's parameter order: left bottom right top
+%	\includegraphics[trim = 63mm 0mm 0mm 20mm, clip, scale=1]{Overview} 
+}
+
+\end{document}

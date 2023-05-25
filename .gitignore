@@ -32,6 +32,10 @@ catalog-*.xml
 *.out
 *.gz
 *.backup
+*.bbl
+*.nav
+*.snm
+*.tog
 
 # other
 /.recommenders/

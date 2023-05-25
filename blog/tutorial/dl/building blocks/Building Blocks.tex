@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage[utf8]{inputenc}
+%\usepackage{beamerthemeshadow}
+%\usepackage{stmaryrd} % Needed for \bigsqcap
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+
+%\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{UBCblue}{rgb}{0.506, 0.727, 0.396} % UBC Blue (primary)
+
+\usecolortheme[named=UBCblue]{structure}
+
+\newcommand\tripleSpacing{\hspace{2mm}}
+\newcommand\setspacing{\hspace{2pt}}
+
+\renewcommand{\arraystretch}{1.2} % Vertical spacing of rows in table
+
+
+
+\begin{document}
+\title{Building Blocks of DLs and OWL}  
+\author{Henriette Harmse}
+\date{}
+
+\frame{\titlepage}
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[]
+%  \end{frame}
+%}
+
+
+\frame{\frametitle{Building Blocks of DLs and OWL}
+	
+	\begin{table} 
+		\begin{center} 
+			\begin{small}
+				\begin{tabular}{|p{1.75cm}|p{1.75cm}|p{1.75cm}|p{5cm}|} 
+					\hline					
+					\textbf{OWL}&\textbf{DL}&\textbf{Semantics}&\textbf{Example}\\
+					\hline	
+					instance or individual & instance or individual & A member of a set.	& A person called \texttt{Mary} or a dog called \texttt{Fido}.	\\
+					\hline
+					class & concept & A set of individuals.	& The \texttt{Person} class (concept) consisting of persons or the \texttt{Dog} class (concept) consisting of dogs. 	\\
+					\hline
+					object property & role & A set of pairs of individuals. & The \texttt{owns} object property (role) can link a pet and its owner: \texttt{Mary owns Fido} (in DL $owns(Mary, Fido)$).\\
+					\hline
+					data property & concrete role & A set of pairs consisting of an individual linked to a data value. & The data property (concrete role) \texttt{hasAge} can link a number representing an age to an individual: \texttt{hasAge(Mary, 10) (in DL $hasAge(Mary, 10)$)} \\
+					\hline  				  
+				\end{tabular}
+			\end{small}
+		\end{center}
+	\end{table}
+}
+
+\end{document}
