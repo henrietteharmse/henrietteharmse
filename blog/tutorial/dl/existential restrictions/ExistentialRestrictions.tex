@@ -47,24 +47,30 @@
 	\begin{table} 
 		\begin{center} 
 			\begin{small}
-				\begin{tabular}{|c|c|} 
+				\begin{tabular}{|c|c|c|} 
 					\hline					
 					\textbf{OWL}&\textbf{DL}\\
 					\hline 
-					\begin{minipage}{5cm}
+					\begin{minipage}{4cm}
 						$\begin{aligned}
 							&\texttt{ObjectProperty: r}\\
 							&\texttt{Class: D}\\
-							&\owlIndent\texttt{EquivalentTo: r some C}\\
+							&\owlIndent\texttt{EquivalentTo:}\\
+							&\owlIndent\owlIndent\texttt{r some C}\\
 							&\texttt{Class: C}
 						\end{aligned}$
 					\end{minipage}				
 					& 
-					\begin{minipage}{2cm}
+					\begin{minipage}{1.5cm}
 						$\begin{aligned}
 							D \equiv \exists r.C
 						\end{aligned}$
-					\end{minipage}										
+					\end{minipage}
+					& 
+					\begin{minipage}{4.5cm}
+	%trim option's parameter order: left bottom right top
+					\includegraphics[trim = 0mm 1mm 0mm 1mm, clip, scale=0.4]{./images/QualifiedExistentialRestriction.png} 
+					\end{minipage}															
 					\\
 					\hline						 				  
 				\end{tabular}
@@ -191,15 +197,15 @@
 							$\begin{aligned}
 								&\texttt{DataProperty: name}\\
 							%	&\owlIndent\owlIndent\texttt{name}\\
-								&\texttt{Class: Human}\\
+								&\texttt{Class: Person}\\
 								&\owlIndent\texttt{SubClassOf:} \\
-								&\owlIndent\owlIndent\texttt{some name xsd:string}
+								&\owlIndent\owlIndent\texttt{name some xsd:string}
 							\end{aligned}$
 						\end{minipage}	
 						& 
 						\begin{minipage}{4cm}
 							$\begin{aligned}
-								Human &\sqsubseteq \\
+								Person &\sqsubseteq \\
 								& \exists name.\texttt{xsd:string} 
 							\end{aligned}$				
 						\end{minipage}																		
@@ -212,4 +218,32 @@
 	\end{block}
 }
 
+\frame{\frametitle{Using existential restrictions with SubClassOf vs EquivalentTo}
+	\begin{block}{A Person have 1 or more name}
+		Why did we use \texttt{SubClassOf} rather than \texttt{EquivalentTo}?\\
+	\end{block}	
+	
+}
+
+\frame{\frametitle{Using existential restrictions with SubClassOf vs EquivalentTo}
+	\begin{block}{A Person have 1 or more name}
+		Why did we use \texttt{SubClassOf} rather than \texttt{EquivalentTo}?\\
+		\medskip
+		\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, scale=0.3]{./images/ExistentialRestrictionsWithSubclassVSEquivalentTo.png}
+	\end{block}	
+}
+
+
+\frame{\frametitle{Using existential restrictions with SubClassOf vs EquivalentTo}
+	\begin{block}{A DogOwner is a Person that owns a Dog}
+		$\begin{aligned}
+			&\texttt{ObjectProperty: owns}\\
+			&\texttt{Class: Dog}\\
+			&\texttt{Class: Person}\\
+			&\texttt{Class: DogOwner}\\
+			&\owlIndent\texttt{EquivalentTo:} \\
+			&\owlIndent\owlIndent\texttt{Person and owns some Dog} 
+		\end{aligned}$
+	\end{block}	
+}
 \end{document}
