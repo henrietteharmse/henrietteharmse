@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl/"
+     xml:base="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:SubClassEquivalentExistentialRestriction="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#">
+    <owl:Ontology rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl">
+        <owl:versionIRI rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/v.0.0.1/SubClassEquivalentExistentialRestriction.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#p -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#p"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#q -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#q"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#r -->
+
+    <owl:ObjectProperty rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#r"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C">
+        <owl:disjointWith rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#F"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C1 -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C1">
+        <rdfs:subClassOf rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+        <owl:disjointWith rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#E"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#D -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#D">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#r"/>
+                <owl:someValuesFrom rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#E -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#E">
+        <owl:disjointWith rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#F"/>
+    </owl:Class>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#F -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#F"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#G -->
+
+    <owl:Class rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#G">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#r"/>
+                <owl:someValuesFrom rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c1 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c1">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c2 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c2">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c3 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c3">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c4 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c4">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c5 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c5">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#e1 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#e1">
+        <rdf:type rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#E"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#f1 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#f1"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#t1 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#t1"/>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#1 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#1">
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#t1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#2 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#2">
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#3 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#3">
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#4 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#4">
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#e1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#5 -->
+
+    <owl:NamedIndividual rdf:about="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#5">
+        <SubClassEquivalentExistentialRestriction:q rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c4"/>
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#c3"/>
+        <SubClassEquivalentExistentialRestriction:r rdf:resource="http://henrietteharmse.com/tutorials/oboacademy/SubClassEquivalentExistentialRestriction.owl#f1"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.24.2023-01-14T21:28:32Z) https://github.com/owlcs/owlapi -->
+
